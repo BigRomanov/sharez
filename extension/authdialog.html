@@ -1,0 +1,49 @@
+<html>
+    <head>
+        <title>ShareWiz Authentication</title>
+        <style>body,td,table{font-size:10pt;font-family:verdana,sans-serif;cursor:default;}#message{margin-bottom:10px;-webkit-border-radius:4px;border:1px solid #000;padding:10px;}#buttons{text-align:right;}</style>
+        <script type="text/javascript" src="Base64.js"></script>
+        <script type="text/javascript" src="authdialog.js"></script>
+    </head>
+    <body style="margin: 0; padding: 10px; background-color: white">
+        <form id="xmform">
+            <div id="header">
+                <img src="images/xmarks_bug.png" />
+                <span id="auth-title">ShareWiz Authentication</span>
+            </div>
+            <div id="message">
+                <table>
+                    <tr>
+                        <td>
+                            <label for="username">
+                                <span id="auth-message-username">Username</span>
+                            </label>: </td>
+                        <td>
+                            <input id="username" type="text" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            <label for="password">
+                                <span id="auth-message-password">Password</span>
+                            </label>: </td>
+                        <td>
+                            <input id="password" type="password" />
+                        </td>
+                    </tr>
+                </table>
+                <span id="remember-span">
+                    <input id="remember" type="checkbox" checked="checked" />
+                    <label for="remember">
+                        <span id="auth-message-remember">Remember login information</span>
+                    </label>
+                    <br />
+                </span>
+            </div>
+            <div id="buttons">
+                <input id="auth-button-login" type="submit" value="Log in" />
+                <input id="auth-button-cancel" type="button" value="Cancel" />
+            </div>
+        </form>
+    </body>
+</html>

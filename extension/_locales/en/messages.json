@@ -1,0 +1,20 @@
+{
+   "authdialog_password": {
+      "message": "Password"
+   },
+   "authdialog_remember": {
+      "message": "Remember login information"
+   },
+   "authdialog_title": {
+      "message": "ShareWiz Authentication"
+   },
+   "authdialog_username": {
+      "message": "Username"
+   },
+   "browseraction_settings": {
+      "message": "ShareWiz Settings"
+   },
+   "browseraction_goto": {
+        "message": "Go to website"
+    }   
+}

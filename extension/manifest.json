@@ -1,0 +1,32 @@
+{
+  "manifest_version": 2,
+
+  "name": "ShareWiz",
+  "description": "Sharing Wizdom",
+  "version": "1.0",
+  "options_page": "options.html",
+  "default_locale": "en",
+  "permissions": [
+    "tabs",
+    "contextMenus",
+    "*://*/*"
+  ],
+  "content_scripts": [
+  {
+    "matches": ["*://*/*"],
+    "css": ["overlay.css"],
+    "js": ["jquery-1.9.1.js", "URI.js","contextmanager.js","overlay.js"]
+  }],
+  "background": {
+    "scripts": ["jquery-1.9.1.js", "contextmanager.js", "sharewiz.js", "main.js"]
+  },
+  "browser_action": {
+    "default_icon": "images/icon.png",
+    "default_popup": "browseraction.html"
+  },
+  "icons": {
+    "16":"images/icon.png",
+    "48":"images/icon.png",
+    "128":"images/icon.png"
+  }
+}

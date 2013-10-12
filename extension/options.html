@@ -1,0 +1,56 @@
+<html>
+<head>
+    <title>My Test Extension Options</title>
+    <script src="jquery-1.9.1.js" type="text/javascript"></script>
+    <script src="options.js" type="text/javascript"></script>
+    <style type="text/css">
+            body { font-family:Arial, Helvetica, Sans-Serif; font-size:0.75em; color:#000;}
+            .desc { color:#6b6b6b;}
+            .desc a {color:#0092dd;}
+
+            .dropdown dd, .dropdown dt, .dropdown ul { margin:0px; padding:0px; }
+            .dropdown dd { position:relative; }
+            .dropdown a, .dropdown a:visited { color:#816c5b; text-decoration:none; outline:none;}
+            .dropdown a:hover { color:#5d4617;}
+            .dropdown dt a:hover { color:#5d4617; border: 1px solid #d0c9af;}
+            .dropdown dt a {background:#e4dfcb url(images/arrow.png) no-repeat scroll right center; display:block; padding-right:20px;
+                            border:1px solid #d4ca9a; width:160px; padding:5px;}
+            .dropdown dt a span {cursor:pointer; display:block;}
+            .dropdown dd ul { background:#e4dfcb none repeat scroll 0 0; border:1px solid #d4ca9a; color:#C5C0B0; display:none;
+                              left:0px; padding:5px 0px; position:absolute; top:2px; width:auto; min-width:170px; list-style:none;}
+            .dropdown span.value { display:none;}
+            .dropdown dd ul li a { padding:5px; display:block;}
+            .dropdown dd ul li a:hover { background-color:#d0c9af;}
+
+            .dropdown img.flag { border:none; vertical-align:middle; margin-left:10px; }
+            .flagvisibility { display:none;}
+
+
+        </style>
+</head>
+
+<body>
+
+<div id="login">
+    <form>
+      Email: <input type="text" name="username" id="user_email" size="15" /><br />
+      Password: <input type="password" name="passwort" id="user_password" size="15" /><br />
+      <div align="center">
+        <p><input type="submit" id="user_login" value="Login" /></p>
+      </div>
+    </form>
+</div>
+
+<div id="language_options_div">
+    Default Language:
+    <select id="language" style="visibility:hidden">
+        <option selected="selected" value="EN">English</option>
+        <option value="RU">Russian</option>
+    </select>
+    <br>
+</div>
+<div id="status"></div>
+<button id="save">Save</button>
+</body>
+
+</html>
