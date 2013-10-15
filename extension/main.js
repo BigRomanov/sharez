@@ -3,7 +3,7 @@
 var logger = chrome.extension.getBackgroundPage().console;
 
 
-logger.log("ShareWiz started...");
+logger.log("sharez started...");
 
 function onClickHandler(info, tab) {
 
@@ -49,7 +49,7 @@ function onClickHandler(info, tab) {
 
 // Create context menu
 chrome.contextMenus.create({
-    "title": "ShareWiz",
+    "title": "sharez",
     "contexts": ["page", "selection", "image", "link"],
     "onclick" : onClickHandler
   });

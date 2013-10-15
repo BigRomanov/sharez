@@ -1,8 +1,8 @@
 {
   "manifest_version": 2,
 
-  "name": "ShareWiz",
-  "description": "Sharing Wizdom",
+  "name": "ShareZ",
+  "description": "Elemental Social Knowledge Management System",
   "version": "1.0",
   "options_page": "options.html",
   "default_locale": "en",
@@ -14,11 +14,10 @@
   "content_scripts": [
   {
     "matches": ["*://*/*"],
-    "css": ["overlay.css"],
     "js": ["jquery-1.9.1.js", "URI.js","contextmanager.js","overlay.js"]
   }],
   "background": {
-    "scripts": ["jquery-1.9.1.js", "contextmanager.js", "sharewiz.js", "main.js"]
+    "scripts": ["jquery-1.9.1.js", "contextmanager.js", "sharez.js", "main.js"]
   },
   "browser_action": {
     "default_icon": "images/icon.png",

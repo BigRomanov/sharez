@@ -28,12 +28,12 @@ function OpenExtensionUrl(a, d) {
 
 
 // ////////////////////////////////////////////////////////////////// 
-function ShareWizSettings() {
+function sharezSettings() {
     this.loadSettings()
 }
-ShareWizSettings.VERSION = "0.0.1";
-ShareWizSettings.SERVER_ROOT = "sharewiz.me";
-ShareWizSettings.prototype = {
+sharezSettings.VERSION = "0.0.1";
+sharezSettings.SERVER_ROOT = "sharez.me";
+sharezSettings.prototype = {
     prefs: {},
     get: function (a, b) {
         if (this.prefs.hasOwnProperty(a)) return this.prefs[a];
@@ -78,19 +78,19 @@ ShareWizSettings.prototype = {
         }
         
         // Update the server-root 
-        this.get("server-root") || this.set("server-root", ShareWizSettings.SERVER_ROOT);
+        this.get("server-root") || this.set("server-root", sharezSettings.SERVER_ROOT);
         
         // Set enabled by default
         this.get("enabled") || this.set("enabled", "true");
         
         if (b = this.get("version")) {
-            if (a(ShareWizSettings.VERSION, b) < 0) {
-                //a(ShareWizSettings.VERSION, b, true) != 0 && this.set("major-upgrade-run", true);
-                this.set("version", ShareWizSettings.VERSION, true);
+            if (a(sharezSettings.VERSION, b) < 0) {
+                //a(sharezSettings.VERSION, b, true) != 0 && this.set("major-upgrade-run", true);
+                this.set("version", sharezSettings.VERSION, true);
                 //this.Set("upgrade-run", true)
             }
         } else {
-            this.set("version", ShareWizSettings.VERSION, true);
+            this.set("version", sharezSettings.VERSION, true);
             this.set("first-run", true)
         }
         
@@ -134,11 +134,11 @@ function ExtensionListener(a, d) {
 }
 
 // ///////////////////////////////////////////////////////////////////////////
-function ShareWizSingleton() {}
+function sharezSingleton() {}
 
-ShareWizSingleton.prototype={
+sharezSingleton.prototype={
   ContextManager: new ContextManager,
-  Settings: new ShareWizSettings,
+  Settings: new sharezSettings,
   
   logWrite: function (a) {
       this.Settings.logWrite(a)
@@ -149,7 +149,7 @@ ShareWizSingleton.prototype={
   }
 };
 
-var ShareWiz = new ShareWizSingleton;
+var sharez = new sharezSingleton;
 
 chrome.extension.onMessage.addListener(
   function(request, sender, sendResponse) {
@@ -158,7 +158,7 @@ chrome.extension.onMessage.addListener(
     {
       // Context script 
       var b = chrome.extension.getBackgroundPage();
-      var shareWizEnabled = b.ShareWiz.Settings.get("enabled", "true");
-      sendResponse({enabled: shareWizEnabled});
+      var sharezEnabled = b.sharez.Settings.get("enabled", "true");
+      sendResponse({enabled: sharezEnabled});
     }
   });

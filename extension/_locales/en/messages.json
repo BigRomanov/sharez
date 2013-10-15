@@ -6,13 +6,13 @@
       "message": "Remember login information"
    },
    "authdialog_title": {
-      "message": "ShareWiz Authentication"
+      "message": "sharez Authentication"
    },
    "authdialog_username": {
       "message": "Username"
    },
    "browseraction_settings": {
-      "message": "ShareWiz Settings"
+      "message": "sharez Settings"
    },
    "browseraction_goto": {
         "message": "Go to website"

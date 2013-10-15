@@ -1,0 +1,49 @@
+script.
+    $(function() {
+        $("#szMinimize").click(function() {
+            $(sharezDrawer).animate({ height: 30 }, 600, function() {
+                $("#szMinimize").fadeOut(function() {
+                    $("#szExpand").fadeIn();
+                });
+            });
+        });
+
+        $("#szExpand").click(function() {
+            $(sharezDrawer).animate({ height: 100 }, 600, function() {
+                $("#szExpand").fadeOut(function() {
+                    $("#szMinimize").fadeIn();
+                })
+            });
+        });
+
+        $("#szAddItem").click(function() {
+            // Load body for Add item action
+            $.get("http://127.0.0.1:3000/extension/additem", function(data){
+                $('#szBody').html(data);
+            });
+        });
+    });
+
+
+#sharezDrawer
+    #szHeader(style="height:30px")
+        #szLogo
+            img(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
+        #szTitle
+            span 
+                b.
+                    Alex Romanov 
+                span.
+                    in 
+                i.
+                    Community
+        #szHeaderActions
+            #szAddItem.szHeaderAction(title="Add item")
+            #szMinimize.szHeaderAction(title="Minimize")
+            #szExpand.szHeaderAction(title="Expand")
+    #szBody(style="height:60px")
+        p
+           | Move along there's nothig to see...
+    
+
+    

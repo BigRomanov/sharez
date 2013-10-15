@@ -1,0 +1,49 @@
+#sharezDrawer {
+  position:fixed;
+  left:0;
+  bottom:0;
+  background-color:white;
+  width:100%;
+  height:100px;
+  border-top:1px solid #ccc;
+  z-index:99;
+}
+
+#szHeader {
+    width:100%;
+    height:30px;
+    border-bottom: 1px solid #333
+}
+
+#szLogo {
+    float:left;
+}
+
+#szTitle {
+    height:20px;
+    padding: 10px;
+    float:left;
+}
+
+#szHeaderActions {
+    float:right;
+}
+
+.szHeaderAction {
+    height:27px;
+    width:27px;
+    float:left;
+}
+
+#szAddItem {
+    background-image: url('http://127.0.0.1:3000/images/AddItem.png');
+}
+
+#szMinimize {
+    background-image: url('http://127.0.0.1:3000/images/minimize.png');   
+}
+
+#szExpand {
+    display:none;
+    background-image: url('http://127.0.0.1:3000/images/expand.png');   
+}

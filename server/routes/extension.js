@@ -3,6 +3,10 @@
  * GET users listing.
  */
 
-exports.footer = function(req, res){
-  res.render('footer', { title: 'Welcome' });
+exports.drawer = function(req, res){
+  res.render('drawer', { title: 'Welcome' });
+};
+
+exports.additem = function(req, res){
+  res.render('extension/actions/add_item', { title: 'Welcome' });
 };

@@ -1,10 +1,10 @@
-// Sharewiz options (temporary)
+// sharez options (temporary)
 
 // Saves options to localStorage.
 function save_options() {
   var select = document.getElementById("language");
   var language = select.children[select.selectedIndex].value;
-  localStorage["sharewiz_language"] = language;
+  localStorage["sharez_language"] = language;
 
   // Update status to let user know options were saved.
   var status = document.getElementById("status");
@@ -16,7 +16,7 @@ function save_options() {
 
 // Restores select box state to saved value from localStorage.
 function restore_options() {
-  var favorite = localStorage["sharewiz_language"];
+  var favorite = localStorage["sharez_language"];
   if (!favorite) {
     return;
   }
