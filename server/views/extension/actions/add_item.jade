@@ -1,15 +1,71 @@
 script.
     $(function() {
-        $('#addItemActionUrl').html(window.location.href);
+        // initialize tags
+        $("#addItem").click(function() {
+            var postData = {'url' : window.location.href, 'tags':[]}
+            var tags = $("#actionTags").val().split(',');
+
+            for (var i = 0; i < tags.length; i++) {
+                var tag = $.trim(tags[i]);
+                var tagStr = "";
+                var tagType = "private";
+                if (tag.substr(0,2) == "##") // public tag
+                {
+                    tagStr = tag.substr(2);
+                    tagType = "public";
+                }
+                else if (tag.substr(0,1) == "#")    
+                {
+                    tagStr = tag.substr(1);
+                    tagType = "private";
+                }
+                else
+                {
+                    tagStr = tag;
+                    tagType = "private";
+                }
+                postData['tags'].push({'tag':tagStr, 'tagType':tagType});
+            }
+
+            $.post( "http://localhost:3000/api/additem", postData).done(function( data ) {
+                console.log( "api/additem, status: " + data );
+            });
+        });
+
+        $("#actionTags").focus();
     });
 
+
+style.
+    #actionContents {
+        width:100%;
+        position:absolute;
+    }
+
+    #addItemActionUrl {
+        float:left;
+        width:500px;
+        height:30px;
+        overflow:hidden;
+    }
+
+    .tagInput {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size:14px;
+        border:1px solid #666;
+    }
+
+    #addItem {
+        margin-left:20px;
+    }
+
 #actionContents
-    #addItemActionUrl(style='float:left;width:500px;height:30px;overflow:hidden;border:1px solid red')
-
-    .blank(style='clear:both')
-
     #addItemActionTags
-        input(type="text" name="tags" style='float:left;width:50%;height:30px;border:1px solid blue')
+        <span style="float:left;font-weight:bold;font-size:12px;padding:10px;height:20px">Add tags:</span>
+        input#actionTags.tagInput.rounded(type="text" name="tags" style='float:left;width:50%;height:30px;padding:5px')
+
+        a#addItem.actionButton.
+            Add item
     
 
 

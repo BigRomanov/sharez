@@ -1,7 +1,7 @@
 script.
     $(function() {
         $("#szMinimize").click(function() {
-            $(sharezDrawer).animate({ height: 30 }, 600, function() {
+            $(szDrawer).animate({ height: 30 }, 600, function() {
                 $("#szMinimize").fadeOut(function() {
                     $("#szExpand").fadeIn();
                 });
@@ -9,7 +9,7 @@ script.
         });
 
         $("#szExpand").click(function() {
-            $(sharezDrawer).animate({ height: 100 }, 600, function() {
+            $(szDrawer).animate({ height: 100 }, 600, function() {
                 $("#szExpand").fadeOut(function() {
                     $("#szMinimize").fadeIn();
                 })
@@ -17,6 +17,8 @@ script.
         });
 
         $("#szAddItem").click(function() {
+            console.log("Add title");
+            $("#szActionTitle").html("<span style='font-weight:bold'>Add item:</span><span>"+window.location.href+"</span>");
             // Load body for Add item action
             $.get("http://127.0.0.1:3000/extension/additem", function(data){
                 $('#szBody').html(data);
@@ -24,9 +26,44 @@ script.
         });
     });
 
+style.
 
-#sharezDrawer
-    #szHeader(style="height:30px")
+    textarea:focus, input:focus {
+        border: 2px solid #090;
+    }
+    
+    .headerField {
+        height:20px;
+    }
+
+    .clear {
+        clear:both;
+    }
+
+    #szDrawer {
+        font-family: Verdana, Geneva, sans-serif;
+        font-size:14px;
+    }
+
+    #szHeader {
+        height:30px;
+        text-align:center;
+    }
+
+    #szActionTitle {
+        width:600px;
+        margin:auto;
+        padding:5px;
+        display:inline-block;
+        overflow:hidden;
+    }
+
+    #szBody {
+        height:60px;
+    }
+
+#szDrawer
+    #szHeader
         #szLogo
             img(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
         #szTitle
@@ -37,13 +74,18 @@ script.
                     in 
                 i.
                     Community
+        
+        #szActionTitle.headerField
+
         #szHeaderActions
             #szAddItem.szHeaderAction(title="Add item")
             #szMinimize.szHeaderAction(title="Minimize")
             #szExpand.szHeaderAction(title="Expand")
-    #szBody(style="height:60px")
-        p
+    .clear
+    #szBody
+        p(style="float:left")
            | Move along there's nothig to see...
+        
     
 
     
