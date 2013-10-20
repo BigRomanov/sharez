@@ -23,6 +23,22 @@ couchdb.db.create('sharez', function(err) {
     }
     var sharezDB = couchdb.use('sharez');
 
+    var passport = require('passport'), LocalStrategy = require('passport-local').Strategy;
+
+    passport.use(new LocalStrategy(
+        function(username, password, done) {
+            User.findOne({ username: username }, function (err, user) {
+            if (err) { return done(err); }
+            if (!user) {
+                return done(null, false, { message: 'Incorrect username.' });
+            }
+            if (!user.validPassword(password)) {
+                return done(null, false, { message: 'Incorrect password.' });
+            }
+            return done(null, user);
+        });
+    }));
+
     // all environments
     app.set('port', process.env.PORT || 3000);
     app.set('views', __dirname + '/views');
@@ -30,7 +46,11 @@ couchdb.db.create('sharez', function(err) {
     app.use(express.favicon());
     app.use(express.logger('dev'));
     app.use(express.bodyParser());
+    app.use( express.cookieParser() );
+    app.use(express.session({ secret: 'keyboard cat' }));
     app.use(express.methodOverride());
+    app.use(passport.initialize());
+    app.use(passport.session());
 
     // Associate database reference with each request through middleware
     app.use(function(req,res,next){
@@ -47,13 +67,16 @@ couchdb.db.create('sharez', function(err) {
     if ('development' == app.get('env')) {
       app.use(express.errorHandler());
     }
+    
 
-
-
+    // Configure application routes
     app.get('/', routes.index);
     app.get('/users', user.list);
     app.get('/extension', extension.drawer);
     app.get('/extension/additem', extension.add_item_action);
+
+    // Authentication routes
+    app.post('/login', passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' }));
 
     app.post('/api/additem', api.add_item);
 

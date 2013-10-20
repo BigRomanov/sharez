@@ -8,3 +8,15 @@
     width:120px;
     margin:auto;
 }
+
+#login_form {
+    margin:auto;
+    width:450px;
+}
+
+#login_form input {
+    float:left;
+    height:20px;
+    padding:5px;
+    margin:5px;
+}
