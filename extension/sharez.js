@@ -159,6 +159,18 @@ chrome.extension.onMessage.addListener(
       // Context script 
       var b = chrome.extension.getBackgroundPage();
       var sharezEnabled = b.sharez.Settings.get("enabled", "true");
+
+      if (sharezEnabled === "true") 
+      {
+        var hostname = $('<a>').prop('href', sender.tab.url).prop('hostname');
+        console.log(hostname);
+        // check if this extension is enabled for this domain
+        if (hostname === "localhost")
+        {
+            sharezEnabled = "false";
+        }
+      }
+
       sendResponse({enabled: sharezEnabled});
     }
   });
