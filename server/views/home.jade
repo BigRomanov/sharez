@@ -6,6 +6,7 @@ block content
     h1(style="margin:5px auto") ShareZ Home
     h3(style="margin-top:5px")
         i social knowledge management system
+    h3(style="margin-top:5px") Welcome, #{user.name}
     form#login_form(action='/login',method='POST')
         input#actionTags.tagInput.rounded(type="email" name="email" placeholder="email" style='width:430px')
         input#actionTags.tagInput.rounded(type="password" name="password" placeholder="password" style='width:300px')

@@ -1,0 +1,17 @@
+extends layout
+
+block content
+
+  #homepage_content
+    img#homepage_logo(src='http://127.0.0.1:3000/images/large_szlogo.png', alt='ShareZ', height='120', width='120')
+    h1(style="margin:5px auto") Register to ShareZ
+    h3(style="margin-top:5px")
+        i social knowledge management system
+    form#login_form(action='/register',method='POST')
+        input#actionTags.tagInput.rounded(type="email" name="email" placeholder="email" style='width:430px')
+        input#actionTags.tagInput.rounded(type="password" name="password" placeholder="password" style='width:300px')
+        input.actionButton(type='submit',value='Sign Up', style="float:right;width60px;margin-top:10px;height:30px;margin:5px") 
+
+    .message #{message}
+    
+            
