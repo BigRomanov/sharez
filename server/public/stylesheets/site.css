@@ -20,3 +20,33 @@
     padding:5px;
     margin:5px;
 }
+
+/* Home */
+
+#sharez_header {
+    position: fixed;
+    height: 40px;
+    top: 0;
+    width: 100%;
+    z-index: 100;
+    background-color:#eee;
+}
+
+#header_logo {
+  float:left;
+  margin:5px;
+}
+
+#user_header {
+  float:right;
+  height:40px;
+  width:200px;
+  background-color:#eee;
+  border:1px solid red;
+}
+
+#home_content {
+  width:800px;
+  margin:auto;
+  margin-top:60px;
+}

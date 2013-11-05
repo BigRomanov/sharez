@@ -1,0 +1,15 @@
+doctype 5
+html
+  head
+    title= "ShareZ"
+    link(rel='shortcut icon', type='image/png', href='/images/szLogo.png')
+    link(rel='stylesheet', href='/stylesheets/style.css')
+    link(rel='stylesheet', href='/stylesheets/site.css')
+  body
+    #sharez_header
+      img#header_logo(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
+      #user_header
+        p(style="font-size:12px;float:left;height:30px;line-height:30px;margin:5px") #{user.email}
+        a(href="/logout" style="display:block;float:right;font-size:12px;width:40px;height:30px;line-height:30px;margin:5px") logout
+    #home_content
+      block content

@@ -60,7 +60,7 @@ couchdb.db.create('sharez', function(err) {
 
     // development only
     if ('development' == app.get('env')) {
-      app.use(express.errorHandler());
+        app.use(express.errorHandler());
     }
     
 
