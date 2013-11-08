@@ -1,0 +1,13 @@
+extends home_layout
+
+block content
+  #home_content    
+    h1(style="margin:5px auto") ShareZ Home
+    h3(style="margin-top:5px")
+        i social knowledge management system
+    h3(style="margin-top:5px") Welcome, #{user.first_name}
+        Please check you email at #{user_email} and confirm you address.
+        
+    #moreActions
+        a(href="/signup" style="display:block;margin:40px auto;font-size:12px;width:140px") No account? Sign up!
+            

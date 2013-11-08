@@ -13,8 +13,8 @@ class Emailer
   # Define attachments here
   attachments: [
     fileName: "logo.png"
-    filePath: "./public/images/email/logo.png"
-    cid: "logo@myapp"
+    filePath: "./public/images/email/email_sharez_logo.png"
+    cid: "logo@sharez"
   ]
 
   constructor: (@options, @data)->
@@ -24,7 +24,7 @@ class Emailer
     attachments = @getAttachments(html)
     messageData =
       to: "'#{@options.to.name} #{@options.to.surname}' <#{@options.to.email}>"
-      from: "'Myapp.com'"
+      from: "'ShareZ'"
       subject: @options.subject
       html: html
       generateTextFromHTML: true
@@ -36,8 +36,8 @@ class Emailer
     emailer.createTransport "SMTP",
       service: "Gmail"
       auth:
-        user: "big.romanov@gmail.com"
-        pass: "secretpass"
+        user: "my email"
+        pass: "somepassword"
 
   getHtml: (templateName, data)->
     templatePath = "./views/emails/#{templateName}.html"
