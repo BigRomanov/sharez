@@ -1,83 +1,71 @@
-// Copyright (c) 2012 The Chromium Authors. All rights reserved.
-// Use of this source code is governed by a BSD-style license that can be
-// found in the LICENSE file.
+var HistoryAnalyzer = function() {
 
-/**
- * Global variable containing the query we'd like to pass to Flickr. In this
- * case, kittens!
- *
- * @type {string}
- */
-var QUERY = 'kittens';
+}
 
-var kittenGenerator = {
-  /**
-   * Flickr URL that will give us lots and lots of whatever we're looking for.
-   *
-   * See http://www.flickr.com/services/api/flickr.photos.search.html for
-   * details about the construction of this URL.
-   *
-   * @type {string}
-   * @private
-   */
-  searchOnFlickr_: 'https://secure.flickr.com/services/rest/?' +
-      'method=flickr.photos.search&' +
-      'api_key=90485e931f687a9b9c2a66bf58a3861a&' +
-      'text=' + encodeURIComponent(QUERY) + '&' +
-      'safe_search=1&' +
-      'content_type=1&' +
-      'sort=interestingness-desc&' +
-      'per_page=20',
+HistoryAnalyzer.onClick = function()
+{
+  alert("Clicked");
+}
 
-  /**
-   * Sends an XHR GET request to grab photos of lots and lots of kittens. The
-   * XHR's 'onload' event is hooks up to the 'showPhotos_' method.
-   *
-   * @public
-   */
-  requestKittens: function() {
-    var req = new XMLHttpRequest();
-    req.open("GET", this.searchOnFlickr_, true);
-    req.onload = this.showPhotos_.bind(this);
-    req.send(null);
-  },
+HistoryAnalyzer.prototype.showResults = function(data)
+{
+  console.log("Showing results2");
+  var ul = document.createElement('ul');
+  $("#analyzer_results").append(ul);
+  console.log("Showing results3");
 
-  /**
-   * Handle the 'onload' event of our kitten XHR request, generated in
-   * 'requestKittens', by generating 'img' elements, and stuffing them into
-   * the document for display.
-   *
-   * @param {ProgressEvent} e The XHR ProgressEvent.
-   * @private
-   */
-  showPhotos_: function (e) {
-    var kittens = e.target.responseXML.querySelectorAll('photo');
-    for (var i = 0; i < kittens.length; i++) {
-      var img = document.createElement('img');
-      img.src = this.constructKittenURL_(kittens[i]);
-      img.setAttribute('alt', kittens[i].getAttribute('title'));
-      document.body.appendChild(img);
-    }
-  },
+  console.log(data);
 
-  /**
-   * Given a photo, construct a URL using the method outlined at
-   * http://www.flickr.com/services/api/misc.urlKittenl
-   *
-   * @param {DOMElement} A kitten.
-   * @return {string} The kitten's URL.
-   * @private
-   */
-  constructKittenURL_: function (photo) {
-    return "http://farm" + photo.getAttribute("farm") +
-        ".static.flickr.com/" + photo.getAttribute("server") +
-        "/" + photo.getAttribute("id") +
-        "_" + photo.getAttribute("secret") +
-        "_s.jpg";
+  for (var i = 0, ie = data.length; i < ie; ++i) {
+    var a = document.createElement('a');
+    a.href = data[i];
+    a.appendChild(document.createTextNode(data[i]));
+    a.addEventListener('click', HistoryAnalyzer.onClick);
+
+    var li = document.createElement('li');
+    li.appendChild(a);
+
+    ul.appendChild(li);
   }
-};
+}
 
+HistoryAnalyzer.prototype.analyzeHistory = function()
+{
+  var microsecondsPerWeek = 1000 * 60 * 60 * 24 * 7;
+  var oneWeekAgo = (new Date).getTime() - microsecondsPerWeek;
+  var self = this;
+  chrome.history.search({
+      'text': '',              // Return every history item....
+      'startTime': oneWeekAgo  // that was accessed less than one week ago.
+    },
+    function(historyItems) {
+      // For each history item, get details on all visits.
+      items = [];
+      for (var i = 0; i < historyItems.length; ++i) {
+        console.log(historyItems[i])
+        var url = historyItems[i].url;
+        items.push(url);
+        var processVisitsWithUrl = function(url) {
+          // We need the url of the visited item to process the visit.
+          // Use a closure to bind the  url into the callback's args.
+          return function(visitItems) {
+            processVisits(url, visitItems);
+          };
+        };
+        //chrome.history.getVisits({url: url}, processVisitsWithUrl(url));
+      }
+      console.log("Showing results");
+      self.showResults(items);      
+    });
+}
+
+
+console.log("ZZZZZZZZZZZZZZZZ");
 // Run our kitten generation script as soon as the document's DOM is ready.
 document.addEventListener('DOMContentLoaded', function () {
-  kittenGenerator.requestKittens();
+  var a = new HistoryAnalyzer();
+  console.log("Here we are");
+  a.analyzeHistory();
+
+  $(document.body).append($('<p>Finished</p>'));
 });

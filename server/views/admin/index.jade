@@ -1,0 +1,17 @@
+extends ../layouts/admin_layout
+
+block title
+  div Admin
+
+block content
+
+  #routes(style="float:left;margin:30px;width:140px;border:1px solid #ccc;text-align:left")
+    -each _routes, method in routes 
+      div.route_method
+        - for (var i = 0; i < _routes.length; ++i) {
+            div.route_method(style="height:30px")
+              div(style="float:left;font-size:20px;color:#666") #{method}
+              div(style="float:left;margin-left:20px") #{_routes[i].path}
+            div(style="clear:both")
+        - }
+    

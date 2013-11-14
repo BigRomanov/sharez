@@ -13,8 +13,6 @@ var http = require('http')
   , util = require('util')
   , LocalStrategy = require('passport-local').Strategy;
 
-var routes = require('./routes');
-
 // Initialize models
 var User = require('./models/user');
 
@@ -62,13 +60,12 @@ couchdb.db.create('sharez', function(err) {
     if ('development' == app.get('env')) {
         app.use(express.errorHandler());
     }
-    
 
     // Configure application routes
-    app.get('/', routes.index);
-    //app.get('/users', user.list);
-    app.get('/extension', extension.drawer);
-    app.get('/extension/additem', extension.add_item_action);
+    
+    // Move to routes
+    //app.get('/extension', extension.drawer);
+    //app.get('/extension/additem', extension.add_item_action);
 
     // Initialize database, and create the http server
     
@@ -80,7 +77,6 @@ couchdb.db.create('sharez', function(err) {
     //    Application Routing
     //==============================================================
 
-    require('./routes/users')(app);
-    require('./routes/api')(app);
+    require('./routes')(app);
 
 });

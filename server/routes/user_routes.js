@@ -3,13 +3,13 @@
     Include required packages / Module Dependencies
 =============================================================== */
 require('buffertools');
+
 var path = require('path'), // http://nodejs.org/docs/v0.3.1/api/path.html
   nano = require('nano'),
   flash = require('connect-flash'), // https://npmjs.org/package/connect-flash 
   passport = require('passport'), // https://npmjs.org/package/passport
   LocalStrategy = require('passport-local').Strategy, // See above
   pass = require('pwd'); // https://github.com/visionmedia/node-pwd
-
 
 var couchdb = nano('http://localhost:5984');
 var db = couchdb.use('sharez');
@@ -56,22 +56,6 @@ function findBy(attr, val, callback) {
   });
 }
 
-/* ===================================================
-   Needed for Passport 
-====================================================== */
-/*  Simple route middleware to ensure user is authenticated.
- *  Use this route middleware on any resource that needs to
- *  be protected.  If the request is authenticated (typically
- *  via a persistent login session), the request will proceed.
- *  Otherwise, the user will be redirected to the login page.
- */
-function ensureAuthenticated(req, res, next) {
-  console.log("Make sure the call is authenticated");
-  if (req.isAuthenticated()) {
-    return next();
-  }
-  res.redirect('/login');
-}
 
 /* ===================================================
    Needed for Passport 
@@ -139,74 +123,6 @@ passport.use(new LocalStrategy({
 }));
 
 
-
-/* ==============================================================
-    Here's all the routing
-=============================================================== */
-module.exports = function(app) {
-
-  // --- GET Routes
-  app.get('/', index);
-  app.get('/signup', signup);
-  app.get('/login', login);
-  app.get('/passwdreset', passwdreset);
-  app.get('/account', ensureAuthenticated, account);
-  app.get('/logout', ensureAuthenticated, logout);
-  app.get('/home', ensureAuthenticated, home);
-  app.get('/confirm', confirm);
-
-  //Retrieve a user's tags
-  //-------------------------------------------------------------
-  app.get('/json/email', function(req, res) {
-
-    var parsedurl = require('url').parse(req.url, true);
-    console.log('Query Value: ' + parsedurl.query.value);
-
-    findBy('email', parsedurl.query.value, function(err, user) {
-      var msg = {};
-      var d = new Date();
-      if (user) {
-        // Found User! Bail out...
-        // JSON response
-        msg = {
-          "value": "email" + d.getMilliseconds(),
-          "valid": 0,
-          "message": "We already have someone..."
-        };
-      } else {
-        // JSON response
-        msg = {
-          "value": "email",
-          "valid": true,
-          "message": "OK"
-        };
-      }
-
-      res.setHeader('Cache-Control', 'max-age=0, must-revalidate, no-cache, no-store');
-      res.writeHead(200, {
-        'Content-type': 'application/json'
-      });
-      res.write(JSON.stringify(msg), 'utf-8');
-      res.end('\n');
-    });
-
-  });
-
-  // -- POST Routes
-  app.post('/register', register);
-  app.post('/login', passport.authenticate('local', {
-    successRedirect: '/home',
-    failureRedirect: '/login',
-    failureFlash: true
-  }));
-
-  // --- Error Routes (always last!)
-  app.get('/404', fourofour);
-  app.get('/403', fourothree);
-  app.get('/500', fivehundred);
-
-};
-
 /* ==============================================================
     Here's route code (the rendering function is placed in a 
     variable and called in the routing above)
@@ -214,7 +130,7 @@ module.exports = function(app) {
 
 //GET / (index)
 ///////////////////////////////////////////////////////////////
-var index = function(req, res) {
+module.exports.index = function(req, res) {
   res.render('index', {
     user: req.user
   });
@@ -222,16 +138,16 @@ var index = function(req, res) {
 
 //GET /passwdreset
 ///////////////////////////////////////////////////////////////
-var passwdreset = function(req, res) {
+module.exports.passwdreset = function(req, res) {
   res.render('passwdreset', {
     user: req.user,
     message: req.flash('error')
   });
 };
 
-//GET /welcome
+//GET /home
 ///////////////////////////////////////////////////////////////
-var home = function(req, res) {
+module.exports.home = function(req, res) {
   res.render('home', {
     user: req.user
   });
@@ -239,7 +155,7 @@ var home = function(req, res) {
 
 //GET /signup
 ///////////////////////////////////////////////////////////////
-var signup = function(req, res) {
+module.exports.signup = function(req, res) {
   res.render('signup', {
     user: req.user,
     message: req.flash('error')
@@ -248,13 +164,13 @@ var signup = function(req, res) {
 
 //GET /account
 //////////////////////////////////////////////////////////////
-var account = function(req, res) {
+module.exports.account = function(req, res) {
   res.render('account', {
     user: req.user
   });
 };
 
-var confirm = function(req, res) {
+module.exports.confirm = function(req, res) {
   if (req.user && user.confirmed) {
     res.redirect('/home');
   }
@@ -310,7 +226,7 @@ var confirm = function(req, res) {
 
 //GET /login
 //////////////////////////////////////////////////////////////
-var login = function(req, res) {
+module.exports.login = function(req, res) {
   res.render('login', {
     user: req.user,
     message: req.flash('error')
@@ -319,14 +235,14 @@ var login = function(req, res) {
 
 //GET /logout
 ///////////////////////////////
-var logout = function(req, res) {
+module.exports.logout = function(req, res) {
   req.logout();
   res.redirect('/');
 };
 
 ///GET /404
 ///////////////////////////////
-var fourofour = function(req, res, next) {
+module.exports.fourofour = function(req, res, next) {
   // trigger a 404 since no other middleware
   // will match /404 after this one, and we're not
   // responding here
@@ -335,7 +251,7 @@ var fourofour = function(req, res, next) {
 
 ///GET /403
 ///////////////////////////////
-var fourothree = function(req, res, next) {
+module.exports.fourothree = function(req, res, next) {
   // trigger a 403 error
   var err = new Error('Not Allowed!');
   err.status = 403;
@@ -365,14 +281,14 @@ var fourothree = function(req, res, next) {
 
 ///GET /500
 ///////////////////////////////
-var fivehundred = function(req, res, next) {
+module.exports.fivehundred = function(req, res, next) {
   // trigger a generic (500) error
   next(new Error('Testing 1,2,3!'));
 };
 
 //POST /signup
 ///////////////////////////////////////////////////////////////
-var register = function(req, res) {
+module.exports.register = function(req, res) {
   findBy('email', req.body.email, function(err1, user1) {
     if (user1) { // Found email!  Bail out...
       console.log('Found email' + user1.username);

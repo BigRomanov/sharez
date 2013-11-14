@@ -37,16 +37,29 @@
   margin:5px;
 }
 
+#header_title {
+  
+  margin:5px auto;
+  height:30px;
+  width:300px;
+  line-height:30px;
+}
+
 #user_header {
   float:right;
   height:40px;
-  width:200px;
+  width:400px;
   background-color:#eee;
-  border:1px solid red;
 }
 
 #home_content {
   width:800px;
+  margin:auto;
+  margin-top:60px;
+}
+
+#admin_content {
+  width:100%;
   margin:auto;
   margin-top:60px;
 }
