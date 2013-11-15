@@ -35,6 +35,14 @@ module.exports = function(app) {
   app.get('/admin', ensureAuthenticated, admin.dashboard);
   app.get('/admin/user', ensureAuthenticated, admin.users);
 
+  // Admin widgets (AJAX)
+  app.get('/admin/widgets/users', ensureAuthenticated, admin.users);
+
+  // Extension
+
+  //app.get('/extension', extension.drawer);
+  //app.get('/extension/additem', extension.add_item_action);
+
 };
 
 // //////////////////////////////////////////////////////////////////////

@@ -14,7 +14,7 @@ var http = require('http')
   , LocalStrategy = require('passport-local').Strategy;
 
 // Initialize models
-var User = require('./models/user');
+var User = require('./models/user'); 
 
 // Initialize routes
 var extension = require('./routes/extension');
@@ -26,57 +26,48 @@ var couchdb = nano('http://localhost:5984');
 var app = express();
 
 
-couchdb.db.create('sharez', function(err) {
-    if (err && err.status_code !== 412) {
-        throw err;
-    }
+var db = couchdb.use('sharez');
 
-    var sharezDB = couchdb.use('sharez');
+// all environments
+app.set('port', process.env.PORT || 3000);
+app.set('views', __dirname + '/views');
+app.set('view engine', 'jade');
+app.use(express.favicon());
+app.use(express.logger('dev'));
+app.use(express.bodyParser());
+app.use(express.cookieParser());
+app.use(express.session({ secret: 'keyboard cat' }));
+app.use(express.methodOverride());
+app.use(flash());
+app.use(passport.initialize());
+app.use(passport.session());
 
-    // all environments
-    app.set('port', process.env.PORT || 3000);
-    app.set('views', __dirname + '/views');
-    app.set('view engine', 'jade');
-    app.use(express.favicon());
-    app.use(express.logger('dev'));
-    app.use(express.bodyParser());
-    app.use(express.cookieParser());
-    app.use(express.session({ secret: 'keyboard cat' }));
-    app.use(express.methodOverride());
-    app.use(flash());
-    app.use(passport.initialize());
-    app.use(passport.session());
-
-    // Associate database reference with each request through middleware
-    app.use(function(req,res,next){
-        req.db = sharezDB;
-        next();
-    });
-
-    app.use(app.router);
-    app.use(express.static(path.join(__dirname, 'public')));
-
-    // development only
-    if ('development' == app.get('env')) {
-        app.use(express.errorHandler());
-    }
-
-    // Configure application routes
-    
-    // Move to routes
-    //app.get('/extension', extension.drawer);
-    //app.get('/extension/additem', extension.add_item_action);
-
-    // Initialize database, and create the http server
-    
-    http.createServer(app).listen(app.get('port'), function(){
-       console.log('Express server listening on port ' + app.get('port'));
-    });
-
-    //==============================================================
-    //    Application Routing
-    //==============================================================
-
-    require('./routes')(app);
-
+// Associate database reference with each request through middleware
+app.use(function(req,res,next){
+    req.db = db;
+    next();
 });
+
+app.use(app.router);
+app.use(express.static(path.join(__dirname, 'public')));
+
+// development only
+if ('development' == app.get('env')) {
+    app.use(express.errorHandler());
+}
+
+// Configure application routes
+
+// Initialize database, and create the http server
+
+http.createServer(app).listen(app.get('port'), function(){
+   console.log('Express server listening on port ' + app.get('port'));
+});
+
+//==============================================================
+//    Application Routing
+//==============================================================
+
+require('./routes')(app);
+
+

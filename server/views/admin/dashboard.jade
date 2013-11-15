@@ -1,5 +1,15 @@
 extends ../layouts/admin_layout
 
+block scripts
+  script.
+    console.log("Loading widgets1");
+    $( document ).ready(function() {
+      console.log("Loading widgets2");
+      $('#users').load('/admin/widgets/users', function() {
+        console.log("Loaded");
+      });
+    });
+
 block title
   div Admin
 
@@ -14,4 +24,6 @@ block content
               div(style="float:left;margin-left:20px") #{_routes[i].path}
             div(style="clear:both")
         - }
+
+  #users
     

@@ -1,9 +1,5 @@
-
-//GET /admin
-// Render admin dashboard
 module.exports.dashboard = function(req, res) {
-  console.log(req.app.routes);
-  res.render('admin/index', {
+  res.render('admin/dashboard', {
     user: req.user, 
     routes:req.app.routes
   });

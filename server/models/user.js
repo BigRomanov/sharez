@@ -12,6 +12,7 @@ var User = function(db, email, first_name, last_name, hash, salt) {
   this.salt = salt;
   this.confirmed = false;
   this.active = true;
+  this.is_admin = false;
   this.created_at = new Date();
   this.updated_at = new Date();
 
@@ -28,7 +29,8 @@ User.prototype.toJSON = function() {
     "confirmed": this.confirmed,
     "active": this.active,
     "created_at": this.created_at,
-    "updated_at": this.updated_at
+    "updated_at": this.updated_at,
+    "is_admin" : this.is_admin
   }
 }
 
@@ -45,16 +47,16 @@ User.initDB = function(db) {
   // TODO: We don't need this view really since email is our key at the moment, we might need other views here in time
   var designdoc = {
     "views": {
-      "user_by_email": {
-        "map": "function (doc) { if (doc.type == 'user') { emit(doc.name, doc) } }"
-      },
+      "all_users": {
+        "map": "function (doc) { if (doc.type == 'user') { emit(doc.email, doc) } }"
+      }
     }
   };
 
-  db.save('_design/user', designdoc, function(err2, res) {
-    if (err2) {
+  db.insert(designdoc, '_design/user', function(err, res) {
+    if (err) {
       // Handle error
-      console.log('Cannot add Design Doc!', err2);
+      console.log('Cannot add Design Doc!', err);
     } else {
       // Handle success
       console.log('Added Design Doc', res);
@@ -79,7 +81,7 @@ User.find_by_email = function(db, email, callback) {
 }
 
 User.all = function(db, callback) {
-  db.view('users_by_email', callback);
+  db.view('user', 'all_users', callback);
 }
 
 User.prototype.save = function(callback) {
