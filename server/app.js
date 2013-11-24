@@ -68,6 +68,6 @@ http.createServer(app).listen(app.get('port'), function(){
 //    Application Routing
 //==============================================================
 
-require('./routes')(app);
+require('./routes/router.js')(app);
 
 

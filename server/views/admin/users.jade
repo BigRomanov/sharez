@@ -1,6 +1,19 @@
 extends ../layouts/admin_layout
 
 block content
+  table#user_table
+    tr
+      th Email
+      th First name
+      th Last name
+      th Active?
+    -each _user, method in users
+      tr
+        td #{_user['value'].email}
+        td #{_user['value'].first_name}
+        td #{_user['value'].last_name}
+        td #{_user['value'].active}
 
-  User widget
+
+
             

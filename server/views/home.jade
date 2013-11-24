@@ -1,16 +1,31 @@
 extends layouts/home_layout
 
+block scripts
+  script.
+
+    $( document ).ready(function() {
+      $("#newItem").click(function() {
+        $("#contentActions").append("<input type='text' class='textInput rounded' style='width:780px' placeholder='New item'/>");
+      });
+
+      $.get('/api/items', function(data, status, xhr) {
+        console.log("Items Loaded");
+        console.log(status);
+        console.log(data);
+      });
+    });
+
 block content
-  #home_content    
-    h1(style="margin:5px auto") ShareZ Home
-    h3(style="margin-top:5px")
-        i social knowledge management system
-    h3(style="margin-top:5px") Welcome, #{user.first_name}
-    form#login_form(action='/login',method='POST')
-        input#actionTags.tagInput.rounded(type="email" name="email" placeholder="email" style='width:430px')
-        input#actionTags.tagInput.rounded(type="password" name="password" placeholder="password" style='width:300px')
-        input.actionButton(type='submit',value='Login', style="float:right;width60px;margin-top:10px;height:30px;margin:5px") 
-        
-    #moreActions
-        a(href="/signup" style="display:block;margin:40px auto;font-size:12px;width:140px") No account? Sign up!
+  #home_content   
+    div#contentTitle(style="margin-top:80px;")
+      h2(style="margin:auto 10px;float:left;color:#666;") Playing with items
+      div(style="clear:both")
+    div#contentActions(style="height:80px")
+      a#newItem(href="#", style="display:block;float:left")
+        img(src="images/add_button.png" style="height:40px;width:40px")
+      a#newItem(href="#", style="display:block;float:left")
+        img(src="images/ok_button.png" style="height:40px;width:40px")
+
+    div#contentItems(style="float:left; border:1px solid blue;width:800px;height:300px")
+
             

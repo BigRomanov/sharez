@@ -3,6 +3,8 @@ var passport = require('passport');
 var user = require('./user_routes');
 var admin = require('./admin_routes');
 
+var item = require('./api/item_routes');
+
 /* ==============================================================
     Here's all the routing
 =============================================================== */
@@ -32,16 +34,23 @@ module.exports = function(app) {
   app.get('/500', user.fivehundred);
 
   // Admin
-  app.get('/admin', ensureAuthenticated, admin.dashboard);
-  app.get('/admin/user', ensureAuthenticated, admin.users);
+  app.get('/admin', admin.dashboard);
+  app.get('/admin/user', admin.users);
+  //app.get('/admin', ensureAuthenticated, admin.dashboard);
+  //app.get('/admin/user', ensureAuthenticated, admin.users);
 
   // Admin widgets (AJAX)
-  app.get('/admin/widgets/users', ensureAuthenticated, admin.users);
+  app.get('/admin/widgets/users', admin.users);
+  //app.get('/admin/widgets/users', ensureAuthenticated, admin.users);
 
   // Extension
 
   //app.get('/extension', extension.drawer);
   //app.get('/extension/additem', extension.add_item_action);
+
+  // API
+  app.get('/api/items', item.get_items);
+  app.post('/api/item', item.add_item);
 
 };
 

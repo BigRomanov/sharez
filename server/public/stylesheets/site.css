@@ -14,11 +14,16 @@
     width:450px;
 }
 
-#login_form input {
+#login_form input[type=email],
+            input[type=password] 
+{
     float:left;
     height:20px;
     padding:5px;
     margin:5px;
+    border-width:1px;
+    border-style:solid;
+    border-color:#ccc;
 }
 
 /* Home */

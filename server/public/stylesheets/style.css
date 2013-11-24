@@ -45,8 +45,11 @@ a {
   font-size:15px;
   font-weight:bold;
   font-style:normal;
-  height:28px;
+  height:30px;
+  line-height: 30px;
   width:100px;
+  margin:5px;
+  margin-top:10px;
   text-decoration:none;
   text-align:center;
   text-shadow:1px 1px 0px #ffffff;
@@ -59,4 +62,14 @@ a {
 }.actionButton:active {
   position:relative;
   top:1px;
+}
+
+.textInput {
+  float:left;
+  height:20px;
+  padding:5px;
+  margin:5px;
+  border-width:1px;
+  border-style:solid;
+  border-color:#ccc;
 }
