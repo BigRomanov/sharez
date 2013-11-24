@@ -17,8 +17,7 @@ var http = require('http')
 var User = require('./models/user'); 
 
 // Initialize routes
-var extension = require('./routes/extension');
-var api = require('./routes/api');
+var extension = require('./routes/extension'); // TODO: Remove and move to routes
 
 var couchdb = nano('http://localhost:5984');
 

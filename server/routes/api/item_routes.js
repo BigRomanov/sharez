@@ -2,10 +2,9 @@
 var Item = require('../../models/item'); 
 
 module.exports.add_item = function(req, res) {
-  var newItem = req.body;
-  newItem['type'] = 'item';
+  var newItem = new Item(req.db, req.user, req.body.text, req.body.link);
 
-  req.db.insert(newItem, function(err, body) {
+  newItem.save(function(err, body) {
     if (err) { 
       console.error(err); 
       res.json({'error':err});

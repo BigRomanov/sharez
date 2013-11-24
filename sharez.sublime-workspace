@@ -4,12 +4,48 @@
 		"selected_items":
 		[
 			[
-				"find",
-				"findById"
+				"border-c",
+				"border-color"
+			],
+			[
+				"pass",
+				"passport"
+			],
+			[
+				"hi",
+				"historyItems"
+			],
+			[
+				"conm",
+				"confirmed"
+			],
+			[
+				"em",
+				"email_confirmation_"
+			],
+			[
+				"c",
+				"confirm"
 			],
 			[
 				"con",
-				"confirm"
+				"console"
+			],
+			[
+				"Ema",
+				"EmailConfirmation"
+			],
+			[
+				"user",
+				"user_email"
+			],
+			[
+				"cons",
+				"console"
+			],
+			[
+				"find",
+				"findById"
 			],
 			[
 				"ge",
@@ -26,10 +62,6 @@
 			[
 				"proto",
 				"prototype"
-			],
-			[
-				"user",
-				"user_details"
 			],
 			[
 				"fun",
@@ -50,10 +82,6 @@
 			[
 				"pro",
 				"prototype"
-			],
-			[
-				"pass",
-				"password"
 			],
 			[
 				"share",
@@ -112,80 +140,50 @@
 	"buffers":
 	[
 		{
-			"file": "server/views/confirm.jade",
+			"file": "server/views/home.jade",
 			"settings":
 			{
-				"buffer_size": 458,
-				"line_ending": "Windows",
-				"name": "extends home_layout"
-			}
-		},
-		{
-			"file": "server/routes/users.js",
-			"settings":
-			{
-				"buffer_size": 13178,
+				"buffer_size": 950,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "Package Control Messages\n========================\n\nJsFormat:\n--------\n\n  JsFormat v1.1.0 changelog:\n  - Added support for .jsbeautifyrc files. Allows for per-project settings without constantly having to change the JsFormat uset settings.\n  For more info, check out the relevant section of the documentation: https://github.com/jdc0589/JsFormat#jsbeautifyrc-files\n",
+			"file": "server/routes/extension.js",
 			"settings":
 			{
-				"buffer_size": 364,
-				"line_ending": "Windows",
-				"name": "Package Control Messages",
-				"scratch": true
-			}
-		},
-		{
-			"file": "server/views/resend_confirmation.jade",
-			"settings":
-			{
-				"buffer_size": 508,
-				"line_ending": "Windows",
-				"name": "extends home_layout"
-			}
-		},
-		{
-			"contents": "Searching 1375 files for \"redirect\"\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\connect-flash\\package.json:\n   38      \"node\": \">= 0.4.0\"\n   39    },\n   40:   \"readme\": \"# connect-flash\\n\\nThe flash is a special area of the session used for storing messages.  Messages\\nare written to the flash and cleared after being displayed to the user.  The\\nflash is typically used in combination with redirects, ensuring that the message\\nis available to the next page that is to be rendered.\\n\\nThis middleware was extracted from [Express](http://expressjs.com/) 2.x, after\\nExpress 3.x removed direct support for the flash.  connect-flash brings this\\nfunctionality back to Express 3.x, as well as any other middleware-compatible\\nframework or application. +1 for [radical reusability](http://substack.net/posts/b96642/the-node-js-aesthetic).\\n\\n## Install\\n\\n    $ npm install connect-flash\\n\\n## Usage\\n\\n#### Express 3.x\\n\\nFlash messages are stored in the session.  First, setup sessions as usual by\\nenabling `cookieParser` and `session` middleware.  Then, use `flash` middleware\\nprovided by connect-flash.\\n\\n```javascript\\nvar flash = require('connect-flash');\\nvar app = express();\\n\\napp.configure(function() {\\n  app.use(express.cookieParser('keyboard cat'));\\n  app.use(express.session({ cookie: { maxAge: 60000 }}));\\n  app.use(flash());\\n});\\n```\\n\\nWith the `flash` middleware in place, all requests will have a `req.flash()` function\\nthat can be used for flash messages.\\n\\n```javascript\\napp.get('/flash', function(req, res){\\n  // Set a flash message by passing the key, followed by the value, to req.flash().\\n  req.flash('info', 'Flash is back!')\\n  res.redirect('/');\\n});\\n\\napp.get('/', function(req, res){\\n  // Get an array of flash messages by passing the key to req.flash()\\n  res.render('index', { messages: req.flash('info') });\\n});\\n```\\n\\n## Examples\\n\\nFor an example using connect-flash in an Express 3.x app, refer to the [express3](https://github.com/jaredhanson/connect-flash/tree/master/examples/express3)\\nexample.\\n\\n## Tests\\n\\n    $ npm install --dev\\n    $ make test\\n\\n[![Build Status](https://secure.travis-ci.org/jaredhanson/connect-flash.png)](http://travis-ci.org/jaredhanson/connect-flash)\\n\\n## Credits\\n\\n  - [Jared Hanson](http://github.com/jaredhanson)\\n  - [TJ Holowaychuk](https://github.com/visionmedia)\\n\\n## License\\n\\n[The MIT License](http://opensource.org/licenses/MIT)\\n\\nCopyright (c) 2012-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>\\n\",\n   41    \"readmeFilename\": \"README.md\",\n   42    \"_id\": \"connect-flash@0.1.1\",\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\connect-flash\\README.md:\n    3  The flash is a special area of the session used for storing messages.  Messages\n    4  are written to the flash and cleared after being displayed to the user.  The\n    5: flash is typically used in combination with redirects, ensuring that the message\n    6  is available to the next page that is to be rendered.\n    7  \n    .\n   41    // Set a flash message by passing the key, followed by the value, to req.flash().\n   42    req.flash('info', 'Flash is back!')\n   43:   res.redirect('/');\n   44  });\n   45  \n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\History.md:\n  109  \n  110    * add X-Forwarded-Host support to `req.host`\n  111:   * fix relative redirects  \n  112    * update mkdirp \n  113    * update buffer-crc32\n  ...\n  121    * add node 0.8.x to travis.yml\n  122    * add \"subdomain offset\" setting for tweaking `req.subdomains`\n  123:   * add `res.location(url)` implementing `res.redirect()`-like setting of Location\n  124    * use app.get() for x-powered-by setting for inheritance\n  125    * fix colons in passwords for `req.auth`\n  ...\n  144  \n  145    * add 'etag' option to disable `res.send()` Etags\n  146:   * add escaping of urls in text/plain in `res.redirect()`\n  147      for old browsers interpreting as html\n  148    * change crc32 module for a more liberal license\n  ...\n  174    * add `req.auth` test coverage\n  175    * add cb && cb(payload) to `res.jsonp()`. Closes #1374\n  176:   * add backwards compat for `res.redirect()` status. Closes #1336\n  177    * add support for `res.json()` to retain previously defined Content-Types. Closes #1349\n  178    * update connect\n  179:   * change `res.redirect()` to utilize a pathname-relative Location again. Closes #1382\n  180    * remove non-primitive string support for `res.send()`\n  181    * fix view-locals example. Closes #1370\n  ...\n  189    * add static-files example\n  190    * add \"x-powered-by\" setting (`app.disable('x-powered-by')`)\n  191:   * add \"application/octet-stream\" redirect Accept test case. Closes #1317\n  192  \n  193  3.0.0rc4 / 2012-08-30\n  ...\n  217    * update connect dep\n  218    * deprecate `.createServer()` & remove old stale examples\n  219:   * fix: escape `res.redirect()` link\n  220    * fix vhost example\n  221  \n  ...\n  224  \n  225    * add more examples to view-locals\n  226:   * add scheme-relative redirects (`res.redirect(\"//foo.com\")`) support\n  227    * update cookie dep\n  228    * update connect dep\n  ...\n  290  \n  291    * Added `res.format()` callback to override default 406 behaviour\n  292:   * Fixed `res.redirect()` 406. Closes #1154\n  293  \n  294  3.0.0alpha5 / 2012-05-30\n  ...\n  371    * Added \"json replacer\" setting\n  372    * Added \"json spaces\" setting\n  373:   * Added X-Forwarded-Proto support to `res.redirect()`. Closes #92\n  374    * Added `--less` support to express(1)\n  375    * Added `express.response` prototype\n  ...\n  379    * Added `app.render()`\n  380    * Added `res.type()` to replace `res.contentType()`\n  381:   * Changed: `res.redirect()` to add relative support\n  382    * Changed: enable \"jsonp callback\" by default\n  383    * Changed: renamed \"case sensitive routes\" to \"case sensitive routing\"\n  384    * Rewrite of all tests with mocha\n  385    * Removed \"root\" setting\n  386:   * Removed `res.redirect('home')` support\n  387    * Removed `req.notify()`\n  388    * Removed `app.register()`\n  389:   * Removed `app.redirect()`\n  390    * Removed `app.is()`\n  391    * Removed `app.helpers()`\n  ...\n  457    * Added  shorthand for the parsed request's pathname via `req.path`\n  458    * Changed connect dep to 1.7.x to fix npm issue...\n  459:   * Fixed `res.redirect()` __HEAD__ support. [reported by xerox]\n  460    * Fixed `req.flash()`, only escape args\n  461    * Fixed absolute path checking on windows. Closes #829 [reported by andrewpmckenzie]\n  ...\n  477    * Changed: removed .call(self) for route callbacks\n  478    * Dependency: `qs >= 0.3.1`\n  479:   * Fixed `res.redirect()` on windows due to `join()` usage. Closes #808\n  480  \n  481  2.4.4 / 2011-08-05\n  ...\n  706      For example while rendering `./views/user/index.jade` if you create\n  707      `./views/user/layout.jade` it will be used in favour of the root layout.\n  708:   * Fixed `res.redirect()`. RFC states absolute url [reported by unlink]\n  709    * Fixed; default `res.send()` string charset to utf8\n  710    * Removed `Partial` constructor (not currently used)\n  ...\n  722    * Added `res.cookie()` maxAge support\n  723    * Added `req.header()` _Referrer_ / _Referer_ special-case, either works\n  724:   * Added mount support for `res.redirect()`, now respects the mount-point\n  725    * Added `union()` util, taking place of `merge(clone())` combo\n  726    * Added stylus support to express(1) generated app\n  ...\n  802      For example by default `partial('forum/post', postObject)` will\n  803      give you the _post_ object, providing a meaningful default.\n  804:   * Added http status code string representation to `res.redirect()` body\n  805:   * Added; `res.redirect()` supporting _text/plain_ and _text/html_ via __Accept__.\n  806    * Added `req.is()` to aid in content negotiation\n  807    * Added partial local inheritance [suggested by masylum]. Closes #102\n  ...\n  854    * Added `res.cookie()`\n  855    * Added `res.render()` headers option\n  856:   * Added `res.redirect()` response bodies\n  857    * Added `res.render()` status option support. Closes #425 [thanks aheckmann]\n  858    * Fixed `res.sendfile()` responding with 403 on malicious path\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\package.json:\n   75      \"node\": \"*\"\n   76    },\n   77:   \"readme\": \"![express logo](http://f.cl.ly/items/0V2S1n0K1i3y1c122g04/Screen%20Shot%202012-04-11%20at%209.59.42%20AM.png)\\n\\n  Fast, unopinionated, minimalist web framework for [node](http://nodejs.org). [![Build Status](https://secure.travis-ci.org/visionmedia/express.png)](http://travis-ci.org/visionmedia/express)\\n\\n```js\\nvar express = require('express');\\nvar app = express();\\n\\napp.get('/', function(req, res){\\n  res.send('Hello World');\\n});\\n\\napp.listen(3000);\\n```\\n\\n## Installation\\n\\n    $ npm install -g express\\n\\n## Quick Start\\n\\n The quickest way to get started with express is to utilize the executable `express(1)` to generate an application as shown below:\\n\\n Create the app:\\n\\n    $ npm install -g express\\n    $ express /tmp/foo && cd /tmp/foo\\n\\n Install dependencies:\\n\\n    $ npm install\\n\\n Start the server:\\n\\n    $ node app\\n\\n## Features\\n\\n  * Built on [Connect](http://github.com/senchalabs/connect)\\n  * Robust routing\\n  * HTTP helpers (redirection, caching, etc)\\n  * View system supporting 14+ template engines\\n  * Content negotiation\\n  * Focus on high performance\\n  * Environment based configuration\\n  * Executable for generating applications quickly\\n  * High test coverage\\n\\n## Philosophy\\n\\n  The Express philosophy is to provide small, robust tooling for HTTP servers. Making\\n  it a great solution for single page applications, web sites, hybrids, or public\\n  HTTP APIs.\\n\\n  Built on Connect you can use _only_ what you need, and nothing more, applications\\n  can be as big or as small as you like, even a single file. Express does\\n  not force you to use any specific ORM or template engine. With support for over\\n  14 template engines via [Consolidate.js](http://github.com/visionmedia/consolidate.js)\\n  you can quickly craft your perfect framework.\\n\\n## More Information\\n\\n  * Join #express on freenode\\n  * [Google Group](http://groups.google.com/group/express-js) for discussion\\n  * Follow [tjholowaychuk](http://twitter.com/tjholowaychuk) on twitter for updates\\n  * Visit the [Wiki](http://github.com/visionmedia/express/wiki)\\n  * [Русскоязычная документация](http://jsman.ru/express/)\\n  * Run express examples [online](https://runnable.com/express)\\n\\n## Viewing Examples\\n\\nClone the Express repo, then install the dev dependencies to install all the example / test suite deps:\\n\\n    $ git clone git://github.com/visionmedia/express.git --depth 1\\n    $ cd express\\n    $ npm install\\n\\nthen run whichever tests you want:\\n\\n    $ node examples/content-negotiation\\n\\n## Running Tests\\n\\nTo run the test suite first invoke the following command within the repo, installing the development dependencies:\\n\\n    $ npm install\\n\\nthen run the tests:\\n\\n    $ make test\\n\\n## Contributors\\n\\n```\\nproject: express\\ncommits: 3559\\nactive : 468 days\\nfiles  : 237\\nauthors:\\n 1891\\tTj Holowaychuk          53.1%\\n 1285\\tvisionmedia             36.1%\\n  182\\tTJ Holowaychuk          5.1%\\n   54\\tAaron Heckmann          1.5%\\n   34\\tcsausdev                1.0%\\n   26\\tciaranj                 0.7%\\n   21\\tRobert Sköld            0.6%\\n    6\\tGuillermo Rauch         0.2%\\n    3\\tDav Glass               0.1%\\n    3\\tNick Poulden            0.1%\\n    2\\tRandy Merrill           0.1%\\n    2\\tBenny Wong              0.1%\\n    2\\tHunter Loftis           0.1%\\n    2\\tJake Gordon             0.1%\\n    2\\tBrian McKinney          0.1%\\n    2\\tRoman Shtylman          0.1%\\n    2\\tBen Weaver              0.1%\\n    2\\tDave Hoover             0.1%\\n    2\\tEivind Fjeldstad        0.1%\\n    2\\tDaniel Shaw             0.1%\\n    1\\tMatt Colyer             0.0%\\n    1\\tPau Ramon               0.0%\\n    1\\tPero Pejovic            0.0%\\n    1\\tPeter Rekdal Sunde      0.0%\\n    1\\tRaynos                  0.0%\\n    1\\tTeng Siong Ong          0.0%\\n    1\\tViktor Kelemen          0.0%\\n    1\\tctide                   0.0%\\n    1\\t8bitDesigner            0.0%\\n    1\\tisaacs                  0.0%\\n    1\\tmgutz                   0.0%\\n    1\\tpikeas                  0.0%\\n    1\\tshuwatto                0.0%\\n    1\\ttstrimple               0.0%\\n    1\\tewoudj                  0.0%\\n    1\\tAdam Sanderson          0.0%\\n    1\\tAndrii Kostenko         0.0%\\n    1\\tAndy Hiew               0.0%\\n    1\\tArpad Borsos            0.0%\\n    1\\tAshwin Purohit          0.0%\\n    1\\tBenjen                  0.0%\\n    1\\tDarren Torpey           0.0%\\n    1\\tGreg Ritter             0.0%\\n    1\\tGregory Ritter          0.0%\\n    1\\tJames Herdman           0.0%\\n    1\\tJim Snodgrass           0.0%\\n    1\\tJoe McCann              0.0%\\n    1\\tJonathan Dumaine        0.0%\\n    1\\tJonathan Palardy        0.0%\\n    1\\tJonathan Zacsh          0.0%\\n    1\\tJustin Lilly            0.0%\\n    1\\tKen Sato                0.0%\\n    1\\tMaciej Małecki          0.0%\\n    1\\tMasahiro Hayashi        0.0%\\n```\\n\\n## License\\n\\n(The MIT License)\\n\\nCopyright (c) 2009-2012 TJ Holowaychuk &lt;tj@vision-media.ca&gt;\\n\\nPermission is hereby granted, free of charge, to any person obtaining\\na copy of this software and associated documentation files (the\\n'Software'), to deal in the Software without restriction, including\\nwithout limitation the rights to use, copy, modify, merge, publish,\\ndistribute, sublicense, and/or sell copies of the Software, and to\\npermit persons to whom the Software is furnished to do so, subject to\\nthe following conditions:\\n\\nThe above copyright notice and this permission notice shall be\\nincluded in all copies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\\n\",\n   78    \"readmeFilename\": \"Readme.md\",\n   79    \"bugs\": {\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\Readme.md:\n   39    * Built on [Connect](http://github.com/senchalabs/connect)\n   40    * Robust routing\n   41:   * HTTP helpers (redirection, caching, etc)\n   42    * View system supporting 14+ template engines\n   43    * Content negotiation\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\lib\\response.js:\n  602   *\n  603   * The given `url` can also be the name of a mapped url, for\n  604:  * example by default express supports \"back\" which redirects\n  605   * to the _Referrer_ or _Referer_ headers or \"/\".\n  606   *\n  ...\n  632      , req = this.req;\n  633  \n  634:   // setup redirect map\n  635    var map = { back: req.get('Referrer') || '/' };\n  636  \n  637:   // perform redirect\n  638    url = map[url] || url;\n  639  \n  ...\n  659  \n  660  /**\n  661:  * Redirect to the given `url` with optional response `status`\n  662   * defaulting to 302.\n  663   *\n  ...\n  668   * Examples:\n  669   *\n  670:  *    res.redirect('/foo/bar');\n  671:  *    res.redirect('http://example.com');\n  672:  *    res.redirect(301, 'http://example.com');\n  673:  *    res.redirect('http://example.com', 301);\n  674:  *    res.redirect('../login'); // /blog/post/1 -> /blog/login\n  675   *\n  676   * @param {String} url\n  ...\n  679   */\n  680  \n  681: res.redirect = function(url){\n  682    var app = this.app\n  683      , head = 'HEAD' == this.req.method\n  ...\n  702    this.format({\n  703      text: function(){\n  704:       body = statusCodes[status] + '. Redirecting to ' + encodeURI(url);\n  705      },\n  706  \n  707      html: function(){\n  708        var u = utils.escape(url);\n  709:       body = '<p>' + statusCodes[status] + '. Redirecting to <a href=\"' + u + '\">' + u + '</a></p>';\n  710      },\n  711  \n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\node_modules\\connect\\lib\\middleware\\static.js:\n   34   *    - `maxAge`     Browser cache maxAge in milliseconds. defaults to 0\n   35   *    - `hidden`     Allow transfer of hidden files. defaults to false\n   36:  *    - `redirect`   Redirect to trailing \"/\" when the pathname is a dir. defaults to true\n   37   *    - `index`      Default file name, defaults to 'index.html'\n   38   *\n   ..\n   49    if (!root) throw new Error('static() root path required');\n   50  \n   51:   // default redirect\n   52:   var redirect = false !== options.redirect;\n   53  \n   54    return function staticMiddleware(req, res, next) {\n   ..\n   63  \n   64      function directory() {\n   65:       if (!redirect) return resume();\n   66        var pathname = url.parse(req.originalUrl).pathname;\n   67        res.statusCode = 303;\n   68        res.setHeader('Location', pathname + '/');\n   69:       res.end('Redirecting to ' + utils.escape(pathname) + '/');\n   70      }\n   71  \n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\node_modules\\send\\package.json:\n   32    },\n   33    \"main\": \"index\",\n   34:   \"readme\": \"# send\\n\\n  Send is Connect's `static()` extracted for generalized use, a streaming static file\\n  server supporting partial responses (Ranges), conditional-GET negotiation, high test coverage, and granular events which may be leveraged to take appropriate actions in your application or framework.\\n\\n## Installation\\n\\n    $ npm install send\\n\\n## Examples\\n\\n  Small:\\n\\n```js\\nvar http = require('http');\\nvar send = require('send');\\n\\nvar app = http.createServer(function(req, res){\\n  send(req, req.url).pipe(res);\\n}).listen(3000);\\n```\\n\\n  Serving from a root directory with custom error-handling:\\n\\n```js\\nvar http = require('http');\\nvar send = require('send');\\nvar url = require('url');\\n\\nvar app = http.createServer(function(req, res){\\n  // your custom error-handling logic:\\n  function error(err) {\\n    res.statusCode = err.status || 500;\\n    res.end(err.message);\\n  }\\n\\n  // your custom directory handling logic:\\n  function redirect() {\\n    res.statusCode = 301;\\n    res.setHeader('Location', req.url + '/');\\n    res.end('Redirecting to ' + req.url + '/');\\n  }\\n\\n  // transfer arbitrary files from within\\n  // /www/example.com/public/*\\n  send(req, url.parse(req.url).pathname)\\n  .root('/www/example.com/public')\\n  .on('error', error)\\n  .on('directory', redirect)\\n  .pipe(res);\\n}).listen(3000);\\n```\\n\\n## API\\n\\n### Events\\n\\n  - `error` an error occurred `(err)`\\n  - `directory` a directory was requested\\n  - `file` a file was requested `(path, stat)`\\n  - `stream` file streaming has started `(stream)`\\n  - `end` streaming has completed\\n\\n### .root(dir)\\n\\n  Serve files relative to `path`. Aliased as `.from(dir)`.\\n\\n### .index(path)\\n\\n  By default send supports \\\"index.html\\\" files, to disable this\\n  invoke `.index(false)` or to supply a new index pass a string.\\n\\n### .maxage(ms)\\n\\n  Provide a max-age in milliseconds for http caching, defaults to 0.\\n\\n### .hidden(bool)\\n\\n  Enable or disable transfer of hidden files, defaults to false.\\n\\n## Error-handling\\n\\n  By default when no `error` listeners are present an automatic response will be made, otherwise you have full control over the response, aka you may show a 5xx page etc.\\n\\n## Caching\\n\\n  It does _not_ perform internal caching, you should use a reverse proxy cache such\\n  as Varnish for this, or those fancy things called CDNs. If your application is small enough that it would benefit from single-node memory caching, it's small enough that it does not need caching at all ;).\\n\\n## Debugging\\n\\n To enable `debug()` instrumentation output export __DEBUG__:\\n\\n```\\n$ DEBUG=send node app\\n```\\n\\n## Running tests\\n\\n```\\n$ npm install\\n$ make test\\n```\\n\\n## License \\n\\n(The MIT License)\\n\\nCopyright (c) 2012 TJ Holowaychuk &lt;tj@vision-media.ca&gt;\\n\\nPermission is hereby granted, free of charge, to any person obtaining\\na copy of this software and associated documentation files (the\\n'Software'), to deal in the Software without restriction, including\\nwithout limitation the rights to use, copy, modify, merge, publish,\\ndistribute, sublicense, and/or sell copies of the Software, and to\\npermit persons to whom the Software is furnished to do so, subject to\\nthe following conditions:\\n\\nThe above copyright notice and this permission notice shall be\\nincluded in all copies or substantial portions of the Software.\\n\\nTHE SOFTWARE IS PROVIDED 'AS IS', WITHOUT WARRANTY OF ANY KIND,\\nEXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF\\nMERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT.\\nIN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY\\nCLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT,\\nTORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE\\nSOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.\\n\",\n   35    \"readmeFilename\": \"Readme.md\",\n   36    \"bugs\": {\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\node_modules\\send\\Readme.md:\n   36  \n   37    // your custom directory handling logic:\n   38:   function redirect() {\n   39      res.statusCode = 301;\n   40      res.setHeader('Location', req.url + '/');\n   41:     res.end('Redirecting to ' + req.url + '/');\n   42    }\n   43  \n   ..\n   47    .root('/www/example.com/public')\n   48    .on('error', error)\n   49:   .on('directory', redirect)\n   50    .pipe(res);\n   51  }).listen(3000);\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\express\\node_modules\\send\\lib\\send.js:\n  262  \n  263  /**\n  264:  * Redirect to `path`.\n  265   *\n  266   * @param {String} path\n  ...\n  268   */\n  269  \n  270: SendStream.prototype.redirect = function(path){\n  271    if (this.listeners('directory').length) return this.emit('directory');\n  272    var res = this.res;\n  ...\n  274    res.statusCode = 301;\n  275    res.setHeader('Location', path);\n  276:   res.end('Redirecting to ' + utils.escape(path));\n  277  };\n  278  \n  ...\n  319    fs.stat(path, function(err, stat){\n  320      if (err) return self.onStatError(err);\n  321:     if (stat.isDirectory()) return self.redirect(self.path);\n  322      self.emit('file', path, stat);\n  323      self.send(path, stat);\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\jade\\node_modules\\monocle\\monocle.js:\n   99    function watchFile(file, cb, partial) {\n  100      setAbsolutePath(file);\n  101:     storeDirectory(file);\n  102      if (!watched_files[file.fullPath]) {\n  103        if (is_windows) {\n  ...\n  122    // Sets up a store of the folders being watched\n  123    // and saves the last modification timestamp for it\n  124:   function storeDirectory(file) {\n  125      var directory = file.fullParentDir;\n  126      if (!watched_directories[directory]) {\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\follow\\browser\\request.jquery.js:\n   39      throw new Error(\"options.uri must be a string\");\n   40  \n   41:   ; ['proxy', '_redirectsFollowed', 'maxRedirects', 'followRedirect'].forEach(function(opt) {\n   42      if(options[opt])\n   43        throw new Error(\"options.\" + opt + \" is not supported\");\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\follow\\node_modules\\request\\main.js:\n  122    }\n  123  \n  124:   self._redirectsFollowed = self._redirectsFollowed || 0\n  125:   self.maxRedirects = (self.maxRedirects !== undefined) ? self.maxRedirects : 10\n  126:   self.followRedirect = (self.followRedirect !== undefined) ? self.followRedirect : true\n  127:   if (self.followRedirect)\n  128:     self.redirects = self.redirects || []\n  129  \n  130    self.headers = self.headers ? copy(self.headers) : {}\n  ...\n  355        if (response.statusCode >= 300 &&\n  356            response.statusCode < 400  &&\n  357:           self.followRedirect     &&\n  358            self.method !== 'PUT' &&\n  359            self.method !== 'POST' &&\n  360            response.headers.location) {\n  361:         if (self._redirectsFollowed >= self.maxRedirects) {\n  362:           self.emit('error', new Error(\"Exceeded maxRedirects. Probably stuck in a redirect loop.\"))\n  363            return\n  364          }\n  365:         self._redirectsFollowed += 1\n  366  \n  367          if (!isUrl.test(response.headers.location)) {\n  ...\n  369          }\n  370          self.uri = response.headers.location\n  371:         self.redirects.push( { statusCode : response.statusCode,\n  372:                                redirectUri: response.headers.location })\n  373          delete self.req\n  374          delete self.agent\n  ...\n  380          return // Ignore the rest of the response\n  381        } else {\n  382:         self._redirectsFollowed = self._redirectsFollowed || 0\n  383          // Be a good stream and emit end when the response is finished.\n  384          // Hack to emit end on close because of a core bug that never fires end\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\follow\\node_modules\\request\\package.json:\n   27      \"test\": \"bash tests/run.sh\"\n   28    },\n   29:   \"readme\": \"# Request -- Simplified HTTP request method\\n\\n## Install\\n\\n<pre>\\n  npm install request\\n</pre>\\n\\nOr from source:\\n\\n<pre>\\n  git clone git://github.com/mikeal/request.git \\n  cd request\\n  npm link\\n</pre>\\n\\n## Super simple to use\\n\\nRequest is designed to be the simplest way possible to make http calls. It support HTTPS and follows redirects by default.\\n\\n```javascript\\nvar request = require('request');\\nrequest('http://www.google.com', function (error, response, body) {\\n  if (!error && response.statusCode == 200) {\\n    console.log(body) // Print the google web page.\\n  }\\n})\\n```\\n\\n## Streaming\\n\\nYou can stream any response to a file stream.\\n\\n```javascript\\nrequest('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))\\n```\\n\\nYou can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions to content-types, in this case `application/json`, and use the proper content-type in the PUT request if one is not already provided in the headers.\\n\\n```javascript\\nfs.readStream('file.json').pipe(request.put('http://mysite.com/obj.json'))\\n```\\n\\nRequest can also pipe to itself. When doing so the content-type and content-length will be preserved in the PUT headers.\\n\\n```javascript\\nrequest.get('http://google.com/img.png').pipe(request.put('http://mysite.com/img.png'))\\n```\\n\\nNow let's get fancy.\\n\\n```javascript\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    if (req.method === 'PUT') {\\n      req.pipe(request.put('http://mysite.com/doodle.png'))\\n    } else if (req.method === 'GET' || req.method === 'HEAD') {\\n      request.get('http://mysite.com/doodle.png').pipe(resp)\\n    } \\n  }\\n})\\n```\\n\\nYou can also pipe() from a http.ServerRequest instance and to a http.ServerResponse instance. The HTTP method and headers will be sent as well as the entity-body data. Which means that, if you don't really care about security, you can do:\\n\\n```javascript\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    var x = request('http://mysite.com/doodle.png')\\n    req.pipe(x)\\n    x.pipe(resp)\\n  }\\n})\\n```\\n\\nAnd since pipe() returns the destination stream in node 0.5.x you can do one line proxying :)\\n\\n```javascript\\nreq.pipe(request('http://mysite.com/doodle.png')).pipe(resp)\\n```\\n\\nAlso, none of this new functionality conflicts with requests previous features, it just expands them.\\n\\n```javascript\\nvar r = request.defaults({'proxy':'http://localproxy.com'})\\n\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    r.get('http://google.com/doodle.png').pipe(resp)\\n  }\\n})\\n```\\n\\nYou can still use intermediate proxies, the requests will still follow HTTP forwards, etc.\\n\\n## OAuth Signing\\n\\n```javascript\\n// Twitter OAuth\\nvar qs = require('querystring')\\n  , oauth =\\n    { callback: 'http://mysite.com/callback/'\\n    , consumer_key: CONSUMER_KEY\\n    , consumer_secret: CONSUMER_SECRET\\n    }\\n  , url = 'https://api.twitter.com/oauth/request_token'\\n  ;\\nrequest.post({url:url, oauth:oauth}, function (e, r, body) {\\n  // Assume by some stretch of magic you aquired the verifier\\n  var access_token = qs.parse(body)\\n    , oauth = \\n      { consumer_key: CONSUMER_KEY\\n      , consumer_secret: CONSUMER_SECRET\\n      , token: access_token.oauth_token\\n      , verifier: VERIFIER\\n      , token_secret: access_token.oauth_token_secret\\n      }\\n    , url = 'https://api.twitter.com/oauth/access_token'\\n    ;\\n  request.post({url:url, oauth:oauth}, function (e, r, body) {\\n    var perm_token = qs.parse(body)\\n      , oauth = \\n        { consumer_key: CONSUMER_KEY\\n        , consumer_secret: CONSUMER_SECRET\\n        , token: perm_token.oauth_token\\n        , token_secret: perm_token.oauth_token_secret\\n        }\\n      , url = 'https://api.twitter.com/1/users/show.json?'\\n      , params = \\n        { screen_name: perm_token.screen_name\\n        , user_id: perm_token.user_id\\n        }\\n      ;\\n    url += qs.stringify(params)\\n    request.get({url:url, oauth:oauth, json:true}, function (e, r, user) {\\n      console.log(user)\\n    })\\n  })\\n})\\n```\\n\\n\\n\\n### request(options, callback)\\n\\nThe first argument can be either a url or an options object. The only required option is uri, all others are optional.\\n\\n* `uri` || `url` - fully qualified uri or a parsed url object from url.parse()\\n* `method` - http method, defaults to GET\\n* `headers` - http headers, defaults to {}\\n* `body` - entity body for POST and PUT requests. Must be buffer or string.\\n* `json` - sets `body` but to JSON representation of value and adds `Content-type: application/json` header.\\n* `multipart` - (experimental) array of objects which contains their own headers and `body` attribute. Sends `multipart/related` request. See example below.\\n* `followRedirect` - follow HTTP 3xx responses as redirects. defaults to true.\\n* `maxRedirects` - the maximum number of redirects to follow, defaults to 10.\\n* `onResponse` - If true the callback will be fired on the \\\"response\\\" event instead of \\\"end\\\". If a function it will be called on \\\"response\\\" and not effect the regular semantics of the main callback on \\\"end\\\".\\n* `encoding` - Encoding to be used on response.setEncoding when buffering the response data.\\n* `pool` - A hash object containing the agents for these requests. If omitted this request will use the global pool which is set to node's default maxSockets.\\n* `pool.maxSockets` - Integer containing the maximum amount of sockets in the pool.\\n* `timeout` - Integer containing the number of milliseconds to wait for a request to respond before aborting the request\\t\\n* `proxy` - An HTTP proxy to be used. Support proxy Auth with Basic Auth the same way it's supported with the `url` parameter by embedding the auth info in the uri.\\n* `oauth` - Options for OAuth HMAC-SHA1 signing, see documentation above.\\n* `strictSSL` - Set to `true` to require that SSL certificates be valid. Note: to use your own certificate authority, you need to specify an agent that was created with that ca as an option.\\n* `jar` - Set to `false` if you don't want cookies to be remembered for future use or define your custom cookie jar (see examples section)\\n\\n\\nThe callback argument gets 3 arguments. The first is an error when applicable (usually from the http.Client option not the http.ClientRequest object). The second in an http.ClientResponse object. The third is the response body buffer.\\n\\n## Convenience methods\\n\\nThere are also shorthand methods for different HTTP METHODs and some other conveniences.\\n\\n### request.defaults(options)  \\n  \\nThis method returns a wrapper around the normal request API that defaults to whatever options you pass in to it.\\n\\n### request.put\\n\\nSame as request() but defaults to `method: \\\"PUT\\\"`.\\n\\n```javascript\\nrequest.put(url)\\n```\\n\\n### request.post\\n\\nSame as request() but defaults to `method: \\\"POST\\\"`.\\n\\n```javascript\\nrequest.post(url)\\n```\\n\\n### request.head\\n\\nSame as request() but defaults to `method: \\\"HEAD\\\"`.\\n\\n```javascript\\nrequest.head(url)\\n```\\n\\n### request.del\\n\\nSame as request() but defaults to `method: \\\"DELETE\\\"`.\\n\\n```javascript\\nrequest.del(url)\\n```\\n\\n### request.get\\n\\nAlias to normal request method for uniformity.\\n\\n```javascript\\nrequest.get(url)\\n```\\n### request.cookie\\n\\nFunction that creates a new cookie.\\n\\n```javascript\\nrequest.cookie('cookie_string_here')\\n```\\n### request.jar\\n\\nFunction that creates a new cookie jar.\\n\\n```javascript\\nrequest.jar()\\n```\\n\\n\\n## Examples:\\n\\n```javascript\\n  var request = require('request')\\n    , rand = Math.floor(Math.random()*100000000).toString()\\n    ;\\n  request(\\n    { method: 'PUT'\\n    , uri: 'http://mikeal.iriscouch.com/testjs/' + rand\\n    , multipart: \\n      [ { 'content-type': 'application/json'\\n        ,  body: JSON.stringify({foo: 'bar', _attachments: {'message.txt': {follows: true, length: 18, 'content_type': 'text/plain' }}})\\n        }\\n      , { body: 'I am an attachment' }\\n      ] \\n    }\\n  , function (error, response, body) {\\n      if(response.statusCode == 201){\\n        console.log('document saved as: http://mikeal.iriscouch.com/testjs/'+ rand)\\n      } else {\\n        console.log('error: '+ response.statusCode)\\n        console.log(body)\\n      }\\n    }\\n  )\\n```\\nCookies are enabled by default (so they can be used in subsequent requests). To disable cookies set jar to false (either in defaults or in the options sent).\\n\\n```javascript\\nvar request = request.defaults({jar: false})\\nrequest('http://www.google.com', function () {\\n  request('http://images.google.com')\\n})\\n```\\n\\nIf you to use a custom cookie jar (instead of letting request use its own global cookie jar) you do so by setting the jar default or by specifying it as an option:\\n\\n```javascript\\nvar j = request.jar()\\nvar request = request.defaults({jar:j})\\nrequest('http://www.google.com', function () {\\n  request('http://images.google.com')\\n})\\n```\\nOR\\n\\n```javascript\\nvar j = request.jar()\\nvar cookie = request.cookie('your_cookie_here')\\nj.add(cookie)\\nrequest({url: 'http://www.google.com', jar: j}, function () {\\n  request('http://images.google.com')\\n})\\n```\\n\",\n   30    \"readmeFilename\": \"README.md\",\n   31    \"_id\": \"request@2.2.9\",\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\follow\\node_modules\\request\\README.md:\n   17  ## Super simple to use\n   18  \n   19: Request is designed to be the simplest way possible to make http calls. It support HTTPS and follows redirects by default.\n   20  \n   21  ```javascript\n   ..\n  152  * `json` - sets `body` but to JSON representation of value and adds `Content-type: application/json` header.\n  153  * `multipart` - (experimental) array of objects which contains their own headers and `body` attribute. Sends `multipart/related` request. See example below.\n  154: * `followRedirect` - follow HTTP 3xx responses as redirects. defaults to true.\n  155: * `maxRedirects` - the maximum number of redirects to follow, defaults to 10.\n  156  * `onResponse` - If true the callback will be fired on the \"response\" event instead of \"end\". If a function it will be called on \"response\" and not effect the regular semantics of the main callback on \"end\".\n  157  * `encoding` - Encoding to be used on response.setEncoding when buffering the response data.\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\request\\main.js:\n  161      var message = 'Invalid URI \"' + faultyUri + '\"'\n  162      if (Object.keys(options).length === 0) {\n  163:       // No option ? This can be the sign of a redirect\n  164        // As this is a case where the user cannot do anything (he didn't call request directly with this URL)\n  165:       // he should be warned that it can be caused by a redirection (can save some hair)\n  166:       message += '. This can be caused by a crappy redirection.'\n  167      }\n  168      self.emit('error', new Error(message))\n  ...\n  170    }\n  171  \n  172:   self._redirectsFollowed = self._redirectsFollowed || 0\n  173:   self.maxRedirects = (self.maxRedirects !== undefined) ? self.maxRedirects : 10\n  174:   self.followRedirect = (self.followRedirect !== undefined) ? self.followRedirect : true\n  175:   self.followAllRedirects = (self.followAllRedirects !== undefined) ? self.followAllRedirects : false;\n  176:   if (self.followRedirect || self.followAllRedirects)\n  177:     self.redirects = self.redirects || []\n  178  \n  179    self.headers = self.headers ? copy(self.headers) : {}\n  ...\n  459  \n  460      if (response.statusCode >= 300 && response.statusCode < 400  &&\n  461:         (self.followAllRedirects ||\n  462:          (self.followRedirect && (self.method !== 'PUT' && self.method !== 'POST' && self.method !== 'DELETE'))) &&\n  463          response.headers.location) {\n  464:       if (self._redirectsFollowed >= self.maxRedirects) {\n  465:         self.emit('error', new Error(\"Exceeded maxRedirects. Probably stuck in a redirect loop.\"))\n  466          return\n  467        }\n  468:       self._redirectsFollowed += 1\n  469  \n  470        if (!isUrl.test(response.headers.location)) {\n  ...\n  472        }\n  473        self.uri = response.headers.location\n  474:       self.redirects.push(\n  475          { statusCode : response.statusCode\n  476:         , redirectUri: response.headers.location \n  477          }\n  478        )\n  479:       if (self.followAllRedirects) self.method = 'GET'\n  480:       // self.method = 'GET'; // Force all redirects to use GET || commented out fixes #215\n  481        delete self.req\n  482        delete self.agent\n  ...\n  486          delete self.headers.host\n  487        }\n  488:       if (log) log('Redirect to %uri', self)\n  489        self.init()\n  490        return // Ignore the rest of the response\n  491      } else {\n  492:       self._redirectsFollowed = self._redirectsFollowed || 0\n  493        // Be a good stream and emit end when the response is finished.\n  494        // Hack to emit end on close because of a core bug that never fires end\n  ...\n  758    var cookies\n  759    \n  760:   if (this._redirectsFollowed === 0) {\n  761      this.originalCookieHeader = this.headers.cookie\n  762    }\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\request\\package.json:\n   27      \"test\": \"node tests/run.js\"\n   28    },\n   29:   \"readme\": \"# Request -- Simplified HTTP request method\\n\\n## Install\\n\\n<pre>\\n  npm install request\\n</pre>\\n\\nOr from source:\\n\\n<pre>\\n  git clone git://github.com/mikeal/request.git \\n  cd request\\n  npm link\\n</pre>\\n\\n## Super simple to use\\n\\nRequest is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.\\n\\n```javascript\\nvar request = require('request');\\nrequest('http://www.google.com', function (error, response, body) {\\n  if (!error && response.statusCode == 200) {\\n    console.log(body) // Print the google web page.\\n  }\\n})\\n```\\n\\n## Streaming\\n\\nYou can stream any response to a file stream.\\n\\n```javascript\\nrequest('http://google.com/doodle.png').pipe(fs.createWriteStream('doodle.png'))\\n```\\n\\nYou can also stream a file to a PUT or POST request. This method will also check the file extension against a mapping of file extensions to content-types, in this case `application/json`, and use the proper content-type in the PUT request if one is not already provided in the headers.\\n\\n```javascript\\nfs.createReadStream('file.json').pipe(request.put('http://mysite.com/obj.json'))\\n```\\n\\nRequest can also pipe to itself. When doing so the content-type and content-length will be preserved in the PUT headers.\\n\\n```javascript\\nrequest.get('http://google.com/img.png').pipe(request.put('http://mysite.com/img.png'))\\n```\\n\\nNow let's get fancy.\\n\\n```javascript\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    if (req.method === 'PUT') {\\n      req.pipe(request.put('http://mysite.com/doodle.png'))\\n    } else if (req.method === 'GET' || req.method === 'HEAD') {\\n      request.get('http://mysite.com/doodle.png').pipe(resp)\\n    } \\n  }\\n})\\n```\\n\\nYou can also pipe() from a http.ServerRequest instance and to a http.ServerResponse instance. The HTTP method and headers will be sent as well as the entity-body data. Which means that, if you don't really care about security, you can do:\\n\\n```javascript\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    var x = request('http://mysite.com/doodle.png')\\n    req.pipe(x)\\n    x.pipe(resp)\\n  }\\n})\\n```\\n\\nAnd since pipe() returns the destination stream in node 0.5.x you can do one line proxying :)\\n\\n```javascript\\nreq.pipe(request('http://mysite.com/doodle.png')).pipe(resp)\\n```\\n\\nAlso, none of this new functionality conflicts with requests previous features, it just expands them.\\n\\n```javascript\\nvar r = request.defaults({'proxy':'http://localproxy.com'})\\n\\nhttp.createServer(function (req, resp) {\\n  if (req.url === '/doodle.png') {\\n    r.get('http://google.com/doodle.png').pipe(resp)\\n  }\\n})\\n```\\n\\nYou can still use intermediate proxies, the requests will still follow HTTP forwards, etc.\\n\\n## OAuth Signing\\n\\n```javascript\\n// Twitter OAuth\\nvar qs = require('querystring')\\n  , oauth =\\n    { callback: 'http://mysite.com/callback/'\\n    , consumer_key: CONSUMER_KEY\\n    , consumer_secret: CONSUMER_SECRET\\n    }\\n  , url = 'https://api.twitter.com/oauth/request_token'\\n  ;\\nrequest.post({url:url, oauth:oauth}, function (e, r, body) {\\n  // Assume by some stretch of magic you aquired the verifier\\n  var access_token = qs.parse(body)\\n    , oauth = \\n      { consumer_key: CONSUMER_KEY\\n      , consumer_secret: CONSUMER_SECRET\\n      , token: access_token.oauth_token\\n      , verifier: VERIFIER\\n      , token_secret: access_token.oauth_token_secret\\n      }\\n    , url = 'https://api.twitter.com/oauth/access_token'\\n    ;\\n  request.post({url:url, oauth:oauth}, function (e, r, body) {\\n    var perm_token = qs.parse(body)\\n      , oauth = \\n        { consumer_key: CONSUMER_KEY\\n        , consumer_secret: CONSUMER_SECRET\\n        , token: perm_token.oauth_token\\n        , token_secret: perm_token.oauth_token_secret\\n        }\\n      , url = 'https://api.twitter.com/1/users/show.json?'\\n      , params = \\n        { screen_name: perm_token.screen_name\\n        , user_id: perm_token.user_id\\n        }\\n      ;\\n    url += qs.stringify(params)\\n    request.get({url:url, oauth:oauth, json:true}, function (e, r, user) {\\n      console.log(user)\\n    })\\n  })\\n})\\n```\\n\\n\\n\\n### request(options, callback)\\n\\nThe first argument can be either a url or an options object. The only required option is uri, all others are optional.\\n\\n* `uri` || `url` - fully qualified uri or a parsed url object from url.parse()\\n* `qs` - object containing querystring values to be appended to the uri\\n* `method` - http method, defaults to GET\\n* `headers` - http headers, defaults to {}\\n* `body` - entity body for POST and PUT requests. Must be buffer or string.\\n* `form` - sets `body` but to querystring representation of value and adds `Content-type: application/x-www-form-urlencoded; charset=utf-8` header.\\n* `json` - sets `body` but to JSON representation of value and adds `Content-type: application/json` header.\\n* `multipart` - (experimental) array of objects which contains their own headers and `body` attribute. Sends `multipart/related` request. See example below.\\n* `followRedirect` - follow HTTP 3xx responses as redirects. defaults to true.\\n* `followAllRedirects` - follow non-GET HTTP 3xx responses as redirects. defaults to false.\\n* `maxRedirects` - the maximum number of redirects to follow, defaults to 10.\\n* `encoding` - Encoding to be used on `setEncoding` of response data. If set to `null`, the body is returned as a Buffer.\\n* `pool` - A hash object containing the agents for these requests. If omitted this request will use the global pool which is set to node's default maxSockets.\\n* `pool.maxSockets` - Integer containing the maximum amount of sockets in the pool.\\n* `timeout` - Integer containing the number of milliseconds to wait for a request to respond before aborting the request\\t\\n* `proxy` - An HTTP proxy to be used. Support proxy Auth with Basic Auth the same way it's supported with the `url` parameter by embedding the auth info in the uri.\\n* `oauth` - Options for OAuth HMAC-SHA1 signing, see documentation above.\\n* `strictSSL` - Set to `true` to require that SSL certificates be valid. Note: to use your own certificate authority, you need to specify an agent that was created with that ca as an option.\\n* `jar` - Set to `false` if you don't want cookies to be remembered for future use or define your custom cookie jar (see examples section)\\n\\n\\nThe callback argument gets 3 arguments. The first is an error when applicable (usually from the http.Client option not the http.ClientRequest object). The second in an http.ClientResponse object. The third is the response body String or Buffer.\\n\\n## Convenience methods\\n\\nThere are also shorthand methods for different HTTP METHODs and some other conveniences.\\n\\n### request.defaults(options)  \\n  \\nThis method returns a wrapper around the normal request API that defaults to whatever options you pass in to it.\\n\\n### request.put\\n\\nSame as request() but defaults to `method: \\\"PUT\\\"`.\\n\\n```javascript\\nrequest.put(url)\\n```\\n\\n### request.post\\n\\nSame as request() but defaults to `method: \\\"POST\\\"`.\\n\\n```javascript\\nrequest.post(url)\\n```\\n\\n### request.head\\n\\nSame as request() but defaults to `method: \\\"HEAD\\\"`.\\n\\n```javascript\\nrequest.head(url)\\n```\\n\\n### request.del\\n\\nSame as request() but defaults to `method: \\\"DELETE\\\"`.\\n\\n```javascript\\nrequest.del(url)\\n```\\n\\n### request.get\\n\\nAlias to normal request method for uniformity.\\n\\n```javascript\\nrequest.get(url)\\n```\\n### request.cookie\\n\\nFunction that creates a new cookie.\\n\\n```javascript\\nrequest.cookie('cookie_string_here')\\n```\\n### request.jar\\n\\nFunction that creates a new cookie jar.\\n\\n```javascript\\nrequest.jar()\\n```\\n\\n\\n## Examples:\\n\\n```javascript\\n  var request = require('request')\\n    , rand = Math.floor(Math.random()*100000000).toString()\\n    ;\\n  request(\\n    { method: 'PUT'\\n    , uri: 'http://mikeal.iriscouch.com/testjs/' + rand\\n    , multipart: \\n      [ { 'content-type': 'application/json'\\n        ,  body: JSON.stringify({foo: 'bar', _attachments: {'message.txt': {follows: true, length: 18, 'content_type': 'text/plain' }}})\\n        }\\n      , { body: 'I am an attachment' }\\n      ] \\n    }\\n  , function (error, response, body) {\\n      if(response.statusCode == 201){\\n        console.log('document saved as: http://mikeal.iriscouch.com/testjs/'+ rand)\\n      } else {\\n        console.log('error: '+ response.statusCode)\\n        console.log(body)\\n      }\\n    }\\n  )\\n```\\nCookies are enabled by default (so they can be used in subsequent requests). To disable cookies set jar to false (either in defaults or in the options sent).\\n\\n```javascript\\nvar request = request.defaults({jar: false})\\nrequest('http://www.google.com', function () {\\n  request('http://images.google.com')\\n})\\n```\\n\\nIf you to use a custom cookie jar (instead of letting request use its own global cookie jar) you do so by setting the jar default or by specifying it as an option:\\n\\n```javascript\\nvar j = request.jar()\\nvar request = request.defaults({jar:j})\\nrequest('http://www.google.com', function () {\\n  request('http://images.google.com')\\n})\\n```\\nOR\\n\\n```javascript\\nvar j = request.jar()\\nvar cookie = request.cookie('your_cookie_here')\\nj.add(cookie)\\nrequest({url: 'http://www.google.com', jar: j}, function () {\\n  request('http://images.google.com')\\n})\\n```\\n\",\n   30    \"readmeFilename\": \"README.md\",\n   31    \"_id\": \"request@2.9.203\",\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\request\\README.md:\n   17  ## Super simple to use\n   18  \n   19: Request is designed to be the simplest way possible to make http calls. It supports HTTPS and follows redirects by default.\n   20  \n   21  ```javascript\n   ..\n  154  * `json` - sets `body` but to JSON representation of value and adds `Content-type: application/json` header.\n  155  * `multipart` - (experimental) array of objects which contains their own headers and `body` attribute. Sends `multipart/related` request. See example below.\n  156: * `followRedirect` - follow HTTP 3xx responses as redirects. defaults to true.\n  157: * `followAllRedirects` - follow non-GET HTTP 3xx responses as redirects. defaults to false.\n  158: * `maxRedirects` - the maximum number of redirects to follow, defaults to 10.\n  159  * `encoding` - Encoding to be used on `setEncoding` of response data. If set to `null`, the body is returned as a Buffer.\n  160  * `pool` - A hash object containing the agents for these requests. If omitted this request will use the global pool which is set to node's default maxSockets.\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\request\\tests\\run.js:\n   18    , 'test-proxy.js'\n   19    , 'test-qs.js'\n   20:   , 'test-redirect.js'\n   21    , 'test-timeout.js'\n   22    , 'test-toJSON.js'\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nano\\node_modules\\request\\tests\\test-redirect.js:\n   29  \n   30      s.on('/'+landing, function (req, res) {\n   31:       if (req.method !== 'GET') { // We should only accept GET redirects\n   32:         console.error(\"Got a non-GET request to the redirect destination URL\");\n   33          res.writeHead(400);\n   34          res.end();\n   ..\n   36        }\n   37        // Make sure the cookie doesn't get included twice, see #139:\n   38:       // Make sure cookies are set properly after redirect\n   39        assert.equal(req.headers.cookie, 'foo=bar; quux=baz; ham=eggs');\n   40        hits[landing] = true;\n   ..\n   69    \n   70    // Prevent bouncing.\n   71:   request({uri:server+'/nope', jar: jar, headers: {cookie: 'foo=bar'}, followRedirect:false}, function (er, res, body) {\n   72      if (er) throw er\n   73      if (res.statusCode !== 302) throw new Error('Status is not 302: '+res.statusCode)\n   74      assert.ok(hits.nope, 'Original request to /nope')\n   75:     assert.ok(!hits.nope_landing, 'No chasing the redirect')\n   76      assert.equal(res.statusCode, 302, 'Response is the bounce itself')\n   77      passed += 1\n   ..\n   79    })\n   80    \n   81:   // Should not follow post redirects by default\n   82    request.post(server+'/temp', { jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n   83      if (er) throw er\n   84      if (res.statusCode !== 301) throw new Error('Status is not 301: '+res.statusCode)\n   85      assert.ok(hits.temp, 'Original request is to /temp')\n   86:     assert.ok(!hits.temp_landing, 'No chasing the redirect when post')\n   87      assert.equal(res.statusCode, 301, 'Response is the bounce itself')\n   88      passed += 1\n   ..\n   90    })\n   91    \n   92:   // Should follow post redirects when followAllRedirects true\n   93:   request.post({uri:server+'/temp', followAllRedirects:true, jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n   94      if (er) throw er\n   95      if (res.statusCode !== 200) throw new Error('Status is not 200: '+res.statusCode)\n   ..\n  101    })\n  102    \n  103:   request.post({uri:server+'/temp', followAllRedirects:false, jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n  104      if (er) throw er\n  105      if (res.statusCode !== 301) throw new Error('Status is not 301: '+res.statusCode)\n  106      assert.ok(hits.temp, 'Original request is to /temp')\n  107:     assert.ok(!hits.temp_landing, 'No chasing the redirect')\n  108      assert.equal(res.statusCode, 301, 'Response is the bounce itself')\n  109      passed += 1\n  ...\n  111    })\n  112  \n  113:   // Should not follow delete redirects by default\n  114    request.del(server+'/temp', { jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n  115      if (er) throw er\n  116:     if (res.statusCode < 301) throw new Error('Status is not a redirect.')\n  117      assert.ok(hits.temp, 'Original request is to /temp')\n  118:     assert.ok(!hits.temp_landing, 'No chasing the redirect when delete')\n  119      assert.equal(res.statusCode, 301, 'Response is the bounce itself')\n  120      passed += 1\n  ...\n  122    })\n  123    \n  124:   // Should not follow delete redirects even if followRedirect is set to true\n  125:   request.del(server+'/temp', { followRedirect: true, jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n  126      if (er) throw er\n  127      if (res.statusCode !== 301) throw new Error('Status is not 301: '+res.statusCode)\n  128      assert.ok(hits.temp, 'Original request is to /temp')\n  129:     assert.ok(!hits.temp_landing, 'No chasing the redirect when delete')\n  130      assert.equal(res.statusCode, 301, 'Response is the bounce itself')\n  131      passed += 1\n  ...\n  133    })\n  134    \n  135:   // Should follow delete redirects when followAllRedirects true\n  136:   request.del(server+'/temp', {followAllRedirects:true, jar: jar, headers: {cookie: 'foo=bar'}}, function (er, res, body) {\n  137      if (er) throw er\n  138      if (res.statusCode !== 200) throw new Error('Status is not 200: '+res.statusCode)\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\nodemailer\\node_modules\\simplesmtp\\lib\\client.js:\n  432      }\n  433  \n  434:     // redirect output from the server to _actionStream\n  435      this._currentAction = this._actionStream;\n  436  \n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\passport\\package.json:\n   43      \"node\": \">= 0.4.0\"\n   44    },\n   45:   \"readme\": \"# Passport\\n\\nPassport is [Express](http://expressjs.com/)-compatible authentication\\nmiddleware for [Node.js](http://nodejs.org/).\\n\\nPassport's sole purpose is to authenticate requests, which it does through an\\nextensible set of plugins known as _strategies_.  Passport does not mount\\nroutes or assume any particular database schema, which maximizes flexiblity and\\nallows application-level decisions to be made by the developer.  The API is\\nsimple: you provide Passport a request to authenticate, and Passport provides\\nhooks for controlling what occurs when authentication succeeds or fails.\\n\\n## Install\\n\\n    $ npm install passport\\n\\n## Usage\\n\\n#### Strategies\\n\\nPassport uses the concept of strategies to authenticate requests.  Strategies\\ncan range from verifying username and password credentials, delegated\\nauthentication using [OAuth](http://oauth.net/) (for example, via [Facebook](http://www.facebook.com/)\\nor [Twitter](http://twitter.com/)), or federated authentication using [OpenID](http://openid.net/).\\n\\nBefore authenticating requests, the strategy (or strategies) used by an\\napplication must be configured.\\n\\n    passport.use(new LocalStrategy(\\n      function(username, password, done) {\\n        User.findOne({ username: username, password: password }, function (err, user) {\\n          done(err, user);\\n        });\\n      }\\n    ));\\n\\n#### Sessions\\n\\nPassport will maintain persistent login sessions.  In order for persistent\\nsessions to work, the authenticated user must be serialized to the session, and\\ndeserialized when subsequent requests are made.\\n\\nPassport does not impose any restrictions on how your user records are stored.\\nInstead, you provide functions to Passport which implements the necessary\\nserialization and deserialization logic.  In a typical application, this will be\\nas simple as serializing the user ID, and finding the user by ID when\\ndeserializing.\\n\\n    passport.serializeUser(function(user, done) {\\n      done(null, user.id);\\n    });\\n\\n    passport.deserializeUser(function(id, done) {\\n      User.findById(id, function (err, user) {\\n        done(err, user);\\n      });\\n    });\\n\\n#### Middleware\\n\\nTo use Passport in an [Express](http://expressjs.com/) or\\n[Connect](http://senchalabs.github.com/connect/)-based application, configure it\\nwith the required `passport.initialize()` middleware.  If your application uses\\npersistent login sessions (recommended, but not required), `passport.session()`\\nmiddleware must also be used.\\n\\n    app.configure(function() {\\n      app.use(express.static(__dirname + '/../../public'));\\n      app.use(express.cookieParser());\\n      app.use(express.bodyParser());\\n      app.use(express.session({ secret: 'keyboard cat' }));\\n      app.use(passport.initialize());\\n      app.use(passport.session());\\n      app.use(app.router);\\n    });\\n\\n#### Authenticate Requests\\n\\nPassport provides an `authenticate()` function, which is used as route\\nmiddleware to authenticate requests.\\n\\n    app.post('/login', \\n      passport.authenticate('local', { failureRedirect: '/login' }),\\n      function(req, res) {\\n        res.redirect('/');\\n      });\\n\\n## Examples\\n\\nFor a complete, working example, refer to the [login example](https://github.com/jaredhanson/passport-local/tree/master/examples/login)\\nincluded in [passport-local](https://github.com/jaredhanson/passport-local).\\n\\n## Strategies\\n\\nPassport has a comprehensive set of **over 120** authentication strategies\\ncovering social networking, enterprise integration, API services, and more.\\nThe [complete list](https://github.com/jaredhanson/passport/wiki/Strategies) is\\navailable on the [wiki](https://github.com/jaredhanson/passport/wiki).\\n\\nThe following table lists commonly used strategies:\\n\\n|Strategy                                                       | Protocol                 |Developer                                       |\\n|---------------------------------------------------------------|--------------------------|------------------------------------------------|\\n|[Local](https://github.com/jaredhanson/passport-local)         | HTML form                |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[OpenID](https://github.com/jaredhanson/passport-openid)       | OpenID                   |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[BrowserID](https://github.com/jaredhanson/passport-browserid) | BrowserID                |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[Facebook](https://github.com/jaredhanson/passport-facebook)   | OAuth 2.0                |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[Google](https://github.com/jaredhanson/passport-google)       | OpenID                   |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[Google](https://github.com/jaredhanson/passport-google-oauth) | OAuth / OAuth 2.0        |[Jared Hanson](https://github.com/jaredhanson)  |\\n|[Twitter](https://github.com/jaredhanson/passport-twitter)     | OAuth                    |[Jared Hanson](https://github.com/jaredhanson)  |\\n\\n## Related Modules\\n\\n- [Locomotive](https://github.com/jaredhanson/locomotive) — Powerful MVC web framework\\n- [OAuthorize](https://github.com/jaredhanson/oauthorize) — OAuth service provider toolkit\\n- [OAuth2orize](https://github.com/jaredhanson/oauth2orize) — OAuth 2.0 authorization server toolkit\\n- [connect-ensure-login](https://github.com/jaredhanson/connect-ensure-login)  — middleware to ensure login sessions\\n\\nThe [modules](https://github.com/jaredhanson/passport/wiki/Modules) page on the\\n[wiki](https://github.com/jaredhanson/passport/wiki) lists other useful modules\\nthat build upon or integrate with Passport.\\n\\n## Tests\\n\\n    $ npm install --dev\\n    $ make test\\n\\n[![Build Status](https://secure.travis-ci.org/jaredhanson/passport.png)](http://travis-ci.org/jaredhanson/passport)\\n\\n## Credits\\n\\n  - [Jared Hanson](http://github.com/jaredhanson)\\n\\n## License\\n\\n[The MIT License](http://opensource.org/licenses/MIT)\\n\\nCopyright (c) 2011-2013 Jared Hanson <[http://jaredhanson.net/](http://jaredhanson.net/)>\\n\",\n   46    \"readmeFilename\": \"README.md\",\n   47    \"_id\": \"passport@0.1.17\",\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\passport\\README.md:\n   81  \n   82      app.post('/login', \n   83:       passport.authenticate('local', { failureRedirect: '/login' }),\n   84        function(req, res) {\n   85:         res.redirect('/');\n   86        });\n   87  \n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\passport\\lib\\passport\\index.js:\n  185   * Examples:\n  186   *\n  187:  *     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' })(req, res);\n  188   *\n  189   *     passport.authenticate('local', function(err, user) {\n  190:  *       if (!user) { return res.redirect('/login'); }\n  191   *       res.end('Authenticated!');\n  192   *     })(req, res);\n  ...\n  195   *\n  196   *     app.get('/auth/twitter', passport.authenticate('twitter'), function(req, res) {\n  197:  *       // request will be redirected to Twitter\n  198   *     });\n  199   *     app.get('/auth/twitter/callback', passport.authenticate('twitter'), function(req, res) {\n  ...\n  228   * Examples:\n  229   *\n  230:  *    passport.authorize('twitter-authz', { failureRedirect: '/account' });\n  231   *\n  232   * @param {String} strategy\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\passport\\lib\\passport\\context\\http\\actions.js:\n   37  \n   38  /**\n   39:  * Redirect to `url` with optional `status`, defaulting to 302.\n   40   *\n   41:  * Strategies should call this function to redirect the user (via their user\n   42   * agent) to a third-party website for authentication.\n   43   *\n   ..\n   46   * @api public\n   47   */\n   48: actions.redirect = function(url, status) {\n   49    var res = this.res;\n   50:   if (typeof res.redirect == 'function') {\n   51:     // If possible use redirect method on the response\n   52      // Assume Express API, optional status param comes first\n   53      if (status) {\n   54:       res.redirect(status, url);\n   55      } else {\n   56:       res.redirect(url);\n   57      }\n   58    } else {\n\nC:\\Code\\GitHub\\sharez\\server\\node_modules\\passport\\lib\\passport\\middleware\\authenticate.js:\n   18   * Options:\n   19   *   - `session`          Save login state in session, defaults to _true_\n   20:  *   - `successRedirect`  After successful login, redirect to given URL\n   21:  *   - `failureRedirect`  After failed login, redirect to given URL\n   22   *   - `assignProperty`   Assign the object provided by the verify callback to given property\n   23   *\n   ..\n   32   *       passport.authenticate('local', function(err, user, info) {\n   33   *         if (err) { return next(err) }\n   34:  *         if (!user) { return res.redirect('/signin') }\n   35:  *         res.redirect('/account');\n   36   *       })(req, res, next);\n   37   *     });\n   ..\n   43   * Examples:\n   44   *\n   45:  *     passport.authenticate('local', { successRedirect: '/', failureRedirect: '/login' });\n   46   *\n   47   *     passport.authenticate('basic', { session: false });\n   ..\n   63    \n   64    // Cast `name` to an array, allowing authentication to pass through a chain of\n   65:   // strategies.  The first strategy to succeed, redirect, or error will halt\n   66    // the chain.  Authentication failures will proceed through each strategy in\n   67    // series, ultimately failing if all strategies fail.\n   ..\n   70    // using their preferred choice of Basic, Digest, token-based schemes, etc.\n   71    // It is not feasible to construct a chain of multiple strategies that involve\n   72:   // redirection (for example both Facebook and Twitter), since the first one to\n   73:   // redirect will halt the chain.\n   74    if (!Array.isArray(name)) {\n   75      name = [ name ];\n   ..\n  121          }\n  122        }\n  123:       if (options.failureRedirect) {\n  124:         return res.redirect(options.failureRedirect);\n  125        }\n  126      \n  ...\n  205          \n  206            function complete() {\n  207:             if (options.successReturnToOrRedirect) {\n  208:               var url = options.successReturnToOrRedirect;\n  209                if (req.session && req.session.returnTo) {\n  210                  url = req.session.returnTo;\n  211                  delete req.session.returnTo;\n  212                }\n  213:               return res.redirect(url);\n  214              }\n  215:             if (options.successRedirect) {\n  216:               return res.redirect(options.successRedirect);\n  217              }\n  218              next();\n\nC:\\Code\\GitHub\\sharez\\server\\routes\\users.js:\n   63   *  be protected.  If the request is authenticated (typically \n   64   *  via a persistent login session), the request will proceed.\n   65:  *  Otherwise, the user will be redirected to the login page. \n   66   */                 \n   67  function ensureAuthenticated(req, res, next) {\n   68    console.log(\"Make sure the call is authenticated\");\n   69    if (req.isAuthenticated()) { return next(); }\n   70:   res.redirect('/login');\n   71  }\n   72  \n   ..\n  185    // -- POST Routes\n  186    app.post('/register', register);\n  187:   app.post('/login', passport.authenticate('local', { successRedirect: '/account',\n  188:                                                       failureRedirect: '/login',\n  189                                                        failureFlash: true }) );\n  190  \n  ...\n  307  var logout = function(req, res){\n  308    req.logout();\n  309:   res.redirect('/');\n  310  };\n  311  \n  ...\n  361              console.log('Found email' + user1.username);\n  362              req.flash('error', '<strong>Oh Snap!</strong> Sorry, We already have someone with that email address.');\n  363:             res.redirect('/signup'); \n  364          } else {   // User email does not yet exist - OK\n  365        \n  ...\n  384                                  console.log('Passport login did not work! ' + err4); \n  385                              } else {\n  386:                                 res.redirect(\"/confirm\");\n  387                              }\n  388                          });\n\n206 matches across 27 files\n",
-			"settings":
-			{
-				"buffer_size": 66044,
-				"line_ending": "Windows",
-				"name": "Find Results",
-				"scratch": true
-			}
-		},
-		{
-			"file": "server/views/emails/invite.html",
-			"settings":
-			{
-				"buffer_size": 546,
+				"buffer_size": 232,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/views/emails/confirm.html",
+			"file": "server/views/login.jade",
 			"settings":
 			{
-				"buffer_size": 550,
+				"buffer_size": 804,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/package.json",
+			"file": "server/public/stylesheets/style.css",
 			"settings":
 			{
-				"buffer_size": 271,
+				"buffer_size": 2093,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/lib/emailer.coffee",
+			"file": "server/public/stylesheets/site.css",
 			"settings":
 			{
-				"buffer_size": 1370,
+				"buffer_size": 1027,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server/public/stylesheets/drawer.css",
+			"settings":
+			{
+				"buffer_size": 849,
 				"line_ending": "Windows"
 			}
 		}
@@ -198,7 +196,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Install Package"
+				"Package Control: Discover Packages"
 			],
 			[
 				"Pa",
@@ -238,36 +236,60 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/sharez/server/public/images/email/email_sharez_logo.png",
-		"/C/Code/GitHub/sharez/server/routes/api.js",
-		"/C/Code/GitHub/sharez/server/routes/users.js",
-		"/C/Code/GitHub/sharez/server/models/user.js",
-		"/C/Code/GitHub/sharez/server/views/emails/invite.html",
+		"/C/Code/GitHub/sharez/extension/options.html",
+		"/C/Code/GitHub/sharez/server/views/layouts/home_layout.jade",
 		"/C/Code/GitHub/sharez/server/app.js",
-		"/C/Code/GitHub/sharez/server/lib/emailer.coffee",
+		"/C/Code/GitHub/sharez/server/routes/router.js",
+		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
 		"/C/Code/GitHub/sharez/server/views/home.jade",
+		"/C/Code/GitHub/sharez/server/views/layouts/admin_layout.jade",
+		"/C/Code/GitHub/sharez/server/models/item.js",
+		"/C/Code/GitHub/sharez/server/routes/admin_routes.js",
+		"/C/Code/GitHub/sharez/server/dbinit.js",
+		"/C/Code/GitHub/sharez/server/views/admin/users.jade",
+		"/C/Code/GitHub/sharez/server/routes/index.js",
+		"/C/Code/GitHub/sharez/server/views/layouts/layout.jade",
+		"/C/Code/GitHub/sharez/server/views/admin/dashboard.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
+		"/C/Code/GitHub/sharez/server/models/user.js",
+		"/C/Code/GitHub/sharez/server/routes/api.js",
+		"/C/Code/GitHub/sharez/server/views/admin/index.jade",
+		"/C/Code/GitHub/sharez/server/routes/user_routes.js",
+		"/C/Code/GitHub/sharez/server/routes/users.js",
+		"/C/Code/GitHub/sharez/server/routes/admins.js",
+		"/C/Code/GitHub/sharez/server/views/confirm.jade",
+		"/C/Code/GitHub/sharez/server/views/index.jade",
+		"/C/Code/GitHub/sharez/server/views/login.jade",
+		"/C/Code/GitHub/sharez/extension/manifest.json",
+		"/C/Code/GitHub/sharez/extension/popup.js",
+		"/C/Code/GitHub/sharez/extension/popup.html",
+		"/C/Code/GitHub/sharez/server/models/email_confirmation.js",
+		"/C/Code/GitHub/sharez/server/views/resend_confirmation.jade",
+		"/C/Code/GitHub/sharez/server/views/home_layout.jade",
+		"/C/Code/GitHub/sharez/server/views/emails/invite.html",
+		"/C/Code/GitHub/sharez/server/package.json",
+		"/C/Code/GitHub/sharez/server/lib/emailer.coffee",
+		"/C/Code/Sublime Text 3/Data/Packages/User/JavaScript.sublime-settings",
+		"/C/Code/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
+		"/C/Code/Sublime Text 3/Data/Packages/Default/Preferences.sublime-settings",
+		"/C/Code/GitHub/sharez/server/views/emails/confirm.html",
+		"/C/Code/GitHub/sharez/server/public/images/email/email_sharez_logo.png",
 		"/C/Code/GitHub/sharez/server/emailer.coffee",
 		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
 		"/C/Code/GitHub/sharez/server/node_modules/passport-local/lib/passport-local/strategy.js",
-		"/C/Code/GitHub/sharez/server/views/login.jade",
 		"/C/Code/GitHub/sharez/server/views/signup.jade",
-		"/C/Code/GitHub/sharez/server/package.json",
-		"/C/Code/GitHub/sharez/server/routes/index.js",
 		"/C/Code/GitHub/sharez/server/node_modules/nano/samples/lazy_creation_of_views.js",
 		"/C/Code/GitHub/sharez/server/routes/user.js",
 		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/index.js",
-		"/C/Code/GitHub/sharez/server/views/index.jade",
 		"/C/Code/GitHub/sharez/server/node_modules/passport/README.md",
 		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/middleware/authenticate.js",
 		"/C/Code/GitHub/sharez/server/views/layout.jade",
 		"/C/Code/GitHub/sharez/server/public/stylesheets/drawer.css",
-		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
 		"/C/Code/GitHub/sharez/extension/sharez.js",
 		"/C/Code/GitHub/sharez/extension/overlay.js",
 		"/C/Code/GitHub/sharez/server/views/extension/actions/add_item.jade",
 		"/C/Code/GitHub/sharez/server/views/drawer.jade",
 		"/C/Code/GitHub/sharez/server/routes/extension.js",
-		"/C/Code/GitHub/sharez/extension/manifest.json",
 		"/C/Code/GitHub/sharez/extension/overlay.css",
 		"/C/Code/GitHub/sharez/extension/main.js",
 		"/C/Code/GitHub/sharez/extension/authdialog.html",
@@ -288,8 +310,6 @@
 		"/C/Code/GitHub/ShareWiz/node/server.js",
 		"/C/Code/GitHub/ShareWiz/extension/overlay.js",
 		"/C/Code/GitHub/ShareWiz/extension/overlay.css",
-		"/C/Code/Sublime Text 3/Data/Packages/Default/Preferences.sublime-settings",
-		"/C/Code/Sublime Text 3/Data/Packages/User/Preferences.sublime-settings",
 		"/C/Code/GitHub/ShareWiz/node/controller.js",
 		"/C/Code/GitHub/ShareWiz/node/express.test.js",
 		"/C/Code/GitHub/ShareWiz/node/test.js",
@@ -323,6 +343,37 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"actionTags",
+			"src=",
+			"default",
+			"szAddItem",
+			"arrow.png",
+			"req.user",
+			".insert",
+			"sharezDB",
+			"initDB",
+			"users",
+			"ensureAuthenticated",
+			".\n",
+			"        \n",
+			"console.",
+			".save(",
+			"db.insert",
+			".confirm",
+			"EmailConfirmation",
+			"account",
+			"\":\"*\"",
+			".hash",
+			".extend",
+			".confirm()",
+			"confirm",
+			"Doesnot match",
+			"consle ",
+			"req.db",
+			"generate_token",
+			"User.new",
+			"find_by_email",
+			"user_id",
 			"redirect",
 			".query",
 			"_verify",
@@ -359,6 +410,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"db",
+			"user",
+			"user_email",
 			"Drawer",
 			"sharez"
 		],
@@ -376,11 +430,40 @@
 			[
 				{
 					"buffer": 0,
-					"file": "server/views/confirm.jade",
+					"file": "server/views/home.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 458,
+						"buffer_size": 950,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								551,
+								551
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 1,
+					"file": "server/routes/extension.js",
+					"semi_transient": true,
+					"settings":
+					{
+						"buffer_size": 232,
 						"regions":
 						{
 						},
@@ -388,12 +471,38 @@
 						[
 							[
 								0,
-								458
+								0
 							]
 						],
 						"settings":
 						{
-							"auto_name": "extends home_layout",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 2,
+					"file": "server/views/login.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 804,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								361,
+								371
+							]
+						],
+						"settings":
+						{
 							"syntax": "Packages/Text/Plain text.tmLanguage",
 							"tab_size": 4,
 							"translate_tabs_to_spaces": true
@@ -405,1067 +514,88 @@
 					"type": "text"
 				},
 				{
-					"buffer": 1,
-					"file": "server/routes/users.js",
+					"buffer": 3,
+					"file": "server/public/stylesheets/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 13178,
+						"buffer_size": 2093,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								12835,
-								12835
+								2073,
+								2073
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 5327.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 2,
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 364,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								364,
-								364
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"word_wrap": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "server/views/resend_confirmation.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 508,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								453,
-								453
-							]
-						],
-						"settings":
-						{
-							"auto_name": "extends home_layout",
-							"syntax": "Packages/Text/Plain text.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1056.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 4,
+					"file": "server/public/stylesheets/site.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 66044,
+						"buffer_size": 1027,
 						"regions":
 						{
-							"match":
-							{
-								"flags": 112,
-								"regions":
-								[
-									[
-										391,
-										399
-									],
-									[
-										1667,
-										1675
-									],
-									[
-										2890,
-										2898
-									],
-									[
-										3151,
-										3159
-									],
-									[
-										3334,
-										3342
-									],
-									[
-										3574,
-										3582
-									],
-									[
-										3854,
-										3862
-									],
-									[
-										4124,
-										4132
-									],
-									[
-										4303,
-										4311
-									],
-									[
-										4642,
-										4650
-									],
-									[
-										4850,
-										4858
-									],
-									[
-										4993,
-										5001
-									],
-									[
-										5009,
-										5017
-									],
-									[
-										5211,
-										5219
-									],
-									[
-										5418,
-										5426
-									],
-									[
-										5660,
-										5668
-									],
-									[
-										5932,
-										5940
-									],
-									[
-										6052,
-										6060
-									],
-									[
-										6294,
-										6302
-									],
-									[
-										6612,
-										6620
-									],
-									[
-										6895,
-										6903
-									],
-									[
-										7252,
-										7260
-									],
-									[
-										7642,
-										7650
-									],
-									[
-										7682,
-										7690
-									],
-									[
-										7994,
-										8002
-									],
-									[
-										9266,
-										9274
-									],
-									[
-										14525,
-										14533
-									],
-									[
-										14843,
-										14851
-									],
-									[
-										14981,
-										14989
-									],
-									[
-										15079,
-										15087
-									],
-									[
-										15163,
-										15171
-									],
-									[
-										15315,
-										15323
-									],
-									[
-										15354,
-										15362
-									],
-									[
-										15403,
-										15411
-									],
-									[
-										15457,
-										15465
-									],
-									[
-										15511,
-										15519
-									],
-									[
-										15640,
-										15648
-									],
-									[
-										15843,
-										15851
-									],
-									[
-										16022,
-										16030
-									],
-									[
-										16371,
-										16379
-									],
-									[
-										16383,
-										16391
-									],
-									[
-										16637,
-										16645
-									],
-									[
-										16659,
-										16667
-									],
-									[
-										16688,
-										16696
-									],
-									[
-										16832,
-										16840
-									],
-									[
-										17037,
-										17045
-									],
-									[
-										18198,
-										18206
-									],
-									[
-										18299,
-										18307
-									],
-									[
-										18537,
-										18545
-									],
-									[
-										21285,
-										21293
-									],
-									[
-										21404,
-										21412
-									],
-									[
-										21561,
-										21569
-									],
-									[
-										21727,
-										21735
-									],
-									[
-										21841,
-										21849
-									],
-									[
-										22074,
-										22082
-									],
-									[
-										22279,
-										22287
-									],
-									[
-										22554,
-										22562
-									],
-									[
-										22797,
-										22805
-									],
-									[
-										23100,
-										23108
-									],
-									[
-										23124,
-										23132
-									],
-									[
-										23143,
-										23151
-									],
-									[
-										23408,
-										23416
-									],
-									[
-										23434,
-										23442
-									],
-									[
-										23474,
-										23482
-									],
-									[
-										23495,
-										23503
-									],
-									[
-										23530,
-										23538
-									],
-									[
-										23565,
-										23573
-									],
-									[
-										23588,
-										23596
-									],
-									[
-										23625,
-										23633
-									],
-									[
-										23665,
-										23673
-									],
-									[
-										23691,
-										23699
-									],
-									[
-										23708,
-										23716
-									],
-									[
-										23923,
-										23931
-									],
-									[
-										24095,
-										24103
-									],
-									[
-										24124,
-										24132
-									],
-									[
-										24196,
-										24204
-									],
-									[
-										24227,
-										24235
-									],
-									[
-										24307,
-										24315
-									],
-									[
-										24494,
-										24502
-									],
-									[
-										24584,
-										24592
-									],
-									[
-										24796,
-										24804
-									],
-									[
-										24822,
-										24830
-									],
-									[
-										25525,
-										25533
-									],
-									[
-										30059,
-										30067
-									],
-									[
-										30100,
-										30108
-									],
-									[
-										30136,
-										30144
-									],
-									[
-										30171,
-										30179
-									],
-									[
-										34756,
-										34764
-									],
-									[
-										35109,
-										35117
-									],
-									[
-										35150,
-										35158
-									],
-									[
-										35192,
-										35200
-									],
-									[
-										35227,
-										35235
-									],
-									[
-										35822,
-										35830
-									],
-									[
-										36010,
-										36018
-									],
-									[
-										36101,
-										36109
-									],
-									[
-										36218,
-										36226
-									],
-									[
-										36244,
-										36252
-									],
-									[
-										36284,
-										36292
-									],
-									[
-										36305,
-										36313
-									],
-									[
-										36340,
-										36348
-									],
-									[
-										36375,
-										36383
-									],
-									[
-										36398,
-										36406
-									],
-									[
-										36435,
-										36443
-									],
-									[
-										36474,
-										36482
-									],
-									[
-										36501,
-										36509
-									],
-									[
-										36542,
-										36550
-									],
-									[
-										36585,
-										36593
-									],
-									[
-										36611,
-										36619
-									],
-									[
-										36638,
-										36646
-									],
-									[
-										36655,
-										36663
-									],
-									[
-										36861,
-										36869
-									],
-									[
-										36902,
-										36910
-									],
-									[
-										37064,
-										37072
-									],
-									[
-										37093,
-										37101
-									],
-									[
-										37163,
-										37171
-									],
-									[
-										37194,
-										37202
-									],
-									[
-										37268,
-										37276
-									],
-									[
-										37447,
-										37455
-									],
-									[
-										37530,
-										37538
-									],
-									[
-										37633,
-										37641
-									],
-									[
-										37714,
-										37722
-									],
-									[
-										37911,
-										37919
-									],
-									[
-										38055,
-										38063
-									],
-									[
-										38081,
-										38089
-									],
-									[
-										38322,
-										38330
-									],
-									[
-										38914,
-										38922
-									],
-									[
-										43676,
-										43684
-									],
-									[
-										43717,
-										43725
-									],
-									[
-										43759,
-										43767
-									],
-									[
-										43809,
-										43817
-									],
-									[
-										43846,
-										43854
-									],
-									[
-										43881,
-										43889
-									],
-									[
-										48271,
-										48279
-									],
-									[
-										48624,
-										48632
-									],
-									[
-										48665,
-										48673
-									],
-									[
-										48713,
-										48721
-									],
-									[
-										48763,
-										48771
-									],
-									[
-										48806,
-										48814
-									],
-									[
-										48841,
-										48849
-									],
-									[
-										49324,
-										49332
-									],
-									[
-										49616,
-										49624
-									],
-									[
-										49685,
-										49693
-									],
-									[
-										49927,
-										49935
-									],
-									[
-										50179,
-										50187
-									],
-									[
-										50462,
-										50470
-									],
-									[
-										50637,
-										50645
-									],
-									[
-										51008,
-										51016
-									],
-									[
-										51189,
-										51197
-									],
-									[
-										51213,
-										51221
-									],
-									[
-										51280,
-										51288
-									],
-									[
-										51565,
-										51573
-									],
-									[
-										51892,
-										51900
-									],
-									[
-										52067,
-										52075
-									],
-									[
-										52293,
-										52301
-									],
-									[
-										52426,
-										52434
-									],
-									[
-										52615,
-										52623
-									],
-									[
-										52639,
-										52647
-									],
-									[
-										52708,
-										52716
-									],
-									[
-										53034,
-										53042
-									],
-									[
-										53219,
-										53227
-									],
-									[
-										53243,
-										53251
-									],
-									[
-										53305,
-										53313
-									],
-									[
-										53638,
-										53646
-									],
-									[
-										56951,
-										56959
-									],
-									[
-										57015,
-										57023
-									],
-									[
-										60215,
-										60223
-									],
-									[
-										60291,
-										60299
-									],
-									[
-										60490,
-										60498
-									],
-									[
-										60512,
-										60520
-									],
-									[
-										60662,
-										60670
-									],
-									[
-										60900,
-										60908
-									],
-									[
-										61137,
-										61145
-									],
-									[
-										61326,
-										61334
-									],
-									[
-										61447,
-										61455
-									],
-									[
-										61607,
-										61615
-									],
-									[
-										61695,
-										61703
-									],
-									[
-										61751,
-										61759
-									],
-									[
-										61893,
-										61901
-									],
-									[
-										61953,
-										61961
-									],
-									[
-										62214,
-										62222
-									],
-									[
-										62249,
-										62257
-									],
-									[
-										62293,
-										62301
-									],
-									[
-										62324,
-										62332
-									],
-									[
-										62628,
-										62636
-									],
-									[
-										62672,
-										62680
-									],
-									[
-										62838,
-										62846
-									],
-									[
-										62860,
-										62868
-									],
-									[
-										63119,
-										63127
-									],
-									[
-										63488,
-										63496
-									],
-									[
-										63576,
-										63584
-									],
-									[
-										63741,
-										63749
-									],
-									[
-										63779,
-										63787
-									],
-									[
-										63803,
-										63811
-									],
-									[
-										63950,
-										63958
-									],
-									[
-										64018,
-										64026
-									],
-									[
-										64250,
-										64258
-									],
-									[
-										64324,
-										64332
-									],
-									[
-										64368,
-										64376
-									],
-									[
-										64392,
-										64400
-									],
-									[
-										64677,
-										64685
-									],
-									[
-										64919,
-										64927
-									],
-									[
-										65099,
-										65107
-									],
-									[
-										65189,
-										65197
-									],
-									[
-										65385,
-										65393
-									],
-									[
-										65635,
-										65643
-									],
-									[
-										65921,
-										65929
-									]
-								],
-								"scope": ""
-							}
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								643,
+								643
 							]
 						],
 						"settings":
 						{
-							"detect_indentation": false,
-							"line_numbers": false,
-							"output_tag": 1,
-							"result_base_dir": "",
-							"result_file_regex": "^([A-Za-z\\\\/<].*):$",
-							"result_line_regex": "^ +([0-9]+):",
-							"scroll_past_end": true,
-							"syntax": "Packages/Default/Find Results.hidden-tmLanguage",
-							"translate_tabs_to_spaces": false
+							"syntax": "Packages/CSS/CSS.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1056.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "server/views/emails/invite.html",
-					"semi_transient": true,
-					"settings":
-					{
-						"buffer_size": 546,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								0,
-								546
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "server/views/emails/confirm.html",
+					"file": "server/public/stylesheets/drawer.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 550,
+						"buffer_size": 849,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								519,
-								519
+								564,
+								564
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/HTML/HTML.tmLanguage",
+							"syntax": "Packages/CSS/CSS.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "server/package.json",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 271,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								265,
-								265
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JSON.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 8,
-					"file": "server/lib/emailer.coffee",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1370,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								573,
-								573
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Better CoffeeScript/CoffeeScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 500.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
@@ -1507,7 +637,7 @@
 	"project": "sharez.sublime-project",
 	"replace":
 	{
-		"height": 68.0
+		"height": 70.0
 	},
 	"save_all_on_build": true,
 	"select_file":

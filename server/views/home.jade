@@ -2,10 +2,21 @@ extends layouts/home_layout
 
 block scripts
   script.
+    // Global callbacks for internal and dynamic actions
+    function actionCompleted(action){
+      if (action === 'newitem') {
+        $("#newItemAction").show();
+        $("#newItem").remove();
+      }
+      
+    }
 
     $( document ).ready(function() {
-      $("#newItem").click(function() {
-        $("#contentActions").append("<input type='text' class='textInput rounded' style='width:780px' placeholder='New item'/>");
+      $("#newItemAction").click(function() {
+        $("#newItemAction").hide();
+        $("#newItem").load('/ui/newitem', function() {
+          console.log("Loaded");
+        });
       });
 
       $.get('/api/items', function(data, status, xhr) {
@@ -18,13 +29,14 @@ block scripts
 block content
   #home_content   
     div#contentTitle(style="margin-top:80px;")
-      h2(style="margin:auto 10px;float:left;color:#666;") Playing with items
+      h2(style="margin:auto auto;float:left;color:#666;") Playing with items
       div(style="clear:both")
-    div#contentActions(style="height:80px")
-      a#newItem(href="#", style="display:block;float:left")
-        img(src="images/add_button.png" style="height:40px;width:40px")
-      a#newItem(href="#", style="display:block;float:left")
-        img(src="images/ok_button.png" style="height:40px;width:40px")
+
+    div#contentActions(style="height:30px;margin:10px auto")
+      a#newItemAction(href="#", style="display:block;float:left")
+        img(src="images/add_button.png" style="height:30px;width:30px")
+    
+    div#newItem
 
     div#contentItems(style="float:left; border:1px solid blue;width:800px;height:300px")
 

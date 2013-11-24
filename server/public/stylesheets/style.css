@@ -73,3 +73,16 @@ a {
   border-style:solid;
   border-color:#ccc;
 }
+
+.actionImage {
+  width:30px;
+  height:30px;
+}
+
+.floatRight {
+  float:right;
+}
+
+.floatLeft {
+  float:left;
+}

@@ -1,9 +1,11 @@
 
 var passport = require('passport');
-var user = require('./user_routes');
-var admin = require('./admin_routes');
 
-var item = require('./api/item_routes');
+// Include routes
+var user  = require('./user_routes');
+var admin = require('./admin_routes');
+var item  = require('./api/item_routes');
+var ui    = require('./ui_routes');
 
 /* ==============================================================
     Here's all the routing
@@ -42,6 +44,9 @@ module.exports = function(app) {
   // Admin widgets (AJAX)
   app.get('/admin/widgets/users', admin.users);
   //app.get('/admin/widgets/users', ensureAuthenticated, admin.users);
+
+  // UI
+  app.get('/ui/newitem', ensureAuthenticated, ui.newitem);
 
   // Extension
 

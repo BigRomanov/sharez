@@ -3,7 +3,6 @@ require('buffertools');
 
 var Item = function(db, user, text, link) {
   this.db = db;
-  this.id = "new";    // database id of the item (unique)
   this.type = "item"; // document type for the database
 
   this.user = user    // unique id (email) of the owner
@@ -16,8 +15,8 @@ var Item = function(db, user, text, link) {
 
 Item.prototype.toJSON = function() {
   return {
-    "id" : this.id,
     "type" : this.type,
+    "user" : this.user,
     "text": this.text,
     "link": this.link,
     "created_at": this.created_at,
@@ -67,7 +66,7 @@ Item.initDB = function(db) {
     }
   };
 
-  db.insert(designdoc, '_design/user', function(err, res) {
+  db.insert(designdoc, '_design/item', function(err, res) {
     if (err) {
       console.log('Cannot add Design Doc!', err);
     } 

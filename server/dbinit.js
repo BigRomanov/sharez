@@ -16,6 +16,19 @@ couchdb.db.create('sharez', function(err) {
 
     var db = couchdb.use('sharez');
     
-    User.initDB(db);
-    Item.initDB(db);
+    // Initialize user views
+    try {
+      User.initDB(db);
+    }
+    catch(e) {
+      console.log(e);
+    }
+
+    // Initialize item views
+    try {
+      Item.initDB(db);
+    }
+    catch(e) {
+      console.log(e);
+    }
 });

@@ -1,0 +1,21 @@
+script.
+  $(function() {
+    $('#okAction').click(function() {
+      $.post('/api/item', {'text':$('#newItemText').val()}, function() {
+        console.log("New item posted");
+      });
+      actionCompleted('newitem');
+    });
+    $('#cancelAction').click(function() {
+      actionCompleted('newitem');
+    });
+  });
+
+div(style="margin-top:10px; margin-bottom:10px")
+  input#newItemText.textInput.rounded(type='text' style='width:780px' placeholder='New item')
+  div#newItemActions(style="margin:5px")
+  a#cancelAction
+    img.actionImage.floatRight(src='images/x_button.png')
+  a#okAction
+    img.actionImage.floatRight(src='images/ok_button.png')
+  
