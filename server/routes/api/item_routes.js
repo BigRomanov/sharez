@@ -2,7 +2,7 @@
 var Item = require('../../models/item'); 
 
 module.exports.add_item = function(req, res) {
-  var newItem = new Item(req.db, req.user, req.body.text, req.body.link);
+  var newItem = new Item(req.db, req.user.email, req.body.text, req.body.link);
 
   newItem.save(function(err, body) {
     if (err) { 
@@ -16,14 +16,14 @@ module.exports.add_item = function(req, res) {
 };
 
 module.exports.get_items = function(req, res) {
-  Item.user_items(req.db, req.user, function(err, items) {
+  Item.user_items(req.db, req.user.email, function(err, items) {
     if (err) { 
       console.error(err); 
       res.json({'error':err});
     } 
     else {
       console.log(items);
-      res.json({'items' : items});    
+      res.json({'items' : items.rows});    
     }
   });
 };

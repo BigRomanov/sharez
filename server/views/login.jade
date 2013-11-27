@@ -2,16 +2,19 @@ extends layouts/layout
 
 block content
 
-  #homepage_content
-    img#homepage_logo(src='http://127.0.0.1:3000/images/large_szlogo.png', alt='ShareZ', height='120', width='120')
-    h1(style="margin:5px auto") ShareZ Login
-    h3(style="margin-top:5px")
+  #landing_content
+    #landing_banner
+      img#landing_logo(src='http://127.0.0.1:3000/images/large_szlogo.png', alt='ShareZ')
+      h1(style="margin:20px auto") Welcome to ShareZ
+      h3(style="margin-top:5px") 
         i social knowledge management system
-    form#login_form(action='/login',method='POST')
+
+    #login_form_div(style="height:120px;")    
+      form#login_form(action='/login',method='POST')
         input#actionTags.tagInput.rounded(type="email" name="email" placeholder="email" style='width:430px')
         input#actionTags.tagInput.rounded(type="password" name="password" placeholder="password" style='width:300px')
         input.actionButton(type='submit',value='Login', style="float:right;") 
         
     #moreActions
-        a(href="/signup" style="display:block;margin:40px auto;font-size:12px;width:140px") No account? Sign up!
+      a(href="/signup" style="display:block;margin:10px auto;font-size:12px;width:140px") No account? Sign up!
             

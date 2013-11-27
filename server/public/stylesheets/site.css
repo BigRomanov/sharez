@@ -1,13 +1,23 @@
-#homepage_content {
+#landing_content {
     width:800px;
     margin:auto;
 }
 
-#homepage_logo {
+#landing_banner {
+  width:450px;
+  height:100px;
+  padding:10px;
+  margin:auto;
+  margin-top:200px;
+}
+
+#landing_logo {
     height:120px;
     width:120px;
     margin:auto;
+    float:left;
 }
+
 
 #login_form {
     margin:auto;

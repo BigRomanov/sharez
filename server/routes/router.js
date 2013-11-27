@@ -47,6 +47,7 @@ module.exports = function(app) {
 
   // UI
   app.get('/ui/newitem', ensureAuthenticated, ui.newitem);
+  app.get('/ui/item', ensureAuthenticated, ui.item);
 
   // Extension
 
