@@ -65,13 +65,36 @@ a {
 }
 
 .textInput {
-  float:left;
   height:20px;
   padding:5px;
   margin:5px;
   border-width:1px;
   border-style:solid;
   border-color:#ccc;
+}
+
+.tagInput {
+  padding:2px;
+  margin:5px;
+  border:1px solid #eee;
+  height:20px;
+  line-height:20px;
+  text-align:left;
+  color:#ccc;
+}
+
+.tag {
+  background-color: #eeb;
+  margin-right:5px;
+  font-size:12px;
+  height: 20px;
+  line-height: 20px;
+  padding:2px;
+}
+
+.tag_x {
+  margin:5px;
+  float:right;
 }
 
 .actionImage {

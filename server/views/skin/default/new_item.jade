@@ -1,18 +1,54 @@
 script.
   $(function() {
+
+    // New item actions
     $('#okAction').click(function() {
       $.post('/api/item', {'text':$('#newItemText').val()}, function() {
         console.log("New item posted");
       });
       actionCompleted('newitem');
     });
+
     $('#cancelAction').click(function() {
       actionCompleted('newitem');
+    });
+
+    // Tag actions
+    function removeTag() {
+      $(this).parent(".tag").remove();
+    }
+
+    $('#newItemTags').keyup(function(event) {
+      var self = $('#newItemTags');
+
+      if (event.keyCode === 188) { // comma was pressed and new tag is born
+        var tag_text = self.text().slice(0,-1); // remove the comma
+        console.log(tag_text);
+        $('#newItemTags').text("");
+        $('#newItemTagContainer').append('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
+
+        $('.remove_tag').on("click", removeTag);
+      }
+    });
+
+    $('#newItemTags').on('input', function() {
+      var tag_string = ($('#newItemTags').text());
+      var tags = tag_string.split(',');
+
+      if (tags.length > 1) {
+        for(var i =0; i < tags.length; i++) {
+          //console.log(tags[i]);
+          //$('#newItemTags').append('<div class="tag rounded floatLeft">'+tags[i]+'</div')
+        }
+      }
+      
     });
   });
 
 div(style="margin-top:10px; margin-bottom:10px")
   input#newItemText.textInput.rounded(type='text' style='width:780px' placeholder='New item')
+  #newItemTagContainer
+    #newItemTags.tagInput.rounded(style='width:780px' contenteditable="true")
   div#newItemActions(style="margin:5px")
   a#cancelAction
     img.actionImage.floatRight(src='images/x_button.png')

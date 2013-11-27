@@ -1,24 +1,27 @@
 var $ = require('jquery');
 require('buffertools');
 
-var Item = function(db, user, text, link) {
+var Item = function(db, user, title, text, link) {
   this.db = db;
   this.type = "item"; // document type for the database
 
-  this.user = user    // unique id (email) of the owner
-  this.text = text;
-  this.link = link;
+  this.user  = user    // unique id (email) of the owner
+  this.title = title;
+  this.text  = text;
+  this.link  = link;
   this.created_at = new Date();
   this.updated_at = new Date();
-
+  this.tags  = [];
 }
 
 Item.prototype.toJSON = function() {
   return {
     "type" : this.type,
     "user" : this.user,
+    "title": this.title,
     "text": this.text,
     "link": this.link,
+    "tags" : JSON.stringify(this.tags),
     "created_at": this.created_at,
     "updated_at": this.updated_at,
   }
@@ -28,6 +31,10 @@ Item.prototype.fromJSON = function(body)
 {
   $.extend(this, body);
   this.hash = new Buffer(this.hash); // convert hash array to buffer
+}
+
+Item.prototype.addTag(tag, is_public, value) {
+  this.tags.push({'tag':tag, 'type':'tag', 'value':value, 'is_public' : is_publics})
 }
 
 Item.user_items = function(db, user, callback) {
