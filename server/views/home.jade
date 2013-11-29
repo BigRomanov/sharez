@@ -27,10 +27,12 @@ block scripts
         var item_id = "item_" + item.id;
         $("#items").append('<div id=item_' + item.id + '/>')
         $("#"+item_id).load('/ui/item', function() {
-          var selector = "#"+ item_id +" .item_text";
-          console.log(selector);
-          console.log(item.value.text);
-          $(""+selector).text(item.value.text);
+          var item_text = "#"+ item_id +" .item_text";
+          var item_title = "#"+ item_id +" .item_title";
+          console.log(item.value.title);
+          console.log(cnvNlToP(item.value.title));
+          $(""+item_title).html(cnvNlToP(item.value.title));
+          $(""+item_text).html(cnvNlToP(item.value.text));
         });
       }
     }
@@ -58,6 +60,7 @@ block content
     
     #newItem
 
-    #items(style="float:left; border:1px solid blue;width:800px;height:300px")
+    h3(style="margin:auto auto;float:left;color:#666;") Items
+    #items(style="float:left;width:800px;height:300px;margin-top:30px")
 
             
