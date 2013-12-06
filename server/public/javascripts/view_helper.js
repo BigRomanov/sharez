@@ -1,7 +1,6 @@
 // Converts newline (\n) witin text to <p> blocks
 function cnvNlToP(text)
 {
-  console.log("Conerting new line to paragraph")
   var output = "";
   var pos    = 0;
 

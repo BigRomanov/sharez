@@ -2,7 +2,19 @@ script.
   $(function() {
 
     // TODO: Refactor all tags related behavior into a seperate component
-
+    $(".addTagAction").click(function() {
+        var addTagAction = $(this);
+        addTagAction.hide();
+        $(".tagger").append('<div class="tagInput rounded", style="width:160px" contenteditable="true"></div>'); 
+        $(".tagInput").focus();
+        $(".tagInput").blur(function() {
+          var tag_text = $(this).text();
+          $(this).remove();
+          addTagAction.parent().prepend('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
+          addTagAction.show();
+        });
+    });
+    
     // Tag actions
     function removeTag() {
       $(this).parent(".tag").remove();
@@ -38,10 +50,13 @@ script.
 div(style="margin-top:10px; margin-bottom:10px")
   input#newItemTitle.textInput(type='text' style='width:788px' placeholder='Title')
   
-  #epiceditor.rounded
+  #epiceditor
   
-  #newItemTagContainer
-    #newItemTags.tagInput.rounded(style='width:780px' contenteditable="true")
+  #newItem.tagger(style="margin-top:10px")
+    a.addTagAction(href="#", style="display:block;float:left;text-decoration:none;")
+        img(src="images/add_button.png" alt="Add tags" style="height:20px;width:20px;vertical-align:middle") 
+      
+  div(style="clear:both");
   div#newItemActions(style="margin:5px")
   a#cancelAction(data-object="newItem" data-type="action", data-callback="onCancel")
     img.actionImage.floatRight(src='images/x_button.png')
