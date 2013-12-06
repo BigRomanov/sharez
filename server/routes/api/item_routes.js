@@ -2,7 +2,8 @@
 var Item = require('../../models/item'); 
 
 module.exports.add_item = function(req, res) {
-  var newItem = new Item(req.db, req.user.email, req.body.title, req.body.text, req.body.link);
+  // TODO: Handle the case when the autor is a logged in user (most likely in case of new item)
+  var newItem = new Item(req.db, req.user.email, req.body.title, req.body.author, req.body.text, req.body.link);
 
   newItem.save(function(err, body) {
     if (err) { 

@@ -2,11 +2,27 @@ extends layouts/home_layout
 
 block scripts
   script.
-    // Global callbacks for internal and dynamic actions
-    function actionCompleted(action){
-      if (action === 'newitem') {
-        $("#newItemAction").show();
-        $("#newItem").remove();
+    // Global editor variable
+    var editor;
+
+    // Create an object to hold all callbacks by object 
+    var callbacks = {
+      'newItem' : {
+        'onOK' : function onNewItemAdd() {
+          console.log("CALLBACK: newItem -> onOK");
+          var itemTitle = $('#newItemTitle').val();
+          var itemText  = editor.getElement('editor').body.innerHTML; 
+          var itemTags  = $('#newItemTags').text();
+          $.post('/api/item', {'title':itemTitle, 'text':itemText, 'tags':itemTags}, function() {
+            console.log("New item posted");
+          });
+        },
+        'onCancel' : function onNewItemCancel(){
+          console.log("CALLBACK: newItem -> onCancel");
+          editor.unload();
+          $("#newItemAction").show();
+          $("#newItem").remove();
+        }
       }
     }
 
@@ -18,22 +34,59 @@ block scripts
       });
     }
 
+    function ui_setItemField(item_id, field, value)
+    {
+      console.log("Set field: id = " + item_id + " field = " + field + " value = " + value);
+      var selector = "#"+ item_id +" ." + field;
+      console.log(selector);  
+      $(""+selector).html(value);
+    }
+
+    function registerCallbacks()
+    {
+      // TODO: Think on how to do this: 
+      // 1. explicitly 
+      // 2. by enumeration of the callbacks object
+      // 3. by enumeration of actions in page
+      // 4. log the difference between the two
+      var actions = $("#newItem").find("[data-type='action']");
+      console.log(actions);
+      $(actions).each(function() {
+        var callback = $(this).data('callback');
+        console.log(callback);
+        $(this).click(callbacks["newItem"][callback]);
+      });
+    }
+
     function renderItems(items)
     {
       for(var i = 0; i < items.length; i++)
       {
-        var item = items[i];
-        console.log(item);
-        var item_id = "item_" + item.id;
-        $("#items").append('<div id=item_' + item.id + '/>')
-        $("#"+item_id).load('/ui/item', function() {
-          var item_text = "#"+ item_id +" .item_text";
-          var item_title = "#"+ item_id +" .item_title";
-          console.log(item.value.title);
-          console.log(cnvNlToP(item.value.title));
-          $(""+item_title).html(cnvNlToP(item.value.title));
-          $(""+item_text).html(cnvNlToP(item.value.text));
-        });
+        (function(cntr) {
+          // TODO: Extract to function -> renderItem, that receives item
+
+          // here the value of i was passed into as the argument cntr
+          // and will be captured in this function closure so each
+          // iteration of the loop can have it's own value
+          var item = items[cntr];
+          var item_id = "item_" + item.id;
+
+          console.log("Rendering item: " + item_id);
+          console.log(item);
+        
+          
+          // Append a wrapper div for new item
+          $("#items").append('<div class="item_wrapper" id=' + item_id + '/>')
+        
+          // Load item skin and set data
+          $("#"+item_id).load('/ui/item', function() {
+            ui_setItemField(item_id, 'item_title', cnvNlToP(item.value.title));
+            ui_setItemField(item_id, 'item_text', cnvNlToP(item.value.text));
+            ui_setItemField(item_id, 'item_author', "by " + item.value.author);
+          });
+        })(i); // bind i value to rendering function
+
+        
       }
     }
 
@@ -41,7 +94,10 @@ block scripts
       $("#newItemAction").click(function() {
         $("#newItemAction").hide();
         $("#newItem").load('/ui/newitem', function() {
-          console.log("Loaded");
+          registerCallbacks("newItem");
+
+          // TODO: Consider moving editor loading to some sort of construction code 
+          editor = new EpicEditor().load();
         });
       });
 
@@ -49,6 +105,8 @@ block scripts
     });
 
 block content
+  #action_drawer
+    
   #home_content   
     #contentTitle(style="margin-top:80px;")
       h2(style="margin:auto auto;float:left;color:#666;") Playing with items

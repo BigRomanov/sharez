@@ -1,17 +1,7 @@
 script.
   $(function() {
 
-    // New item actions
-    $('#okAction').click(function() {
-      $.post('/api/item', {'text':$('#newItemText').val()}, function() {
-        console.log("New item posted");
-      });
-      actionCompleted('newitem');
-    });
-
-    $('#cancelAction').click(function() {
-      actionCompleted('newitem');
-    });
+    // TODO: Refactor all tags related behavior into a seperate component
 
     // Tag actions
     function removeTag() {
@@ -46,12 +36,15 @@ script.
   });
 
 div(style="margin-top:10px; margin-bottom:10px")
-  input#newItemText.textInput.rounded(type='text' style='width:780px' placeholder='New item')
+  input#newItemTitle.textInput(type='text' style='width:788px' placeholder='Title')
+  
+  #epiceditor.rounded
+  
   #newItemTagContainer
     #newItemTags.tagInput.rounded(style='width:780px' contenteditable="true")
   div#newItemActions(style="margin:5px")
-  a#cancelAction
+  a#cancelAction(data-object="newItem" data-type="action", data-callback="onCancel")
     img.actionImage.floatRight(src='images/x_button.png')
-  a#okAction
+  a#okAction(data-object="newItem" data-type="action", data-callback="onOK")
     img.actionImage.floatRight(src='images/ok_button.png')
   

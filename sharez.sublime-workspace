@@ -4,6 +4,18 @@
 		"selected_items":
 		[
 			[
+				"paddin",
+				"padding-right"
+			],
+			[
+				"backg",
+				"background-color"
+			],
+			[
+				"is",
+				"is_public"
+			],
+			[
 				"border-c",
 				"border-color"
 			],
@@ -140,50 +152,54 @@
 	"buffers":
 	[
 		{
+			"file": "server/models/item.js",
+			"settings":
+			{
+				"buffer_size": 2410,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server/routes/api/item_routes.js",
+			"settings":
+			{
+				"buffer_size": 776,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"contents": "extends layouts/home_layout\n\nblock scripts\n  script.\n    // Global callbacks for internal and dynamic actions\n    function actionCompleted(action){\n      if (action === 'newitem') {\n        $(\"#newItemAction\").show();\n        $(\"#newItem\").remove();\n      }\n    }\n\n    function loadItems(callback)\n    {\n      $.get('/api/items', function(data, status, xhr) {\n        console.log(data.items);\n        callback(data.items);\n      });\n    }\n\n    function renderItems(items)\n    {\n      for(var i = 0; i < items.length; i++)\n      {\n        var item = items[i];\n        \n        // TODO: Extract to function -> renderItem\n        var item_id = \"item_\" + item.id;\n        $(\"#items\").append('<div id=item_' + item.id + '/>')\n        $(\"#\"+item_id).load('/ui/item', function() {\n          var item_text = \"#\"+ item_id +\" .item_text\";\n          var item_title = \"#\"+ item_id +\" .item_title\";\n          var item_author = \"#\"+ item_id +\" .item_author\";\n          \n          $(\"\"+item_title).html(cnvNlToP(item.value.title));\n          $(\"\"+item_author).html(\"by \" + item.value.author);\n          $(\"\"+item_text).html(cnvNlToP(item.value.text));\n        });\n      }\n    }\n\n    $( document ).ready(function() {\n      $(\"#newItemAction\").click(function() {\n        $(\"#newItemAction\").hide();\n        $(\"#newItem\").load('/ui/newitem', function() {\n          console.log(\"Loaded\");\n        });\n      });\n\n      loadItems(renderItems);\n    });\n\nblock content\n  #action_drawer\n    \n  #home_content   \n    #contentTitle(style=\"margin-top:80px;\")\n      h2(style=\"margin:auto auto;float:left;color:#666;\") Playing with items\n      div(style=\"clear:both\")\n\n    #contentActions(style=\"height:30px;margin:10px auto\")\n      a#newItemAction(href=\"#\", style=\"display:block;float:left\")\n        img(src=\"images/add_button.png\" style=\"height:30px;width:30px\")\n    \n    #newItem\n\n    h3(style=\"margin:auto auto;float:left;color:#666;\") Items\n    #items(style=\"float:left;width:800px;height:300px;margin-top:30px\")\n\n            ",
 			"file": "server/views/home.jade",
+			"file_size": 2046,
+			"file_write_time": 130302137943036661,
 			"settings":
 			{
-				"buffer_size": 950,
+				"buffer_size": 2001,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/routes/extension.js",
+			"file": "server/views/skin/default/new_item.jade",
 			"settings":
 			{
-				"buffer_size": 232,
+				"buffer_size": 2004,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/views/login.jade",
+			"file": "server/views/skin/default/item.jade",
 			"settings":
 			{
-				"buffer_size": 804,
-				"line_ending": "Windows"
+				"buffer_size": 352,
+				"line_ending": "Windows",
+				"name": "script."
 			}
 		},
 		{
-			"file": "server/public/stylesheets/style.css",
+			"file": "server/public/javascripts/view_helper.js",
 			"settings":
 			{
-				"buffer_size": 2093,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/public/stylesheets/site.css",
-			"settings":
-			{
-				"buffer_size": 1027,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/public/stylesheets/drawer.css",
-			"settings":
-			{
-				"buffer_size": 849,
+				"buffer_size": 471,
 				"line_ending": "Windows"
 			}
 		}
@@ -196,7 +212,7 @@
 		[
 			[
 				"Package Control: ",
-				"Package Control: Discover Packages"
+				"Package Control: Install Package"
 			],
 			[
 				"Pa",
@@ -236,21 +252,27 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/sharez/extension/options.html",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
 		"/C/Code/GitHub/sharez/server/views/layouts/home_layout.jade",
-		"/C/Code/GitHub/sharez/server/app.js",
 		"/C/Code/GitHub/sharez/server/routes/router.js",
+		"/C/Code/GitHub/sharez/server/routes/ui_routes.js",
 		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
-		"/C/Code/GitHub/sharez/server/views/home.jade",
-		"/C/Code/GitHub/sharez/server/views/layouts/admin_layout.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
+		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
+		"/C/Code/GitHub/sharez/server/views/login.jade",
+		"/C/Code/GitHub/sharez/server/app.js",
 		"/C/Code/GitHub/sharez/server/models/item.js",
-		"/C/Code/GitHub/sharez/server/routes/admin_routes.js",
 		"/C/Code/GitHub/sharez/server/dbinit.js",
+		"/C/Code/GitHub/sharez/server/views/home.jade",
+		"/C/Code/GitHub/sharez/server/routes/api_routes.js",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/drawer.css",
+		"/C/Code/GitHub/sharez/extension/options.html",
+		"/C/Code/GitHub/sharez/server/views/layouts/admin_layout.jade",
+		"/C/Code/GitHub/sharez/server/routes/admin_routes.js",
 		"/C/Code/GitHub/sharez/server/views/admin/users.jade",
 		"/C/Code/GitHub/sharez/server/routes/index.js",
 		"/C/Code/GitHub/sharez/server/views/layouts/layout.jade",
 		"/C/Code/GitHub/sharez/server/views/admin/dashboard.jade",
-		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
 		"/C/Code/GitHub/sharez/server/models/user.js",
 		"/C/Code/GitHub/sharez/server/routes/api.js",
 		"/C/Code/GitHub/sharez/server/views/admin/index.jade",
@@ -259,7 +281,6 @@
 		"/C/Code/GitHub/sharez/server/routes/admins.js",
 		"/C/Code/GitHub/sharez/server/views/confirm.jade",
 		"/C/Code/GitHub/sharez/server/views/index.jade",
-		"/C/Code/GitHub/sharez/server/views/login.jade",
 		"/C/Code/GitHub/sharez/extension/manifest.json",
 		"/C/Code/GitHub/sharez/extension/popup.js",
 		"/C/Code/GitHub/sharez/extension/popup.html",
@@ -275,7 +296,6 @@
 		"/C/Code/GitHub/sharez/server/views/emails/confirm.html",
 		"/C/Code/GitHub/sharez/server/public/images/email/email_sharez_logo.png",
 		"/C/Code/GitHub/sharez/server/emailer.coffee",
-		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
 		"/C/Code/GitHub/sharez/server/node_modules/passport-local/lib/passport-local/strategy.js",
 		"/C/Code/GitHub/sharez/server/views/signup.jade",
 		"/C/Code/GitHub/sharez/server/node_modules/nano/samples/lazy_creation_of_views.js",
@@ -284,7 +304,6 @@
 		"/C/Code/GitHub/sharez/server/node_modules/passport/README.md",
 		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/middleware/authenticate.js",
 		"/C/Code/GitHub/sharez/server/views/layout.jade",
-		"/C/Code/GitHub/sharez/server/public/stylesheets/drawer.css",
 		"/C/Code/GitHub/sharez/extension/sharez.js",
 		"/C/Code/GitHub/sharez/extension/overlay.js",
 		"/C/Code/GitHub/sharez/server/views/extension/actions/add_item.jade",
@@ -343,6 +362,12 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"new Item",
+			"src=",
+			"new Item",
+			"routes/api",
+			"\")\n",
+			".load",
 			"actionTags",
 			"src=",
 			"default",
@@ -425,58 +450,60 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 3,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "server/views/home.jade",
+					"file": "server/models/item.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 950,
+						"buffer_size": 2410,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								551,
-								551
+								541,
+								541
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 132.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "server/routes/extension.js",
-					"semi_transient": true,
+					"file": "server/routes/api/item_routes.js",
+					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 232,
+						"buffer_size": 776,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								0,
-								0
+								185,
+								185
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -486,25 +513,82 @@
 				},
 				{
 					"buffer": 2,
-					"file": "server/views/login.jade",
+					"file": "server/views/home.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 804,
+						"buffer_size": 2001,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								361,
-								371
+								1486,
+								1486
 							]
 						],
 						"settings":
 						{
 							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 4,
+							"tab_size": 2,
+							"translate_tabs_to_spaces": true
+						},
+						"translation.x": 0.0,
+						"translation.y": 726.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 3,
+					"file": "server/views/skin/default/new_item.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 2004,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								366,
+								366
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/Text/Plain text.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 0.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 4,
+					"file": "server/views/skin/default/item.jade",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 352,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								227,
+								227
+							]
+						],
+						"settings":
+						{
+							"auto_name": "script.",
+							"syntax": "Packages/Text/Plain text.tmLanguage",
+							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
@@ -514,88 +598,28 @@
 					"type": "text"
 				},
 				{
-					"buffer": 3,
-					"file": "server/public/stylesheets/style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2093,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2073,
-								2073
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1056.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "server/public/stylesheets/site.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1027,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								643,
-								643
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
-						},
-						"translation.x": 0.0,
-						"translation.y": 1056.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
 					"buffer": 5,
-					"file": "server/public/stylesheets/drawer.css",
+					"file": "server/public/javascripts/view_helper.js",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 849,
+						"buffer_size": 471,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								564,
-								564
+								447,
+								447
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/CSS/CSS.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 500.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
