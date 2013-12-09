@@ -13,8 +13,12 @@ html
     block scripts
   body
     #sharez_header
-      img#header_logo(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
-      #user_header
+      #header_logo(style="width:25%;float:left")
+        img#header_logo_img(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
+
+      #header_actions(style="width:46%;float:left;margin:auto;background-color:#fff;height:30px;padding:5px")
+        block header_actions
+      #user_header(style="width:25%;float:left")
         p(style="font-size:12px;float:left;height:30px;line-height:30px;margin:5px") 
         -if (typeof(user) !== 'undefined'){
           #{user.email}

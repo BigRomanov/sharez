@@ -90,27 +90,28 @@ block scripts
 
           // TODO: Consider moving editor loading to some sort of construction code 
           editor = new EpicEditor().load();
+          console.log("scrolling");
+          $("#home_content").scrollTop(0);
         });
       });
 
       loadItems(renderItems);
     });
 
+block header_actions
+  a#newItemAction(href="#", style="display:block;float:left;")
+        img(src="images/add_button.png" style="height:30px;width:30px")
+
 block content
   #action_drawer
     
   #home_content   
-    #contentTitle(style="margin-top:80px;")
-      h2(style="margin:auto auto;float:left;color:#666;") Playing with items
+    #breadcrumbs(style="margin-top:80px;")
+      p(style="margin:auto auto;float:left;color:#666;") Home >> Items
       div(style="clear:both")
-
-    #contentActions(style="height:30px;margin:10px auto")
-      a#newItemAction(href="#", style="display:block;float:left")
-        img(src="images/add_button.png" style="height:30px;width:30px")
     
     #newItem
 
-    h3(style="margin:auto auto;float:left;color:#666;") Items
-    #items(style="float:left;width:800px;height:300px;margin-top:30px")
+    #items(style="float:left;width:800px;height:300px;margin-top:30px;")
 
             

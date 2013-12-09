@@ -1,49 +1,67 @@
 script.
   $(function() {
 
-    // TODO: Refactor all tags related behavior into a seperate component
-    $(".addTagAction").click(function() {
-        var addTagAction = $(this);
-        addTagAction.hide();
-        $(".tagger").append('<div class="tagInput rounded", style="width:160px" contenteditable="true"></div>'); 
-        $(".tagInput").focus();
-        $(".tagInput").blur(function() {
-          var tag_text = $(this).text();
-          $(this).remove();
-          addTagAction.parent().prepend('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
-          addTagAction.show();
-        });
-    });
-    
-    // Tag actions
-    function removeTag() {
-      $(this).parent(".tag").remove();
+    var tagContainer = null;
+
+    function createTag() {
+      console.log("createTag");
+      var tag_text = $("#tagEditor").text();
+      if (tag_text != "") {
+        $(tagContainer).append('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
+      }
     }
 
-    $('#newItemTags').keyup(function(event) {
-      var self = $('#newItemTags');
+    function closeTagEditor() {
+      console.log("closeEditor");
+      $(tagEditor).remove();
+    }
 
-      if (event.keyCode === 188) { // comma was pressed and new tag is born
-        var tag_text = self.text().slice(0,-1); // remove the comma
-        console.log(tag_text);
-        $('#newItemTags').text("");
-        $('#newItemTagContainer').append('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
+    function tagEditorOpen() {
+      return ($("#tagEditor").length !== 0);
+    }
 
-        $('.remove_tag').on("click", removeTag);
+    function createTagEditor() {
+      console.log("createTagEditor");
+      if (tagEditorOpen()) {
+        var tagEditor = $("#tagEditor");
+        tagEditor.text("");
       }
+      else  {
+        console.log("create new one");
+        $(".tagger").append('<div id="tagEditor" class="tagInput rounded", style="width:160px" contenteditable="true"></div>'); 
+        $("#tagEditor").focus();
+      
+        // On blur, new tags is created
+        $("#tagEditor").blur(function() {
+          console.log("BLUR");
+          createTag(this);
+          closeTagEditor();
+          $("#addTagAction").show(); // TODO: convert to disabling of all header actions
+        });
+
+        // On enter or tab, new tag is created and 
+        $("#tagEditor").keydown(function(event) {
+          if (event.keyCode === 9) { // tab was pressed and new tag is born
+            event.stopPropagation();
+            event.preventDefault();
+            createTag();
+            createTagEditor();
+          }
+        });
+      }
+    }
+
+    // TODO: Refactor all tags related behavior into a seperate component
+    
+    $("#addTagAction").click(function() {
+        tagContainer = $(this).parent().find('.tags');
+        $(this).hide();
+        createTagEditor();
     });
 
-    $('#newItemTags').on('input', function() {
-      var tag_string = ($('#newItemTags').text());
-      var tags = tag_string.split(',');
-
-      if (tags.length > 1) {
-        for(var i =0; i < tags.length; i++) {
-          //console.log(tags[i]);
-          //$('#newItemTags').append('<div class="tag rounded floatLeft">'+tags[i]+'</div')
-        }
-      }
-      
+    $(document.body).on('click', '.remove_tag' , function() {
+      console.log('clicked X');
+      $(this).parent(".tag").remove();
     });
   });
 
@@ -53,7 +71,8 @@ div(style="margin-top:10px; margin-bottom:10px")
   #epiceditor
   
   #newItem.tagger(style="margin-top:10px")
-    a.addTagAction(href="#", style="display:block;float:left;text-decoration:none;")
+    .tags
+    a#addTagAction(href="#", style="display:block;float:left;text-decoration:none;")
         img(src="images/add_button.png" alt="Add tags" style="height:20px;width:20px;vertical-align:middle") 
       
   div(style="clear:both");

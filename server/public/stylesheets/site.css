@@ -47,7 +47,7 @@
     background-color:#eee;
 }
 
-#header_logo {
+#header_logo_img {
   float:left;
   margin:5px;
 }
@@ -71,9 +71,9 @@
 }
 
 #user_header {
-  float:right;
+  float:left;
   height:40px;
-  width:400px;
+  width:25%;
   background-color:#eee;
 }
 

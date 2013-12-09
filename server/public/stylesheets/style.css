@@ -74,21 +74,23 @@ a {
 
 .tagInput {
   padding:2px;
-  margin:5px;
+  margin-left:5px;
   border:1px solid #eee;
-  height:20px;
-  line-height:20px;
+  height:16px;
+  line-height:16px;
   text-align:left;
   color:#ccc;
+  float:left;
 }
 
 .tag {
   background-color: #eeb;
   margin-right:5px;
   font-size:12px;
-  height: 20px;
-  line-height: 20px;
+  height: 16px;
+  line-height: 16px;
   padding:2px;
+  float:left;
 }
 
 .tag_x {
