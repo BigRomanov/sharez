@@ -4,6 +4,46 @@
 		"selected_items":
 		[
 			[
+				"ba",
+				"background"
+			],
+			[
+				"con",
+				"container"
+			],
+			[
+				"rend",
+				"renderBreadcrumbs"
+			],
+			[
+				"new",
+				"newBreadcrumb"
+			],
+			[
+				"bread",
+				"breadcrubms"
+			],
+			[
+				"red",
+				"renderBreadcrumbs"
+			],
+			[
+				"cre",
+				"createTag"
+			],
+			[
+				"create",
+				"createTagEditor"
+			],
+			[
+				"mar",
+				"margin-top"
+			],
+			[
+				"ui",
+				"ui_setItemField"
+			],
+			[
 				"paddin",
 				"padding-right"
 			],
@@ -38,10 +78,6 @@
 			[
 				"c",
 				"confirm"
-			],
-			[
-				"con",
-				"console"
 			],
 			[
 				"Ema",
@@ -128,10 +164,6 @@
 				"border"
 			],
 			[
-				"ba",
-				"background-color"
-			],
-			[
 				"marg",
 				"margin"
 			],
@@ -152,29 +184,18 @@
 	"buffers":
 	[
 		{
-			"file": "server/models/item.js",
-			"settings":
-			{
-				"buffer_size": 2410,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/routes/api/item_routes.js",
-			"settings":
-			{
-				"buffer_size": 776,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"contents": "extends layouts/home_layout\n\nblock scripts\n  script.\n    // Global callbacks for internal and dynamic actions\n    function actionCompleted(action){\n      if (action === 'newitem') {\n        $(\"#newItemAction\").show();\n        $(\"#newItem\").remove();\n      }\n    }\n\n    function loadItems(callback)\n    {\n      $.get('/api/items', function(data, status, xhr) {\n        console.log(data.items);\n        callback(data.items);\n      });\n    }\n\n    function renderItems(items)\n    {\n      for(var i = 0; i < items.length; i++)\n      {\n        var item = items[i];\n        \n        // TODO: Extract to function -> renderItem\n        var item_id = \"item_\" + item.id;\n        $(\"#items\").append('<div id=item_' + item.id + '/>')\n        $(\"#\"+item_id).load('/ui/item', function() {\n          var item_text = \"#\"+ item_id +\" .item_text\";\n          var item_title = \"#\"+ item_id +\" .item_title\";\n          var item_author = \"#\"+ item_id +\" .item_author\";\n          \n          $(\"\"+item_title).html(cnvNlToP(item.value.title));\n          $(\"\"+item_author).html(\"by \" + item.value.author);\n          $(\"\"+item_text).html(cnvNlToP(item.value.text));\n        });\n      }\n    }\n\n    $( document ).ready(function() {\n      $(\"#newItemAction\").click(function() {\n        $(\"#newItemAction\").hide();\n        $(\"#newItem\").load('/ui/newitem', function() {\n          console.log(\"Loaded\");\n        });\n      });\n\n      loadItems(renderItems);\n    });\n\nblock content\n  #action_drawer\n    \n  #home_content   \n    #contentTitle(style=\"margin-top:80px;\")\n      h2(style=\"margin:auto auto;float:left;color:#666;\") Playing with items\n      div(style=\"clear:both\")\n\n    #contentActions(style=\"height:30px;margin:10px auto\")\n      a#newItemAction(href=\"#\", style=\"display:block;float:left\")\n        img(src=\"images/add_button.png\" style=\"height:30px;width:30px\")\n    \n    #newItem\n\n    h3(style=\"margin:auto auto;float:left;color:#666;\") Items\n    #items(style=\"float:left;width:800px;height:300px;margin-top:30px\")\n\n            ",
 			"file": "server/views/home.jade",
-			"file_size": 2046,
-			"file_write_time": 130302137943036661,
 			"settings":
 			{
-				"buffer_size": 2001,
+				"buffer_size": 4051,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server/views/layouts/home_layout.jade",
+			"settings":
+			{
+				"buffer_size": 1282,
 				"line_ending": "Windows"
 			}
 		},
@@ -182,7 +203,7 @@
 			"file": "server/views/skin/default/new_item.jade",
 			"settings":
 			{
-				"buffer_size": 2004,
+				"buffer_size": 2757,
 				"line_ending": "Windows"
 			}
 		},
@@ -190,16 +211,31 @@
 			"file": "server/views/skin/default/item.jade",
 			"settings":
 			{
-				"buffer_size": 352,
-				"line_ending": "Windows",
-				"name": "script."
+				"buffer_size": 630,
+				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/public/javascripts/view_helper.js",
+			"file": "server/public/stylesheets/style.css",
 			"settings":
 			{
-				"buffer_size": 471,
+				"buffer_size": 2648,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server/public/stylesheets/site.css",
+			"settings":
+			{
+				"buffer_size": 1257,
+				"line_ending": "Windows"
+			}
+		},
+		{
+			"file": "server/public/javascripts/breadcrumbs.js",
+			"settings":
+			{
+				"buffer_size": 662,
 				"line_ending": "Windows"
 			}
 		}
@@ -252,18 +288,20 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
+		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
+		"/C/Code/GitHub/sharez/server/views/skin/default/item.jade",
 		"/C/Code/GitHub/sharez/server/views/layouts/home_layout.jade",
+		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
+		"/C/Code/GitHub/sharez/server/public/javascripts/view_helper.js",
+		"/C/Code/GitHub/sharez/server/models/item.js",
+		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
+		"/C/Code/GitHub/sharez/server/views/home.jade",
 		"/C/Code/GitHub/sharez/server/routes/router.js",
 		"/C/Code/GitHub/sharez/server/routes/ui_routes.js",
-		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
-		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
-		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
 		"/C/Code/GitHub/sharez/server/views/login.jade",
 		"/C/Code/GitHub/sharez/server/app.js",
-		"/C/Code/GitHub/sharez/server/models/item.js",
 		"/C/Code/GitHub/sharez/server/dbinit.js",
-		"/C/Code/GitHub/sharez/server/views/home.jade",
 		"/C/Code/GitHub/sharez/server/routes/api_routes.js",
 		"/C/Code/GitHub/sharez/server/public/stylesheets/drawer.css",
 		"/C/Code/GitHub/sharez/extension/options.html",
@@ -362,6 +400,16 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"header_action_link",
+			"ui_setItemField",
+			"item_wrapper",
+			"item_div",
+			"updateBreadcrumbs",
+			"renderBread",
+			"46%",
+			"contentTitle",
+			"left",
+			"user_header",
 			"new Item",
 			"src=",
 			"new Item",
@@ -450,60 +498,58 @@
 	"groups":
 	[
 		{
-			"selected": 3,
+			"selected": 0,
 			"sheets":
 			[
 				{
 					"buffer": 0,
-					"file": "server/models/item.js",
+					"file": "server/views/home.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2410,
+						"buffer_size": 4051,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								541,
-								541
+								3266,
+								3266
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage",
 							"tab_size": 2,
 							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
-						"translation.y": 132.0,
+						"translation.y": 1782.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 1,
-					"file": "server/routes/api/item_routes.js",
+					"file": "server/views/layouts/home_layout.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 776,
+						"buffer_size": 1282,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								185,
-								185
+								569,
+								569
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -513,53 +559,51 @@
 				},
 				{
 					"buffer": 2,
-					"file": "server/views/home.jade",
+					"file": "server/views/skin/default/new_item.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2001,
+						"buffer_size": 2757,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								1486,
-								1486
+								701,
+								701
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 726.0,
+						"translation.y": 0.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 3,
-					"file": "server/views/skin/default/new_item.jade",
+					"file": "server/views/skin/default/item.jade",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2004,
+						"buffer_size": 630,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								366,
-								366
+								37,
+								37
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Text/Plain text.tmLanguage"
+							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,
@@ -569,49 +613,73 @@
 				},
 				{
 					"buffer": 4,
-					"file": "server/views/skin/default/item.jade",
+					"file": "server/public/stylesheets/style.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 352,
+						"buffer_size": 2648,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								227,
-								227
+								2626,
+								2626
 							]
 						],
 						"settings":
 						{
-							"auto_name": "script.",
-							"syntax": "Packages/Text/Plain text.tmLanguage",
-							"tab_size": 2,
-							"translate_tabs_to_spaces": true
+							"syntax": "Packages/CSS/CSS.tmLanguage"
 						},
 						"translation.x": 0.0,
-						"translation.y": 0.0,
+						"translation.y": 1188.0,
 						"zoom_level": 1.0
 					},
 					"type": "text"
 				},
 				{
 					"buffer": 5,
-					"file": "server/public/javascripts/view_helper.js",
+					"file": "server/public/stylesheets/site.css",
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 471,
+						"buffer_size": 1257,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								447,
-								447
+								933,
+								933
+							]
+						],
+						"settings":
+						{
+							"syntax": "Packages/CSS/CSS.tmLanguage"
+						},
+						"translation.x": 0.0,
+						"translation.y": 918.0,
+						"zoom_level": 1.0
+					},
+					"type": "text"
+				},
+				{
+					"buffer": 6,
+					"file": "server/public/javascripts/breadcrumbs.js",
+					"semi_transient": false,
+					"settings":
+					{
+						"buffer_size": 662,
+						"regions":
+						{
+						},
+						"selection":
+						[
+							[
+								317,
+								317
 							]
 						],
 						"settings":

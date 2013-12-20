@@ -8,6 +8,8 @@ html
     script(src='javascripts/jquery-1.9.1.js')
     script(src='javascripts/underscore.js')
     script(src='javascripts/view_helper.js')
+    script(src='javascripts/breadcrumbs.js')
+    script(src='javascripts/tagger.js')
       // TODO: Need to consider optimizing this to avoid loading editor unnecessasrily
     script(src='epiceditor/js/epiceditor.js')
     block scripts
@@ -16,19 +18,22 @@ html
       #header_logo(style="width:25%;float:left")
         img#header_logo_img(src='http://127.0.0.1:3000/images/szlogo.png', alt='ShareZ', height='30', width='30')
 
-      #header_actions(style="width:46%;float:left;margin:auto;background-color:#fff;height:30px;padding:5px")
+      #header_actions(style="float:left;margin:auto;height:30px;padding:5px")
         block header_actions
-      #user_header(style="width:25%;float:left")
-        p(style="font-size:12px;float:left;height:30px;line-height:30px;margin:5px") 
-        -if (typeof(user) !== 'undefined'){
-          #{user.email}
-        -}
-
-        a.header_action_link(href="/logout" ) logout
+      #user_header(style="width:25%;float:right")
+        #header_links
+          a.header_action_link(href="/logout" ) logout
         
-        -if (user.is_admin === true) {
-          a.header_action_link(href="/admin" ) admin
-        -}
+          -if (user.is_admin === true) {
+            a.header_action_link(href="/admin" ) admin
+          -}
+          
+        p.header_action_string
+          -if (typeof(user) !== 'undefined'){
+            | #{user.email}
+          -}
+
+        
 
     #home_content
       block content

@@ -110,3 +110,28 @@ a {
 .floatLeft {
   float:left;
 }
+
+.breadcrumb {
+  margin:auto auto;
+  float:left;
+  color:#666;
+}
+
+/* Item CSS */
+.item_wrapper {
+  background:#fff;
+  overflow:hidden;
+}
+
+/* Tagger CSS */
+.tagger_action {
+  display:block;
+  float:left;
+  text-decoration:none;
+}
+
+.tagger_action_img {
+  height:20px;
+  width:20px;
+  vertical-align:middle;
+}

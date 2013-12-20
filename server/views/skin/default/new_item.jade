@@ -1,80 +1,19 @@
 script.
   $(function() {
 
-    var tagContainer = null;
-
-    function createTag() {
-      console.log("createTag");
-      var tag_text = $("#tagEditor").text();
-      if (tag_text != "") {
-        $(tagContainer).append('<div class="tag rounded floatLeft">'+tag_text+'<a href="#" class="remove_tag"><img class="tag_x" src="images/tiny_x.png"></img></a></div>');
-      }
-    }
-
-    function closeTagEditor() {
-      console.log("closeEditor");
-      $(tagEditor).remove();
-    }
-
-    function tagEditorOpen() {
-      return ($("#tagEditor").length !== 0);
-    }
-
-    function createTagEditor() {
-      console.log("createTagEditor");
-      if (tagEditorOpen()) {
-        var tagEditor = $("#tagEditor");
-        tagEditor.text("");
-      }
-      else  {
-        console.log("create new one");
-        $(".tagger").append('<div id="tagEditor" class="tagInput rounded", style="width:160px" contenteditable="true"></div>'); 
-        $("#tagEditor").focus();
-      
-        // On blur, new tags is created
-        $("#tagEditor").blur(function() {
-          console.log("BLUR");
-          createTag(this);
-          closeTagEditor();
-          $("#addTagAction").show(); // TODO: convert to disabling of all header actions
-        });
-
-        // On enter or tab, new tag is created and 
-        $("#tagEditor").keydown(function(event) {
-          if (event.keyCode === 9) { // tab was pressed and new tag is born
-            event.stopPropagation();
-            event.preventDefault();
-            createTag();
-            createTagEditor();
-          }
-        });
-      }
-    }
-
-    // TODO: Refactor all tags related behavior into a seperate component
-    
-    $("#addTagAction").click(function() {
-        tagContainer = $(this).parent().find('.tags');
-        $(this).hide();
-        createTagEditor();
-    });
-
-    $(document.body).on('click', '.remove_tag' , function() {
-      console.log('clicked X');
-      $(this).parent(".tag").remove();
-    });
+    var tagger = new Tagger().create($("#newItem.tagger"));
   });
 
+    
+
 div(style="margin-top:10px; margin-bottom:10px")
+  p Add new item
   input#newItemTitle.textInput(type='text' style='width:788px' placeholder='Title')
   
-  #epiceditor
+  #epiceditor(style="height:200px")
   
   #newItem.tagger(style="margin-top:10px")
-    .tags
-    a#addTagAction(href="#", style="display:block;float:left;text-decoration:none;")
-        img(src="images/add_button.png" alt="Add tags" style="height:20px;width:20px;vertical-align:middle") 
-      
+          
   div(style="clear:both");
   div#newItemActions(style="margin:5px")
   a#cancelAction(data-object="newItem" data-type="action", data-callback="onCancel")

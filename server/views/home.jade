@@ -5,6 +5,26 @@ block scripts
     // Global editor variable
     var editor;
 
+    // Header actions
+    function addNewItemAction() {
+      console.log("Add new item");
+      $("#newItemAction").hide();
+
+      $("#newItem").load('/ui/newitem', function() {
+        registerCallbacks("newItem");
+
+        // TODO: Consider moving editor loading to some sort of construction code 
+        editor = new EpicEditor().load(function(){
+          
+          // TODO: Interesting trick, but will it always work on all browsers and machines?
+          setTimeout(function() {
+            $("body").animate({scrollTop:0}, '200', 'swing', function() { });
+          }, 50);
+        });
+
+      });
+    }
+
     // Create an object to hold all callbacks by object 
     var callbacks = {
       'newItem' : {
@@ -21,7 +41,7 @@ block scripts
           console.log("CALLBACK: newItem -> onCancel");
           editor.unload();
           $("#newItemAction").show();
-          $("#newItem").remove();
+          $("#newItem").empty();
         }
       }
     }
@@ -77,24 +97,23 @@ block scripts
             ui_setItemField(item_id, 'item_title', cnvNlToP(item.value.title));
             ui_setItemField(item_id, 'item_text', cnvNlToP(item.value.text));
             ui_setItemField(item_id, 'item_author', "by " + item.value.author);
+            var tagger = new Tagger().init($("#"+item_id+" item_tags"));
+            tagger.render(item.value.tags);
           });
         })(i); // bind i value to rendering function
       }
     }
 
     $( document ).ready(function() {
-      $("#newItemAction").click(function() {
-        $("#newItemAction").hide();
-        $("#newItem").load('/ui/newitem', function() {
-          registerCallbacks("newItem");
+      // Initialize actions
+      $("#newItemAction").click(addNewItemAction);
 
-          // TODO: Consider moving editor loading to some sort of construction code 
-          editor = new EpicEditor().load();
-          console.log("scrolling");
-          $("#home_content").scrollTop(0);
-        });
-      });
+      // Screen state
+      breadcrumbs.setContainer($("#breadcrumbs"));
+      breadcrumbs.set(["Home", "Items"]);
+      breadcrumbs.render();
 
+      // Load items
       loadItems(renderItems);
     });
 
@@ -105,11 +124,11 @@ block header_actions
 block content
   #action_drawer
     
-  #home_content   
+  #home_content
     #breadcrumbs(style="margin-top:80px;")
-      p(style="margin:auto auto;float:left;color:#666;") Home >> Items
-      div(style="clear:both")
-    
+
+    div(style="clear:both")
+
     #newItem
 
     #items(style="float:left;width:800px;height:300px;margin-top:30px;")
