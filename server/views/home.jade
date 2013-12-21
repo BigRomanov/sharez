@@ -98,7 +98,7 @@ block scripts
             ui_setItemField(item_id, 'item_text', cnvNlToP(item.value.text));
             ui_setItemField(item_id, 'item_author', "by " + item.value.author);
             var tagger = new Tagger();
-            tagger.init($("#"+item_id+" .item_tags"));
+            tagger.init($("#"+item_id+" .item_tags .tag_wrapper"));
             tagger.render(item.value.tags);
           });
         })(i); // bind i value to rendering function

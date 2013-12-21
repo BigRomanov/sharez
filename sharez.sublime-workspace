@@ -4,6 +4,14 @@
 		"selected_items":
 		[
 			[
+				"ac",
+				"action_add"
+			],
+			[
+				"add",
+				"addAction"
+			],
+			[
 				"re",
 				"registerCallbacks"
 			],
@@ -104,10 +112,6 @@
 				"generate_token"
 			],
 			[
-				"ac",
-				"active"
-			],
-			[
 				"req",
 				"require"
 			],
@@ -191,67 +195,24 @@
 			"file": "server/views/home.jade",
 			"settings":
 			{
-				"buffer_size": 4168,
+				"buffer_size": 4189,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"contents": "var Tagger = (function () {\n    var container = null;\n    var tagDiv    = null;\n\n    // Initialize html snippets (TODO: Think how to make this smarter)\n    var tagger_html = '<div class=\"tags\"></div>\\\n                <a id=\"addTagAction\" class=\"tagger_action\">\\\n                  <img src=\"images/add_button.png\" alt=\"Add tags\" class=\"tagger_action_img\">\\\n                </a>';\n\n    var tag_html = '<div class=\"tag rounded floatLeft\">'+\n                                   tag_text +\n                                    '<a href=\"#\" class=\"remove_tag\"> \\\n                                      <img class=\"tag_x\" src=\"images/tiny_x.png\">\\\n                                      </img>\\\n                                    </a>\\\n                                  </div>'\n\n    var Tagger = function () {\n    };\n\n    Tagger.prototype = {\n\n      init: function(container) {\n        this.container = container;\n        $(this.container).append(tagger_html);\n        this.registerCallbacks();\n      },\n\n      create: function () {\n        console.log(\"createTag\");\n        var tag_text = $(\"#tagEditor\").text();\n        if (tag_text != \"\") {\n          $(this.tagDiv).append(');\n        }\n      },\n\n      render: function(tags) {\n        console.log(\"render tags: \" + tags)\n        this.tags = tags;\n      }\n\n      closeTagEditor: function () {\n        console.log(\"closeEditor\");\n        $(tagEditor).remove();\n      },\n\n      tagEditorOpen: function () {\n        return ($(\"#tagEditor\").length !== 0);\n      },\n\n      createTagEditor: function () {\n        console.log(\"createTagEditor\");\n        if (tagEditorOpen()) {\n          var tagEditor = $(\"#tagEditor\");\n          tagEditor.text(\"\");\n        }\n        else  {\n          console.log(\"create new one\");\n          $(\".tagger\").append('<div id=\"tagEditor\" class=\"tagInput rounded\", style=\"width:160px\" contenteditable=\"true\"></div>'); \n          $(\"#tagEditor\").focus();\n      \n          // On blur, new tags is created\n          $(\"#tagEditor\").blur(function() {\n            console.log(\"BLUR\");\n            createTag(this);\n            closeTagEditor();\n            $(\"#addTagAction\").show(); // TODO: convert to disabling of all header actions\n          });\n\n          // On enter or tab, new tag is created and \n          $(\"#tagEditor\").keydown(function(event) {\n            if (event.keyCode === 9) { // tab was pressed and new tag is born\n              event.stopPropagation();\n              event.preventDefault();\n              createTag();\n              createTagEditor();\n            }\n          });\n        }\n      },\n\n      registerCallbacks: function() {\n        $(\"#addTagAction\").click(function() {\n          tagContainer = $(this).parent().find('.tags');\n          $(this).hide();\n          createTagEditor();\n        });\n\n        $(document.body).on('click', '.remove_tag' , function() {\n          console.log('clicked X');\n          $(this).parent(\".tag\").remove();\n        });\n      }\n    };\n\n    return Tagger;\n})();",
 			"file": "server/public/javascripts/tagger.js",
-			"file_size": 3070,
-			"file_write_time": 130320036650963336,
 			"settings":
 			{
-				"buffer_size": 2985,
+				"buffer_size": 2576,
 				"line_ending": "Windows"
 			}
 		},
 		{
-			"file": "server/views/layouts/home_layout.jade",
+			"file": "server/public/javascripts/snippets.js",
 			"settings":
 			{
-				"buffer_size": 1322,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/views/skin/default/new_item.jade",
-			"settings":
-			{
-				"buffer_size": 695,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/views/skin/default/item.jade",
-			"settings":
-			{
-				"buffer_size": 630,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/public/stylesheets/style.css",
-			"settings":
-			{
-				"buffer_size": 2818,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/public/stylesheets/site.css",
-			"settings":
-			{
-				"buffer_size": 1257,
-				"line_ending": "Windows"
-			}
-		},
-		{
-			"file": "server/public/javascripts/breadcrumbs.js",
-			"settings":
-			{
-				"buffer_size": 662,
-				"line_ending": "Windows"
+				"buffer_size": 3081,
+				"line_ending": "Unix"
 			}
 		}
 	],
@@ -303,18 +264,25 @@
 	},
 	"file_history":
 	[
-		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
+		"/C/Code/GitHub/sharez/server/views/templates/tag.jade",
+		"/C/Code/GitHub/sharez/server/build.js",
+		"/C/Code/GitHub/sharez/server/node_modules/templatizer/templatizer.js",
+		"/C/Code/GitHub/sharez/server/public/javascripts/snippets.js",
+		"/C/Code/GitHub/sharez/server/views/signup.jade",
+		"/C/Code/GitHub/sharez/server/views/login.jade",
 		"/C/Code/GitHub/sharez/server/public/stylesheets/style.css",
-		"/C/Code/GitHub/sharez/server/views/skin/default/item.jade",
 		"/C/Code/GitHub/sharez/server/views/layouts/home_layout.jade",
+		"/C/Code/GitHub/sharez/server/views/skin/default/new_item.jade",
+		"/C/Code/GitHub/sharez/server/views/skin/default/item.jade",
 		"/C/Code/GitHub/sharez/server/public/stylesheets/site.css",
+		"/C/Code/GitHub/sharez/server/public/javascripts/breadcrumbs.js",
+		"/C/Code/GitHub/sharez/server/demo_output.js",
 		"/C/Code/GitHub/sharez/server/public/javascripts/view_helper.js",
 		"/C/Code/GitHub/sharez/server/models/item.js",
 		"/C/Code/GitHub/sharez/server/routes/api/item_routes.js",
 		"/C/Code/GitHub/sharez/server/views/home.jade",
 		"/C/Code/GitHub/sharez/server/routes/router.js",
 		"/C/Code/GitHub/sharez/server/routes/ui_routes.js",
-		"/C/Code/GitHub/sharez/server/views/login.jade",
 		"/C/Code/GitHub/sharez/server/app.js",
 		"/C/Code/GitHub/sharez/server/dbinit.js",
 		"/C/Code/GitHub/sharez/server/routes/api_routes.js",
@@ -350,7 +318,6 @@
 		"/C/Code/GitHub/sharez/server/public/images/email/email_sharez_logo.png",
 		"/C/Code/GitHub/sharez/server/emailer.coffee",
 		"/C/Code/GitHub/sharez/server/node_modules/passport-local/lib/passport-local/strategy.js",
-		"/C/Code/GitHub/sharez/server/views/signup.jade",
 		"/C/Code/GitHub/sharez/server/node_modules/nano/samples/lazy_creation_of_views.js",
 		"/C/Code/GitHub/sharez/server/routes/user.js",
 		"/C/Code/GitHub/sharez/server/node_modules/passport/lib/passport/index.js",
@@ -415,6 +382,11 @@
 		"case_sensitive": false,
 		"find_history":
 		[
+			"closeEditor",
+			"tagsDiv",
+			"containerDiv",
+			"tagDiv",
+			"tagInput",
 			"header_action_link",
 			"ui_setItemField",
 			"item_wrapper",
@@ -498,6 +470,9 @@
 		"regex": false,
 		"replace_history":
 		[
+			"container",
+			"wrapper",
+			"tags",
 			"db",
 			"user",
 			"user_email",
@@ -513,7 +488,7 @@
 	"groups":
 	[
 		{
-			"selected": 1,
+			"selected": 2,
 			"sheets":
 			[
 				{
@@ -522,15 +497,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 4168,
+						"buffer_size": 4189,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								3309,
-								3309
+								3306,
+								3306
 							]
 						],
 						"settings":
@@ -551,15 +526,15 @@
 					"semi_transient": false,
 					"settings":
 					{
-						"buffer_size": 2985,
+						"buffer_size": 2576,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								458,
-								458
+								427,
+								427
 							]
 						],
 						"settings":
@@ -574,159 +549,26 @@
 				},
 				{
 					"buffer": 2,
-					"file": "server/views/layouts/home_layout.jade",
-					"semi_transient": false,
+					"file": "server/public/javascripts/snippets.js",
+					"semi_transient": true,
 					"settings":
 					{
-						"buffer_size": 1322,
+						"buffer_size": 3081,
 						"regions":
 						{
 						},
 						"selection":
 						[
 							[
-								446,
-								446
+								0,
+								0
 							]
 						],
 						"settings":
 						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 3,
-					"file": "server/views/skin/default/new_item.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 695,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								81,
-								81
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 4,
-					"file": "server/views/skin/default/item.jade",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 630,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								37,
-								37
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/Jade/Syntaxes/Jade.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 0.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 5,
-					"file": "server/public/stylesheets/style.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 2818,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								2794,
-								2794
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 2376.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 6,
-					"file": "server/public/stylesheets/site.css",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 1257,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								933,
-								933
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/CSS/CSS.tmLanguage"
-						},
-						"translation.x": 0.0,
-						"translation.y": 918.0,
-						"zoom_level": 1.0
-					},
-					"type": "text"
-				},
-				{
-					"buffer": 7,
-					"file": "server/public/javascripts/breadcrumbs.js",
-					"semi_transient": false,
-					"settings":
-					{
-						"buffer_size": 662,
-						"regions":
-						{
-						},
-						"selection":
-						[
-							[
-								317,
-								317
-							]
-						],
-						"settings":
-						{
-							"syntax": "Packages/JavaScript/JavaScript.tmLanguage"
+							"syntax": "Packages/JavaScript/JavaScript.tmLanguage",
+							"tab_size": 4,
+							"translate_tabs_to_spaces": true
 						},
 						"translation.x": 0.0,
 						"translation.y": 0.0,

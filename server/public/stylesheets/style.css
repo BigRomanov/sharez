@@ -2,6 +2,11 @@ body {
   font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
   text-align:center;
   margin:0;
+
+}
+
+input {
+  outline:none;
 }
 
 a {
@@ -72,31 +77,7 @@ a {
   border-color:#ccc;
 }
 
-.tagInput {
-  padding:2px;
-  margin-left:5px;
-  border:1px solid #eee;
-  height:16px;
-  line-height:16px;
-  text-align:left;
-  color:#ccc;
-  float:left;
-}
 
-.tag {
-  background-color: #eeb;
-  margin-right:5px;
-  font-size:12px;
-  height: 16px;
-  line-height: 16px;
-  padding:2px;
-  float:left;
-}
-
-.tag_x {
-  margin:5px;
-  float:right;
-}
 
 .actionImage {
   width:30px;
@@ -123,15 +104,67 @@ a {
   overflow:hidden;
 }
 
+.item_tags {
+  /*padding:10px;*/
+}
+
 /* Tagger CSS */
+.tagInput {
+  padding:2px;
+  margin-left:5px;
+  border:1px solid #eee;
+  height:16px;
+  line-height:16px;
+  text-align:left;
+  color:#ccc;
+  float:left;
+}
+
+.tagEditor {
+  padding:2px;
+  margin-right:5px;
+  margin-top:5px;
+  border:1px solid #eee;
+  height:16px;
+  line-height:16px;
+  text-align:left;
+  color:#666;
+  float:left;
+}
+
+.tag {
+  background-color: #eeb;
+  margin-right:5px;
+  margin-top:5px;
+  font-size:12px;
+  height: 20px;
+  line-height: 20px;
+  padding:2px;
+  float:left;
+}
+
+.tagAction {
+  display: block;
+  height:25px;
+  width:25px;
+}
+
+.tagActionImg {
+  height:24px;
+  width:24px;
+  margin-top: 5px;
+  vertical-align:middle;
+}
+
+.tag_x {
+  margin:5px;
+  width:10px;
+  height:10px;
+}
+
 .tagger_action {
   display:block;
   float:left;
   text-decoration:none;
 }
 
-.tagger_action_img {
-  height:20px;
-  width:20px;
-  vertical-align:middle;
-}

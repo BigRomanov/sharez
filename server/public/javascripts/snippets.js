@@ -12,7 +12,7 @@ exports["tagger"] = {};
 exports["tagger"]["tag"] = function tmpl_tagger_tag(locals) {
     var buf = [];
     var locals_ = locals || {}, tag_text = locals_.tag_text;
-    buf.push('<div class="tag rounded floatLeft">' + jade.escape(null == (jade.interp = tag_text) ? '' : jade.interp) + '<a href="#" class="remove_tag"><img src="images/tiny_x.png" class="tag_x"/></a></div>');
+    buf.push('<div class="tag rounded"><div style="text-overflow:ellipsis" class="floatLeft">' + jade.escape(null == (jade.interp = tag_text) ? '' : jade.interp) + '</div><a href="#" class="remove_tag floatLeft"><img src="images/tiny_x.png" class="tag_x"/></a></div>');
     return buf.join('');
 };
 

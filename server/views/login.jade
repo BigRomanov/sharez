@@ -11,8 +11,8 @@ block content
 
     #login_form_div(style="height:120px;")    
       form#login_form(action='/login',method='POST')
-        input#actionTags.tagInput.rounded(type="email" name="email" placeholder="email" style='width:430px')
-        input#actionTags.tagInput.rounded(type="password" name="password" placeholder="password" style='width:300px')
+        input#actionTags.textInput.rounded(type="email" name="email" placeholder="email" style='width:430px' autofocus)
+        input#actionTags.textInput.rounded(type="password" name="password" placeholder="password" style='width:300px')
         input.actionButton(type='submit',value='Login', style="float:right;") 
         
     #moreActions
