@@ -2,13 +2,12 @@ var Tagger = (function () {
     var container = null;
     var tagDiv    = null;
 
-    // Initialize html snippets (TODO: Think how to make this smarter)
-    var tagger_html = '<div class="tags"></div>\
-                <a id="addTagAction" class="tagger_action">\
+    // TODO: Move everything to templatizer
+    var tagger_html = '\
+                <div class="tags"></div>\
+                <a class="tagger_action add_tag_action">\
                   <img src="images/add_button.png" alt="Add tags" class="tagger_action_img">\
                 </a>';
-
-    var
 
     var Tagger = function () {
     };
@@ -17,31 +16,34 @@ var Tagger = (function () {
 
       init: function(container) {
         this.container = container;
+        console.log(container);
+        console.log(tagger_html);
         $(this.container).append(tagger_html);
+        this.tagDiv = $(this.container).find('.tags');
         this.registerCallbacks();
       },
 
-      create: function () {
-        console.log("createTag");
-        var tag_text = $("#tagEditor").text();
-        if (tag_text != "") {
-          $(this.tagDiv).append('<div class="tag rounded floatLeft">'+
-                                    tag_text +
-                                    '<a href="#" class="remove_tag"> \
-                                      <img class="tag_x" src="images/tiny_x.png">\
-                                      </img>\
-                                    </a>\
-                                  </div>');
+      create: function (text) {
+        console.log("createTag: " + text);
+        //var tag_text = $("#tagEditor").text();
+        if (text != "") {
+          // Using precompiled templates, using templatizer
+          var tag_html = templatizer.tagger.tag({'tag_text':text});
+          $(this.tagDiv).append(tag_html);
         }
       },
 
       render: function(tags) {
         console.log("render tags: " + tags)
         this.tags = tags;
-      }
+        _.each(this.tags, function(tag) {
+          this.create(tag);
+        }, this);
+      },
 
       closeTagEditor: function () {
         console.log("closeEditor");
+        // Create new tag, copy text from editor?
         $(tagEditor).remove();
       },
 
